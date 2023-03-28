@@ -1,0 +1,57 @@
+			Angular Services
+		============================
+
+A service is a class that can be injected into other components or services to provide common functionality or data
+
+Services are typically used to encapsulate business logic, data access, or other shared functionality that multiple components might need to use
+
+Create a service class
+======================
+
+1. Create a new class and decorate it with the @Injectable decorator
+2. Decorator tells that class is a service that can be injected into other Components/Services
+
+Register the service
+====================
+=>To make the service available for injection, need to register it with Angular
+=>To register add it to providers array of NgModule decorator
+
+Inject the service
+==================
+To use the service in a component/ another service-
+Need to Import/Inject it into constructor of that Component/Service
+
+
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MyService {
+  // service code goes here
+}
+
+---------------------------------------------
+import { NgModule } from '@angular/core';
+import { MyService } from './my-service';
+
+@NgModule({
+  providers: [MyService],
+})
+export class RootModule { }
+
+---------------------------------------------
+import { Component } from '@angular/core';
+import { MyService } from './my-service';
+
+@Component({
+  selector: 'my-component',
+  template: '<p>My name is {{name}}.</p>'
+})
+export class MyComponent {
+  name: string;
+
+  constructor(private myService: MyService) {
+    this.name = this.myService.getName();
+  }
+}

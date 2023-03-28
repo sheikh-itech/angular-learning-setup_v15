@@ -1,0 +1,4 @@
+<input type="text" [formControl]="control" [placeholder]="placeholder">
+<ul *ngIf="showResults">
+  <li *ngFor="let result of results">{{ result }}</li>
+</ul>

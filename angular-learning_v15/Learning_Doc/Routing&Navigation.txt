@@ -1,0 +1,107 @@
+			Routing and Navigation
+		================================
+
+Angular provides powerful tools for implementing client-side navigation, including the Angular Router.
+
+Navigation consists below points
+--------------------------------
+	=>Set up routes in your Angular application
+	=>Use the Angular Router to navigate between different views
+	=>Pass data between components using route parameters
+	=>Protect routes with guards to control access
+	=>Lazy-load modules to improve application performance
+
+Routes in your Angular
+----------------------
+
+1. Import 'RouterModule' and 'Routes' modules from '@angular/router' package in your app.module.ts file
+2. Define routes in a separate file (e.g. app-routing.module.ts)
+3. Import 'AppRoutingModule' module into our app.module.ts file
+4. Add a 'router-outlet' directive to our app.component.html file
+5. Add 'routerLink' in links for routings/navigation like below
+	<a routerLink="/about">About</a>
+
+<router-outlet>
+---------------
+This directive acts as a placeholder where the Angular Router will render the appropriate component based on the current route
+
+routerLink
+----------
+To use the Angular Router to navigate between different views,
+We can use the routerLink directive in templates or Router service in your component classes
+
+Using 'Router' service
+----------------------
+
+@Component({
+  selector: 'app-home',
+  template: '
+    <h1>Home Component</h1>
+    <button (click)="navigateToAbout()">Go to About</button>'
+})
+export class HomeComponent {
+
+  constructor(private router: Router) {}
+
+  navigateToAbout() {
+    this.router.navigate(['/about']);
+  }
+}
+
+Pass data using Route parameters
+--------------------------------
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about/:id', component: AboutComponent }
+];
+----------
+export class HomeComponent {
+  constructor(private router: Router) {}
+
+  navigateToAbout() {
+    const id = 123; // or get id from some source
+    this.router.navigate(['/about', id]);
+  }
+}
+-----------
+Using RouterLink
+<a [routerLink]="['/about', 123]">Go to About</a>
+
+-------------
+Get values in AboutComponent
+export class AboutComponent implements OnInit {
+  id: number;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get('id');
+  }
+}
+
+
+Protect Routes using Guards to control access
+=============================================
+
+Angular provides way to use guards to protect routes and control access to certain components/pages
+
+1. Create a new guard by running the following command
+	>ng generate guard auth
+	
+   This will create a new file called auth.guard.ts in your src/app folder
+
+2. In app-routing.module.ts file, add the guard to the route that you want to protect
+
+	const routes: Routes = [
+	  { path: '', component: HomeComponent },
+	  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] }
+	];
+
+
+
+
+
+
+
+

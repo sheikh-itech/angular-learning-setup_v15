@@ -1,0 +1,22 @@
+Data_Binding_Interpolation
+==========================
+
+Data binding is one of the most important features of Angular that allows 
+to establish a communication between your component and the view
+
+4 types of data binding
+-----------------------
+
+	1. Interpolation
+	2. Property binding
+	3. Event binding
+	4. Two-way binding
+
+Interpolation & Property binding=> Used to display data from Component to View
+Event binding=> Used to handle user interactions and update Component's state [clicks, inputs etc]
+Two-way binding=> Combines both Property & Event-Binding to update Component & View in same time
+
+[()]=> Syntax to bind any property for 2 Way Binding
+
+
+

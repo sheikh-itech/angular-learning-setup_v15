@@ -1,0 +1,73 @@
+<div class='sidebar'>
+  <ul>
+    <li>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+    </li>
+    <li>
+      <a routerLink="/lifeCycle" routerLinkActive="active">Life Cycle</a>
+    </li>
+    <li>
+      <a routerLink="/advLifeCycle" routerLinkActive="active">Adv Life Cycle</a>
+    </li>
+    <li>
+      <a [routerLink]="['/interpolation', 'Passed data using Route parameters']" routerLinkActive="active">Interpolation</a>
+    </li>
+    <li>
+      <a routerLink="/propertyBinding" routerLinkActive="active">Prop Binding</a>
+    </li>
+    <li>
+      <a routerLink="/eventBinding" routerLinkActive="active">Event Binding</a>
+    </li>
+    <li>
+      <a routerLink="/twoWayBinding" routerLinkActive="active">2 Way Binding</a>
+    </li>
+    <li>
+      <a routerLink="/structuralDerective" routerLinkActive="active">Structural Directive</a>
+    </li>
+    <li>
+      <a routerLink="/attributeDirective" routerLinkActive="active">Attribute Directive</a>
+    </li>
+    <li>
+      <a routerLink="/customPipe" routerLinkActive="active">Custom Pipe</a>
+    </li>
+    <li>
+      <a routerLink="/customService" routerLinkActive="active">Custom Service</a>
+    </li>
+    <li>
+      <a routerLink="/injection" routerLinkActive="active">DI</a>
+    </li>
+    <li>
+      <a routerLink="/heirarchicalInjection" routerLinkActive="active">Hierarchical DI</a>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Forms</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/reactiveForm1">Reactive Form1</a>
+        </li>
+        <li>
+          <a routerLink="/templateDriven1">Template Driven1</a>
+        </li>
+        <li>
+          <a routerLink="/templateDriven2">Template Driven2</a>
+        </li>
+        <li>
+          <a routerLink="/templateDriven3">Template Driven3</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+<div class='main-content'>
+
+  <router-outlet></router-outlet>
+
+
+  <!-- Way to call using Input values
+
+    <life-cycle-hooks [title]="'My Title'" [content]="'My Content'"></life-cycle-hooks>
+  -->
+</div>

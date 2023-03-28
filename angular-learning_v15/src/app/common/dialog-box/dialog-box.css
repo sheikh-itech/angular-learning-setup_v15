@@ -1,0 +1,8 @@
+.mdc-button {
+  min-width: 100px !important;
+  background: #F7F7F7;
+  min-height: 36px;
+}
+p {
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+			HTTP and Observables
+		=============================
+
+HTTP and Observables covers following topics-
+
+	1. Making HTTP requests in Angular using the HttpClient service
+	2. Working with observables in Angular
+	3. Using operators to transform, filter, and combine observables
+	4. Caching HTTP responses using the RxJS shareReplay operator
+	5. Interacting with APIs using RESTful principles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

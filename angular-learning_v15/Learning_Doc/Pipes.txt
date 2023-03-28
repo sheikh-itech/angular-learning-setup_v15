@@ -1,0 +1,21 @@
+			 Pipes In Angular
+		==========================
+
+Pipes in Angular are a way to transform data in templates
+
+They take in data as input, perform some transformation on it, 
+and then output the transformed data to the template
+
+Can be used with=> Interpolation, Property Binding, & Async pipe to format data for display
+
+ie
+--
+<p>The current date is {{ currentDate | date }}</p>
+<p>The price is {{ price | currency }}</p>
+<p>The text in uppercase is {{ text | uppercase }}</p>
+
+Custom Pipes
+============
+Custom pipes are created using the @Pipe decorator and a pipe class that implements the PipeTransform interface
+
+

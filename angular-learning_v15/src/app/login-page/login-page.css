@@ -1,0 +1,66 @@
+.heading-section {
+  color: #3da1a9;
+}
+
+.mainLayout {
+  --background-color: #52a1a8 !important;
+}
+
+.ftco-section {
+  width: 100%;
+  margin-top: 40px;
+  padding: 50px 10px 5px 10px;
+  /*#b2d9efe0  ,#52a1a8 background-color: #b5e1b8;*/
+  background-color: #ffffffed !important;
+}
+
+input {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 2px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+  input:focus {
+    border: 3px solid #52a1a8;
+  }
+
+.btn-color {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 4px 0;
+  background-color: #52a1a8 !important;
+  color: white !important;
+}
+
+.err_color {
+  color: #cc0033;
+  display: inline-block;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap; /* Wrap the elements */
+  margin-top: 4px;
+}
+
+  .form-group .error {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 15px;
+    margin: 5px 0 0;
+    width: 100%;
+  }
+
+.hide {
+  display: none;
+}
+
+.bs-example {
+  margin-top: 5px;
+}

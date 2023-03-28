@@ -1,0 +1,38 @@
+<form [formGroup]="productForm">
+  <label for="name">Name:</label>
+  <input type="text" formControlName="name">
+  <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+    <div *ngIf="productForm.get('name')?.errors?.['required']">
+      Name is required.
+    </div>
+  </div>
+
+  <label for="description">Description:</label>
+  <textarea formControlName="description"></textarea>
+  <div *ngIf="productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)">
+    <div *ngIf="productForm.get('description')?.errors?.['required']">
+      Description is required.
+    </div>
+  </div>
+
+  <label for="category">Category:</label>
+  <select formControlName="category">
+    <option value=""></option>
+    <option value="electronics">Electronics</option>
+    <option value="clothing">Clothing</option>
+    <option value="books">Books</option>
+  </select>
+  <div *ngIf="productForm.get('category')?.invalid && (productForm.get('category')?.dirty || productForm.get('category')?.touched)">
+    <div *ngIf="productForm.get('category')?.errors?.['required']">
+      Category is required.
+    </div>
+  </div>
+
+  <label for="price">Price:</label>
+  <input type="text" formControlName="price">
+  <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)">
+    <div *ngIf="productForm.get('price')?.errors?.['required']">
+      Price is required.
+    </div>
+  </div>
+</form>
