@@ -18,10 +18,17 @@ import { LoginPage } from './login-page/login-page';
 import { PipesExample } from './pipes/PipesExample';
 import { AuthGuard } from './routing-navigation/auth-guard';
 import { CustomServiceUsage } from './services/CustomServiceUsage';
+import { AccessDenied } from './access-denied/access-denied';
+import { HttpGetExample } from './http-observables/http-get-example';
+import { HttpPostExample } from './http-observables/http-post-example';
+import { HttpPutExample } from './http-observables/http-put-example';
+import { HttpPatchExample } from './http-observables/http-patch-example';
+import { HttpDeleteExample } from './http-observables/http-delete-example';
 
 const routes: Routes = [
 
   { path: 'login', component: LoginPage },
+  { path: 'accessDenied', component: AccessDenied },
   { path: 'lifeCycle', component: LifeCycleHooks, canActivate: [AuthGuard] },
   { path: 'advLifeCycle', component: AdvLifeCycle, canActivate: [AuthGuard] },
   { path: 'interpolation/:routeData', component: Interpolation, canActivate: [AuthGuard] },
@@ -37,7 +44,12 @@ const routes: Routes = [
   { path: 'templateDriven1', component: TemplateDrivenForm1 },
   { path: 'templateDriven2', component: TemplateDrivenForm2 },
   { path: 'templateDriven3', component: TemplateDrivenForm3 },
-  { path: 'reactiveForm1', component: ReactiveForm1 }
+  { path: 'reactiveForm1', component: ReactiveForm1 },
+  { path: 'httpGet', component: HttpGetExample },
+  { path: 'httpPost', component: HttpPostExample },
+  { path: 'httpPut', component: HttpPutExample },
+  { path: 'httpPatch', component: HttpPatchExample },
+  { path: 'httpDelete', component: HttpDeleteExample }
 ];
 
 @NgModule({

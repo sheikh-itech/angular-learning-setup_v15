@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.MessageSource;
@@ -15,6 +16,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import base.learning.AngularLearningApplication;
 
@@ -37,6 +44,10 @@ import base.learning.AngularLearningApplication;
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	private static final Logger logger = LogManager.getLogger(ServletInitializer.class);
+	
+	@Autowired
+	private AppFilter appFilter;
+	
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -99,4 +110,31 @@ public class ServletInitializer extends SpringBootServletInitializer {
 		
 		return encryptor;
 	}
+	
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+       	
+    	http.csrf().disable()
+    	.authorizeRequests().antMatchers("/**").permitAll();
+    	
+    	http.csrf().disable()
+    	.authorizeRequests().antMatchers("/**").permitAll().
+				anyRequest().authenticated().and().
+				exceptionHandling().and().sessionManagement()
+		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    	http.addFilterBefore(appFilter, UsernamePasswordAuthenticationFilter.class);
+    	
+        return http.build();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+            	registry.addMapping("/**").allowedOrigins("*")
+            	.allowedMethods("*").allowedHeaders("*");
+            }
+        };
+    }
 }
