@@ -12,7 +12,11 @@ export const environment = {
   postUrl: apiBase + "/methods/http/post",
   putUrl: apiBase + "/methods/http/put",
   patchUrl: apiBase + "/methods/http/patch",
-  deleteUrl: apiBase + "/methods/http/delete"
+  deleteUrl: apiBase + "/methods/http/delete",
+  cities: apiBase + "/cities/all",
+  cityById: apiBase + "/cities/city/",
+  cityIds: apiBase + "/cities/city/ids",
+  cityNameById: apiBase + "/cities/city/name/",
 };
 
 /*

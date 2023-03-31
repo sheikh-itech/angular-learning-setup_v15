@@ -9,35 +9,64 @@
     <li>
       <a routerLink="/advLifeCycle" routerLinkActive="active">Adv Life Cycle</a>
     </li>
-    <li>
-      <a [routerLink]="['/interpolation', 'Passed data using Route parameters']" routerLinkActive="active">Interpolation</a>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Graph/Lines</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/lineChart" routerLinkActive="active">Line Chart</a>
+        </li>
+        <li>
+          <a routerLink="/apexChart" routerLinkActive="active">Apex Chart</a>
+        </li>
+      </ul>
     </li>
-    <li>
-      <a routerLink="/propertyBinding" routerLinkActive="active">Prop Binding</a>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Bindings</a>
+      <ul class='sub-menu'>
+        <li>
+          <a [routerLink]="['/interpolation', 'Passed data using Route parameters']" routerLinkActive="active">Interpolation</a>
+        </li>
+        <li>
+          <a routerLink="/propertyBinding" routerLinkActive="active">Prop Binding</a>
+        </li>
+        <li>
+          <a routerLink="/eventBinding" routerLinkActive="active">Event Binding</a>
+        </li>
+        <li>
+          <a routerLink="/twoWayBinding" routerLinkActive="active">2 Way Binding</a>
+        </li>
+      </ul>
     </li>
-    <li>
-      <a routerLink="/eventBinding" routerLinkActive="active">Event Binding</a>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Directives</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/structuralDerective" routerLinkActive="active">Structural Directive</a>
+        </li>
+        <li>
+          <a routerLink="/attributeDirective" routerLinkActive="active">Attribute Directive</a>
+        </li>
+      </ul>
     </li>
-    <li>
-      <a routerLink="/twoWayBinding" routerLinkActive="active">2 Way Binding</a>
-    </li>
-    <li>
-      <a routerLink="/structuralDerective" routerLinkActive="active">Structural Directive</a>
-    </li>
-    <li>
-      <a routerLink="/attributeDirective" routerLinkActive="active">Attribute Directive</a>
+    <li class='sub-menu-parent'>
+      <a href="#">DI's'</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/injection" routerLinkActive="active">DI</a>
+        </li>
+        <li>
+          <a routerLink="/heirarchicalInjection" routerLinkActive="active">Hierarchical DI</a>
+        </li>
+      </ul>
     </li>
     <li>
       <a routerLink="/customPipe" routerLinkActive="active">Custom Pipe</a>
     </li>
     <li>
       <a routerLink="/customService" routerLinkActive="active">Custom Service</a>
-    </li>
-    <li>
-      <a routerLink="/injection" routerLinkActive="active">DI</a>
-    </li>
-    <li>
-      <a routerLink="/heirarchicalInjection" routerLinkActive="active">Hierarchical DI</a>
     </li>
 
     <li class='sub-menu-parent'>
@@ -75,6 +104,57 @@
         </li>
         <li>
           <a routerLink="/httpDelete">Delete</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Observables</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/observable">Observable</a>
+        </li>
+        <li>
+          <a routerLink="/subscribe">Subscribe</a>
+        </li>
+        <li>
+          <a routerLink="/flatMapChain">Flat Map</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Operators</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/mapOperator">Map</a>
+        </li>
+        <li>
+          <a routerLink="/filterOperator">Filter</a>
+        </li>
+        <li>
+          <a routerLink="/tapOperator">Tap</a>
+        </li>
+        <li>
+          <a routerLink="/catchErrorOperator">Catch Error</a>
+        </li>
+        <li>
+          <a routerLink="/flatMapOperator">Flat Map</a>
+        </li>
+        <li>
+          <a routerLink="/mergedMapOperator">Merged Map</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">Caching</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/basicCach">Basic Cach</a>
+        </li>
+        <li>
+          <a routerLink="/customCach">Custom cach</a>
         </li>
       </ul>
     </li>

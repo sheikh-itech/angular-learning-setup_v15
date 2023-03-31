@@ -24,19 +24,26 @@ import { TemplateDrivenForm3 } from './forms/template-driven-forms/template-driv
 import { ReactiveForm1 } from './forms/reactive/reactive-form1/reactive-form1';
 import { LoginPage } from './login-page/login-page';
 import { AccessDenied } from './access-denied/access-denied';
+import { NgChartsModule } from 'ng2-charts';
+import { LineChart } from './chart-graph/ria-line-chart/line-chart';
+import { ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
+import { ApexChartExample } from './chart-graph/apex-chart-example';
+import { NgApexSplineChart } from './chart-graph/ng-apex-spline-chart/ng-apex-spline-chart';
+
 
 @NgModule({
   declarations: [
     RootApp, LifeCycleHooks, AdvLifeCycle, TwoWayBinding, StructuralDerective,
     AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
-    AccessDenied
+    AccessDenied, LineChart, ApexChartExample, NgApexSplineChart
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, NgChartsModule, NgApexchartsModule
   ],
-  providers: [CustomService, UserNameService, FullNameService,
+  providers: [CustomService, UserNameService, FullNameService, ChartComponent,
+    ApexChartExample,
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

@@ -1,0 +1,47 @@
+		Different Operators in Observables
+	==========================================
+
+Operators are functions that can transform an observable into a new observable with modified behavior.
+There are many operators available in RxJS, the library used by Angular for working with observables
+
+	1. map()
+	2. filter()
+	3. tap()
+	4. catchError()
+	5. flatMap()
+	6. forkJoin(T: any)
+	7. mergeMap
+	.. And many others
+
+Map
+---
+The map operator transforms each emitted value from the source observable using a callback function
+and returns a new observable with the transformed values
+
+Filter
+------
+The filter operator filters the emitted values based on Condition, from source observable
+based on a predicate function and returns a new observable with only the filtered values
+
+Tap
+---
+The tap operator allows you to perform a side effect for each emitted value from the source observable,
+without modifying the emitted values
+
+catch Error
+-----------
+The catchError operator intercepts errors that occur in the source observable and handles them 
+using a callback function. 
+It returns a new observable that either emits the source values or a default value
+
+Flat Map
+--------
+This Operator used to chain more then 1 request
+
+Fork Join
+---------
+This operator returns Observable having more then 1 request joined response
+
+Merge Map
+---------
+Flattens an observable that emits observables, and emits the values from the inner observables

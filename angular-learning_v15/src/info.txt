@@ -1,0 +1,19 @@
+apexcharts & ng-apexcharts
+--------------------------
+Required for Apex Spline & Line charts
+
+ng2-charts & @riapacheco/yutes
+------------------------------
+Required for Ria/line charts
+
+crypto-js & @types/crypto-js
+----------------------------
+Required for Text Encryption and Decryption
+Compitible with Jasypt library for java
+
+
+
+
+
+
+

@@ -19,11 +19,24 @@ import { PipesExample } from './pipes/PipesExample';
 import { AuthGuard } from './routing-navigation/auth-guard';
 import { CustomServiceUsage } from './services/CustomServiceUsage';
 import { AccessDenied } from './access-denied/access-denied';
-import { HttpGetExample } from './http-observables/http-get-example';
-import { HttpPostExample } from './http-observables/http-post-example';
-import { HttpPutExample } from './http-observables/http-put-example';
-import { HttpPatchExample } from './http-observables/http-patch-example';
-import { HttpDeleteExample } from './http-observables/http-delete-example';
+import { HttpGetExample } from './http-calls/http-get-example';
+import { HttpPostExample } from './http-calls/http-post-example';
+import { HttpPutExample } from './http-calls/http-put-example';
+import { HttpPatchExample } from './http-calls/http-patch-example';
+import { HttpDeleteExample } from './http-calls/http-delete-example';
+import { ObservableExample } from './observables-subscribe/observable-example';
+import { SubscribeExample } from './observables-subscribe/subscribe-example';
+import { ObservableFlatMapChain } from './observables-subscribe/observable-flat-map-chain';
+import { MapOperator } from './observables-subscribe/obsvables-operators/map-operator';
+import { FlatMapOperator } from './observables-subscribe/obsvables-operators/flat-map-operator';
+import { CatchErrorOperator } from './observables-subscribe/obsvables-operators/catch-error-operator';
+import { TapapOperator } from './observables-subscribe/obsvables-operators/tap-operator';
+import { FilterOperator } from './observables-subscribe/obsvables-operators/filter-operator';
+import { MergeMapOperator } from './observables-subscribe/obsvables-operators/merge-map-operator';
+import { BasicCachExample } from './request-caching/basic-cach-example';
+import { CustomCachExample } from './request-caching/custom-cach-example';
+import { LineChart } from './chart-graph/ria-line-chart/line-chart';
+import { ApexChartExample } from './chart-graph/apex-chart-example';
 
 const routes: Routes = [
 
@@ -49,7 +62,20 @@ const routes: Routes = [
   { path: 'httpPost', component: HttpPostExample },
   { path: 'httpPut', component: HttpPutExample },
   { path: 'httpPatch', component: HttpPatchExample },
-  { path: 'httpDelete', component: HttpDeleteExample }
+  { path: 'httpDelete', component: HttpDeleteExample },
+  { path: 'observable', component: ObservableExample },
+  { path: 'subscribe', component: SubscribeExample },
+  { path: 'flatMapChain', component: ObservableFlatMapChain },
+  { path: 'mapOperator', component: MapOperator },
+  { path: 'filterOperator', component: FilterOperator },
+  { path: 'tapOperator', component: TapapOperator },
+  { path: 'catchErrorOperator', component: CatchErrorOperator },
+  { path: 'flatMapOperator', component: FlatMapOperator },
+  { path: 'mergedMapOperator', component: MergeMapOperator },
+  { path: 'basicCach', component: BasicCachExample },
+  { path: 'customCach', component: CustomCachExample },
+  { path: 'lineChart', component: LineChart },
+  { path: 'apexChart', component: ApexChartExample }
 ];
 
 @NgModule({

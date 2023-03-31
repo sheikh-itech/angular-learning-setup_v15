@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -7,8 +8,9 @@ import { environment } from '../../environments/environment';
   styles: [''],
   template: '<div> Get request sent, see console and network </div>'
 })
-export class HttpGetExample implements OnInit {
+export class HttpGetExample implements OnInit, OnDestroy {
 
+  private subscription: Subscription;
 
   constructor(private http: HttpClient) {  }
 
@@ -24,7 +26,7 @@ export class HttpGetExample implements OnInit {
 
   ngOnInit() {
 
-    this.http.get(environment.getUrl, this.options).subscribe(
+    this.subscription = this.http.get(environment.getUrl, this.options).subscribe(
       resp => {
         console.log(resp)
       },
@@ -32,5 +34,9 @@ export class HttpGetExample implements OnInit {
         console.log(err)
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'http-get',
+  selector: 'http-put',
   styles: [''],
-  template: '<div> Post request sent, see console and network <br/> Can send Body & Param both in Post Request</div>'
+  template: '<div> Put request sent, see console and network <br/> Can send Body & Param both in Put Request also</div>'
 })
-export class HttpPostExample implements OnInit {
+export class HttpPutExample implements OnInit {
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +28,7 @@ export class HttpPostExample implements OnInit {
 
   ngOnInit() {
 
-    this.http.post(environment.postUrl, this.payload, this.options).subscribe(
+    this.http.put(environment.putUrl, this.payload, this.options).subscribe(
       resp => {
         console.log(resp)
         this.otherCall();
@@ -37,7 +37,7 @@ export class HttpPostExample implements OnInit {
         console.log(err)
         this.otherCall();
       }
-    );
+    ).unsubscribe();
   }
 
   private otherCall() {
@@ -46,13 +46,13 @@ export class HttpPostExample implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer My Token'
     });
-    this.http.post(environment.postUrl, this.payload, { headers } ).subscribe(
+    this.http.put(environment.putUrl, this.payload, { headers }).subscribe(
       resp => {
         console.log(resp)
       },
       err => {
         console.log(err)
       }
-    );
+    ).unsubscribe();
   }
 }

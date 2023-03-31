@@ -1,0 +1,12 @@
+<div>
+  <button type="button" (click)="updateChartData();" class="btn btn-primary">Show Chart</button>
+</div>
+
+
+<div id="spline-chart" *ngIf="showChart">
+
+  <!-- Apex Spline Chart App -->
+  <ng-apex-spline-chart></ng-apex-spline-chart>
+
+</div>
+

@@ -1,5 +1,6 @@
 package base.learning.api;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -41,32 +42,47 @@ public class HttpMethodsLearningApi {
 	}
 	
 	@RequestMapping(value="/put", method=RequestMethod.PUT)
-	public ResponseEntity<Response> httpPut(@RequestBody Map<String, String> body) {
+	public ResponseEntity<Response> httpPut(@RequestBody Map<String, Object> body,
+			@RequestParam(required=false) String name,
+			@RequestHeader(required=false) Map<String, String> headers) {
 		
 		Response res = new Response();
 		res.setStatus(true);
 		res.setMessage("Put data from server");
+		body.put("Param Data", name);
+		body.put("headers", headers);
 		res.setData(body);
 		return new ResponseEntity<Response>(res, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/patch", method=RequestMethod.PATCH)
-	public ResponseEntity<Response> httpPatch(@RequestBody Map<String, String> body) {
+	public ResponseEntity<Response> httpPatch(@RequestBody Map<String, Object> body,
+			@RequestParam(required=false) String name,
+			@RequestHeader(required=false) Map<String, String> headers) {
 		
 		Response res = new Response();
 		res.setStatus(true);
 		res.setMessage("Patch data from server");
+		body.put("Param Data", name);
+		body.put("headers", headers);
 		res.setData(body);
 		return new ResponseEntity<Response>(res, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/delete", method=RequestMethod.DELETE)
-	public ResponseEntity<Response> httpDelete(@RequestParam String name) {
+	public ResponseEntity<Response> httpDelete(@RequestBody(required=false) Map<String, Object> body,
+			@RequestParam(required=false) String name,
+			@RequestHeader(required=false) Map<String, String> headers) {
+		
+		if(body==null)
+			body = new HashMap<>();
 		
 		Response res = new Response();
 		res.setStatus(true);
 		res.setMessage("Delete data from server");
-		res.setData(name);
+		body.put("Param Data", name);
+		body.put("headers", headers);
+		res.setData(body);
 		return new ResponseEntity<Response>(res, HttpStatus.CREATED);
 	}
 }
