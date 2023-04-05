@@ -6,8 +6,11 @@ public class Response {
 	private Object data;
 	private String message;
 	private String error;
+	private long timestamp;
 	
-	public Response() {}
+	public Response() {
+		this.timestamp = System.currentTimeMillis();
+	}
 	
 	public Response(boolean status, Object data, String error, String message) {
 		super();
@@ -40,5 +43,11 @@ public class Response {
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public long getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 }

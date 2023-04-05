@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { ShareReplayCachService } from './share-replay-cach-service';
 
 @Component({
   selector: 'http-get',
   styles: [''],
-  template: '<div> Basic Cach Example </div>'
+  templateUrl: './custom-cach-example.html',
 })
-export class BasicCachExample implements OnInit, OnDestroy {
+export class ShareRelayCachExample implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
@@ -29,7 +29,7 @@ export class BasicCachExample implements OnInit, OnDestroy {
       );
   }
 
-  private makeDuplicateCall() {
+  makeDuplicateCall() {
     console.log("Second network call, may use cach")
     this.cachService.getData(environment.getUrl)
       .subscribe(

@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import base.learning.beans.City;
 import base.learning.beans.Response;
 
 @RestController
 @RequestMapping("cities")
-public class DataApi {
+public class CityDataApi {
 
 	private List<City> cities = new ArrayList<>();
 	
-	public DataApi() {
+	public CityDataApi() {
 		initCities();
 	}
 	
@@ -85,37 +86,5 @@ public class DataApi {
 		cities.add(new City(3, "Mumbai", 1235));
 		cities.add(new City(4, "Delhi", 1236));
 		cities.add(new City(5, "Hyderabad", 1237));
-	}
-}
-
-class City {
-	
-	private int id;
-	private String name;
-	private int zipcode;
-	
-	public City(int id, String name, int code) {
-		this.id = id;
-		this.name = name;
-		this.zipcode = code;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(int zipcode) {
-		this.zipcode = zipcode;
 	}
 }

@@ -1,18 +1,31 @@
 package base.learning.conf;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import base.learning.beans.Person;
+import base.learning.util.JsonUtility;
 
 @Service
 public class AppFilter extends OncePerRequestFilter {
 
+	@Autowired
+	private JsonUtility util;
+	@Autowired
+	private ObjectMapper mapper;
+	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 	        throws ServletException, IOException {
@@ -25,6 +38,31 @@ public class AppFilter extends OncePerRequestFilter {
 	    	return;
 	    	//response.sendError(HttpStatus.UNAUTHORIZED.value(), "Incorrect info");
 	    }
-		chain.doFilter(request, response);
+		if (request.getRequestURI().indexOf("citizens/citizen/new") > 0) {
+
+			RequestWrapper wrappedRequest = new RequestWrapper((HttpServletRequest) request);
+			
+			// 1. For key value pairs
+			List<String> keys = new ArrayList<>();
+			util.resolveKeys(wrappedRequest.getBody(), keys, new ObjectMapper());
+			
+			if (keys.size() > 0){
+				//Process data
+			}
+			
+			// 2. Using Object Style
+			
+			if(mapper==null)
+				mapper = new ObjectMapper();
+			
+			String body = wrappedRequest.getBody();
+			
+			Person person = mapper.readValue(body, Person.class);
+			person.setLocation(person.getLocation()+", Modifiled location");
+			wrappedRequest.setBody(mapper.writeValueAsString(person));
+
+			chain.doFilter(wrappedRequest, response);
+		} else
+			chain.doFilter(request, response);
 	}
 }

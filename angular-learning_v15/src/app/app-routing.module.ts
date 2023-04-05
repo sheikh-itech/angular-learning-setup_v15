@@ -33,10 +33,11 @@ import { CatchErrorOperator } from './observables-subscribe/obsvables-operators/
 import { TapapOperator } from './observables-subscribe/obsvables-operators/tap-operator';
 import { FilterOperator } from './observables-subscribe/obsvables-operators/filter-operator';
 import { MergeMapOperator } from './observables-subscribe/obsvables-operators/merge-map-operator';
-import { BasicCachExample } from './request-caching/basic-cach-example';
-import { CustomCachExample } from './request-caching/custom-cach-example';
 import { LineChart } from './chart-graph/ria-line-chart/line-chart';
 import { ApexChartExample } from './chart-graph/apex-chart-example';
+import { ShareRelayCachExample } from './request-caching/share-replay-cach/share-relay-cach-example';
+import { CustomCachExample } from './request-caching/custom-cach/custom-cach-example';
+import { ShareRelayWithTiming } from './request-caching/share-replay-timing/share-relay-with-timing';
 
 const routes: Routes = [
 
@@ -72,7 +73,8 @@ const routes: Routes = [
   { path: 'catchErrorOperator', component: CatchErrorOperator },
   { path: 'flatMapOperator', component: FlatMapOperator },
   { path: 'mergedMapOperator', component: MergeMapOperator },
-  { path: 'basicCach', component: BasicCachExample },
+  { path: 'shareRelayCach', component: ShareRelayCachExample },
+  { path: 'shareRelayTimedCach', component: ShareRelayWithTiming },
   { path: 'customCach', component: CustomCachExample },
   { path: 'lineChart', component: LineChart },
   { path: 'apexChart', component: ApexChartExample }
