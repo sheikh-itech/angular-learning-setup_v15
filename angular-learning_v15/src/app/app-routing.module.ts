@@ -38,6 +38,8 @@ import { ApexChartExample } from './chart-graph/apex-chart-example';
 import { ShareRelayCachExample } from './request-caching/share-replay-cach/share-relay-cach-example';
 import { CustomCachExample } from './request-caching/custom-cach/custom-cach-example';
 import { ShareRelayWithTiming } from './request-caching/share-replay-timing/share-relay-with-timing';
+import { ErrorHadnling } from './retry-on-error/error-handling';
+import { RetryOnError } from './retry-on-error/retry-on-error';
 
 const routes: Routes = [
 
@@ -77,7 +79,9 @@ const routes: Routes = [
   { path: 'shareRelayTimedCach', component: ShareRelayWithTiming },
   { path: 'customCach', component: CustomCachExample },
   { path: 'lineChart', component: LineChart },
-  { path: 'apexChart', component: ApexChartExample }
+  { path: 'apexChart', component: ApexChartExample },
+  { path: 'handleError', component: ErrorHadnling },
+  { path: 'retryRequest', component: RetryOnError }
 ];
 
 @NgModule({

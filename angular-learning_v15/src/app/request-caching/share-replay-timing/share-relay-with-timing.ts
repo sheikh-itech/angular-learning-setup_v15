@@ -27,7 +27,7 @@ export class ShareRelayWithTiming implements OnInit {
   }
 
   makeDuplicateCall() {
-    console.log("Second network call, may use cach")
+    console.log("Duplicate network call, may use cach")
     this.cachService.getData(environment.getUrl)
       .subscribe(
         resp => {

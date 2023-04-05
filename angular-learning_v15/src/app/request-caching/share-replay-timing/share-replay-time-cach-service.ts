@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, shareReplay, takeUntil, tap, throwError, timer } from 'rxjs';
+import { catchError, interval, Observable, shareReplay, takeUntil, tap, throwError, timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { catchError, Observable, shareReplay, takeUntil, tap, throwError, timer 
 export class ShareReplayTimeCachService {
 
   private cachedData: Observable<any> | any;
-  private cacheTime: number = 5000; // 30 seconds
+  private cacheTime: number = 1000*60*30; // 30 minutes
 
   constructor(private http: HttpClient) { }
 
@@ -24,20 +24,15 @@ export class ShareReplayTimeCachService {
           this.cachedData = null;
           return throwError(error);
         }),
-        shareReplay(1, this.cacheTime),
-        takeUntil(refresh$)
+        shareReplay(1)
       );
     } else {
       this.cachedData.subscribe((data: any) => {
         const age = currentTime - data.timestamp;
         if (age > this.cacheTime) {
           console.log(`Cached data is too old (${age} ms), fetching from network...`);
-          this.cachedData = this.http.get<any>(url)
-            .pipe(
-              tap(() => console.log('Data fetched from network')),
-              shareReplay(1, this.cacheTime),
-              takeUntil(refresh$),
-            );
+          this.cachedData = null;
+          this.getData(url);
         } else {
           console.log(`Returning cached data (${age} ms old)`);
         }
