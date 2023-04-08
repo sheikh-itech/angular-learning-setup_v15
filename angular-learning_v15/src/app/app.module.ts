@@ -29,6 +29,8 @@ import { LineChart } from './chart-graph/ria-line-chart/line-chart';
 import { ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
 import { ApexChartExample } from './chart-graph/apex-chart-example';
 import { NgApexSplineChart } from './chart-graph/ng-apex-spline-chart/ng-apex-spline-chart';
+import { StoreModule } from '@ngrx/store';
+import { shoppingCartReducer } from './ng-rx/cart-reducer';
 
 
 @NgModule({
@@ -40,7 +42,12 @@ import { NgApexSplineChart } from './chart-graph/ng-apex-spline-chart/ng-apex-sp
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    AppRoutingModule, NgChartsModule, NgApexchartsModule
+    AppRoutingModule, NgChartsModule, NgApexchartsModule,
+
+
+    StoreModule.forRoot({
+      shoppingCart: shoppingCartReducer
+    })
   ],
   providers: [CustomService, UserNameService, FullNameService, ChartComponent,
     ApexChartExample,

@@ -26,4 +26,8 @@ If the request fails, it will be retried up to three times before returning an e
 
 The HttpClient service provides many other options for handling errors and retrying requests
 
-
+Retry-When
+----------
+we'rWe can also use the retryWhen operator to retry failed HTTP requests.
+Using the delayWhen operator to add an increasing delay between each retry, 
+and the takeWhile operator to limit the number of retries based on the error status code

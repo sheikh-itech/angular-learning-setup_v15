@@ -40,6 +40,8 @@ import { CustomCachExample } from './request-caching/custom-cach/custom-cach-exa
 import { ShareRelayWithTiming } from './request-caching/share-replay-timing/share-relay-with-timing';
 import { ErrorHadnling } from './retry-on-error/error-handling';
 import { RetryOnError } from './retry-on-error/retry-on-error';
+import { RetryOnErrorAdv } from './retry-on-error/retry-on-error-adv';
+import { ShoppingCartExample } from './ng-rx/shopping-cart-example';
 
 const routes: Routes = [
 
@@ -81,7 +83,9 @@ const routes: Routes = [
   { path: 'lineChart', component: LineChart },
   { path: 'apexChart', component: ApexChartExample },
   { path: 'handleError', component: ErrorHadnling },
-  { path: 'retryRequest', component: RetryOnError }
+  { path: 'retryRequest', component: RetryOnError },
+  { path: 'advRetryRequest', component: RetryOnErrorAdv },
+  { path: 'ngRXCart', component: ShoppingCartExample }
 ];
 
 @NgModule({
