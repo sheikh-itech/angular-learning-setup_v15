@@ -1,20 +1,14 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import {
   ApexAxisChartSeries, ApexChart, ApexXAxis, ApexDataLabels, ApexTooltip, ApexStroke
 } from "ng-apexcharts";
 
-// import of NgApexchartsModule Required for Apex chart
-// provider ChartComponent required
-
-@Injectable({
-  providedIn: 'root'
-})
 @Component({
   selector: 'ng-apex-spline-chart',
   templateUrl: './ng-apex-spline-chart.html',
   styleUrls: ['./ng-apex-spline-chart.css']
 })
-export class NgApexSplineChart implements OnInit {
+export class NgApexSplineChart {
 
   public chartOptions!: Partial<ChartOptions> | any;
   private chartData = [];
@@ -82,10 +76,6 @@ export class NgApexSplineChart implements OnInit {
     //this.chartOptions.series[0].data = data[0].data.slice(0, 50);
     console.log(this.chartOptions);
     this.showChart = true;
-  }
-
-  ngOnInit(): void {
-
   }
 }
 

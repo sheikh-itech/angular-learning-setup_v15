@@ -42,6 +42,8 @@ import { ErrorHadnling } from './retry-on-error/error-handling';
 import { RetryOnError } from './retry-on-error/retry-on-error';
 import { RetryOnErrorAdv } from './retry-on-error/retry-on-error-adv';
 import { ShoppingCartExample } from './ng-rx/shopping-cart-example';
+import { CryptoService } from './crypto-services/crypto-service';
+import { AdvanceCryptoService } from './crypto-services/adv-crypto-service';
 
 const routes: Routes = [
 
@@ -85,7 +87,9 @@ const routes: Routes = [
   { path: 'handleError', component: ErrorHadnling },
   { path: 'retryRequest', component: RetryOnError },
   { path: 'advRetryRequest', component: RetryOnErrorAdv },
-  { path: 'ngRXCart', component: ShoppingCartExample }
+  { path: 'ngRXCart', component: ShoppingCartExample },
+  { path: 'encryption', component: CryptoService },
+  { path: 'advEncryption', component: AdvanceCryptoService }
 ];
 
 @NgModule({

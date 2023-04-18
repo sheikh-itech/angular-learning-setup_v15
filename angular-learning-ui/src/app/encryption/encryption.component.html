@@ -1,0 +1,37 @@
+<div class="container">
+  <form>
+    <div>General (Encryption) Crypto Service</div>
+    <div class="row">
+      <div class="col-sm-4">
+        <input type="text" [(ngModel)]="user.username" name="username" class="form-control" placeholder="Name">
+      </div>
+      <div class="col-sm-4">
+        <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-center">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" (click)="submitDetail();" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <table>
+    <thead>
+      Encypted Input Detail
+    </thead>
+    <tbody>
+      <tr>
+        <td>Username</td>
+        <td>Password</td>
+      </tr>
+      <tr>
+        <td>{{encUser.username}}</td>
+        <td>{{encUser.password}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

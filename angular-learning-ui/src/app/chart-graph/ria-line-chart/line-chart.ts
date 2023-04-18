@@ -8,7 +8,9 @@ import { ChartDataset, ChartOptions } from 'chart.js';
   templateUrl: './line-chart.html',
   styleUrls: ['./line-chart.scss']
 })
-export class LineChart implements OnInit {
+export class LineChart {
+
+  constructor() { }
 
   chartLabels: string[] = ['2016 Revenue', '2017 Revenue', '2018 Revenue', '2019 Revenue', '2020 Revenue', '2021 Revenue'];
   
@@ -76,13 +78,4 @@ export class LineChart implements OnInit {
       }
     }
   };
-
-  constructor() { }
-
-  
-
-
-  ngOnInit(): void {
-
-  }
 }

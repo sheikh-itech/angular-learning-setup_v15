@@ -31,6 +31,7 @@ import { ApexChartExample } from './chart-graph/apex-chart-example';
 import { NgApexSplineChart } from './chart-graph/ng-apex-spline-chart/ng-apex-spline-chart';
 import { StoreModule } from '@ngrx/store';
 import { shoppingCartReducer } from './ng-rx/cart-reducer';
+import { EncryptionComponent } from './encryption/encryption.component';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { shoppingCartReducer } from './ng-rx/cart-reducer';
     RootApp, LifeCycleHooks, AdvLifeCycle, TwoWayBinding, StructuralDerective,
     AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
-    AccessDenied, LineChart, ApexChartExample, NgApexSplineChart
+    AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
@@ -50,7 +51,7 @@ import { shoppingCartReducer } from './ng-rx/cart-reducer';
     })
   ],
   providers: [CustomService, UserNameService, FullNameService, ChartComponent,
-    ApexChartExample,
+    ApexChartExample, NgApexSplineChart,
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

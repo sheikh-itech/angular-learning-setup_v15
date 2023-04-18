@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { UserDetail } from '../common/login';
-import { AdvanceCryptoService } from '../common/services/adv-crypto-service';
+import { AppCryptoService } from '../common/services/app-crypto-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private crypto: AdvanceCryptoService) { }
+  constructor(private crypto: AppCryptoService) { }
 
   public isValid(): boolean {
 

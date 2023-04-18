@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import * as CryptoJS from 'crypto-js';
 
 @Injectable({ providedIn: 'root' })
-export class AdvanceCryptoService {
+export class AppCryptoService {
 
   private key: any;
   private secreteKey: any;
