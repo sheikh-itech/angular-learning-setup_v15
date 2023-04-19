@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container" style="text-align:center;">
   <form>
-    <div>General (Encryption) Crypto Service</div>
+    <div class="title">General (Encryption) Crypto Service</div>
     <div class="row">
       <div class="col-sm-4">
-        <input type="text" [(ngModel)]="user.username" name="username" class="form-control" placeholder="Name">
+        <input type="text" [(ngModel)]="user.firstName" name="firstName" class="form-control" placeholder="First Name">
       </div>
       <div class="col-sm-4">
-        <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password">
+        <input type="text" [(ngModel)]="user.lastName" name="lastName" class="form-control" placeholder="Last Name">
       </div>
     </div>
 
@@ -19,18 +19,99 @@
     </div>
 
   </form>
-  <table>
+
+  <table style="text-align:center;">
     <thead>
       Encypted Input Detail
     </thead>
     <tbody>
       <tr>
-        <td>Username</td>
-        <td>Password</td>
+        <td>First Name => {{encUser.firstName}}</td>
       </tr>
       <tr>
-        <td>{{encUser.username}}</td>
-        <td>{{encUser.password}}</td>
+        <td>Last Name => {{encUser.lastName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br /><br />
+  <table style="text-align:center;">
+    <thead>
+      Decrypted Data From Server
+    </thead>
+    <tbody>
+      <tr>
+        <td>First Name => {{httpUser.firstName}}</td>
+      </tr>
+      <tr>
+        <td>Last Name => {{httpUser.lastName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/> <hr/><br />
+
+<!-- Advanced Example -->
+
+<div class="container" style="text-align:center;">
+  <form>
+    <div class="title"><h3>Advanced (Encryption) Crypto Service</h3></div>
+    <div class="row">
+      <div class="col-sm-4">
+        <input type="text" [(ngModel)]="user1.firstName" name="firstName" class="form-control" placeholder="First Name">
+      </div>
+      <div class="col-sm-4">
+        <input type="text" [(ngModel)]="user1.lastName" name="lastName" class="form-control" placeholder="Last Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-4">18 Length Enc Password:</div>
+        <div class="col-sm-4">
+          <input type="text" [(ngModel)]="password" name="password" class="form-control" placeholder="Password 18 length">
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="col-sm-4">32 Length Enc Key:</div>
+        <div class="col-sm-4">
+          <input type="text" [(ngModel)]="encKey" name="encKey" class="form-control" placeholder="Enc Key">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group text-center">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" (click)="submitAdvDetail();" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <table style="text-align:center;">
+    <thead>
+      Encypted Input Detail
+    </thead>
+    <tbody>
+      <tr>
+        <td>First Name => {{encUser1.firstName}}</td>
+      </tr>
+      <tr>
+        <td>Last Name => {{encUser1.lastName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br /><br />
+  <table style="text-align:center;">
+    <thead>
+      Decrypted Data From Server
+    </thead>
+    <tbody>
+      <tr>
+        <td>First Name => {{httpUser1.firstName}}</td>
+      </tr>
+      <tr>
+        <td>Last Name => {{httpUser1.lastName}}</td>
       </tr>
     </tbody>
   </table>

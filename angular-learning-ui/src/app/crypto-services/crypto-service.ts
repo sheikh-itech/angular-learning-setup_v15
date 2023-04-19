@@ -17,6 +17,7 @@ export class CryptoService {
 
     //32 length WordArray/IV for Encryption Strategy
     this.constant = this.encryptor.enc.Hex.parse("00000000000000000000000000000000");
+    //this.constant = this.encryptor.enc.Hex.parse(new Array(32).fill(0).toString().replaceAll(",", ""));
 
     /* keySize: size of output key
      * hasher: type of algoritham

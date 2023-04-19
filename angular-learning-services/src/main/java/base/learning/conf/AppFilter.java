@@ -35,8 +35,8 @@ public class AppFilter extends OncePerRequestFilter {
 	    	response.addHeader("Access-Control-Allow-Origin", "*");
 	    	response.addHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS");
 	    	response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers");
+	    	//chain.doFilter(request, response);
 	    	return;
-	    	//response.sendError(HttpStatus.UNAUTHORIZED.value(), "Incorrect info");
 	    }
 		if (request.getRequestURI().indexOf("citizens/citizen/new") > 0) {
 

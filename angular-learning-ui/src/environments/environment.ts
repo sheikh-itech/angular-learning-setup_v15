@@ -17,6 +17,8 @@ export const environment = {
   cityById: apiBase + "/cities/city/",
   cityIds: apiBase + "/cities/city/ids",
   cityNameById: apiBase + "/cities/city/name/",
+  encCrypto: apiBase + "/decrypt/user",
+  encAdvCrypto: apiBase + "/decrypt/user/custom"
 };
 
 /*
