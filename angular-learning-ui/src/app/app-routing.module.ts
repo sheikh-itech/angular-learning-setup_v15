@@ -43,6 +43,7 @@ import { RetryOnError } from './retry-on-error/retry-on-error';
 import { RetryOnErrorAdv } from './retry-on-error/retry-on-error-adv';
 import { ShoppingCartExample } from './ng-rx/shopping-cart-example';
 import { EncryptionComponent } from './encryption/encryption.component';
+import { CrossSiteScriptingExample } from './security/xss/cross-site-scripting-example';
 
 const routes: Routes = [
 
@@ -87,7 +88,8 @@ const routes: Routes = [
   { path: 'retryRequest', component: RetryOnError },
   { path: 'advRetryRequest', component: RetryOnErrorAdv },
   { path: 'ngRXCart', component: ShoppingCartExample },
-  { path: 'encryption', component: EncryptionComponent }
+  { path: 'encryption', component: EncryptionComponent },
+  { path: 'xssAttack', component: CrossSiteScriptingExample }
 ];
 
 @NgModule({
