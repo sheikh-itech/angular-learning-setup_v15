@@ -50,6 +50,24 @@ export class CommonService {
     );
   }
 
+  public deleteApi(url: string, data: any): Observable<any> {
+    let options = {
+      headers: {},
+      /*params: {id: data}, Sending as Path Variable */
+      body: { data },
+      withCredentials: false
+    };
+    this.mask.updateMask(true);
+    return this.http.delete(url, options)
+      .pipe(
+        catchError(this.handleError.bind(this)),
+        map(response => {
+          this.mask.updateMask(false);
+          return response;
+        })
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     this.mask.updateMask(false);
     // Api returned an unsuccessful response

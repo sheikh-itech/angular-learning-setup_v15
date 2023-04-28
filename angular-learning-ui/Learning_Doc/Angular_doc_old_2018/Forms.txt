@@ -1,0 +1,69 @@
+Forms
+======
+
+"Forms are the mainstay of business applications. You use forms to log in, submit a help request, place an order, book a flight, schedule a meeting, and perform countless other data-entry tasks."
+
+"Developing forms requires design skills (which are out of scope for this page), as well as framework support for two-way data binding, change tracking, validation, and error handling, which you'll learn about on this page."
+
+In this page -
+=>Build an Angular form with a component and template.
+=>Use ngModel to create two-way data bindings for reading and writing input-control values.
+=>Track state changes and the validity of form controls.
+=>Provide visual feedback using special CSS classes that track the state of the controls.
+=>Display validation errors to users and enable/disable form controls.
+=>Share information across HTML elements using template reference variables.
+
+Template-driven forms:
+----------------------
+
+"We can build forms by writing templates in the Angular template syntax with the form-specific directives and techniques described in this page."
+OR
+"We can also use a reactive (or model-driven) approach to build forms. However, this page focuses on template-driven forms."
+
+"We can build almost any form with an Angular template—login forms, contact forms, and pretty much any business form. You can lay out the controls creatively, bind them to data, specify validation rules and display validation errors, conditionally enable or disable specific controls, trigger built-in visual feedback, and much more."
+
+Steps to build form:
+--------------------
+1. Create the Hero model class.
+2. Create the component that controls the form.
+3. Create a template with the initial form layout.
+4. Bind data properties to each form control using the ngModel two-way data-binding syntax.
+5. Add a name attribute to each form-input control.
+6. Add custom CSS to provide visual feedback.
+7. Show and hide validation-error messages.
+8. Handle form submission with ngSubmit.
+9. Disable the form’s Submit button until the form is valid.
+
+
+Setup
+========
+
+=>Create a new project named angular-forms-  ng new angular-forms
+
+=>Create the Hero model class-  ng generate class Hero
+"As users enter form data, you'll capture their changes and update an instance of a model. You can't lay out the form until you know what the model looks like."
+
+"A model can be as simple as a "property bag" that holds facts about a thing of application importance. That describes well the Hero class with its three required fields (id, name, power) and one optional field (alterEgo)."
+
+	export class Hero {
+	  constructor(
+		public id: number,
+		public name: string,
+		public power: string,
+		public alterEgo?: string
+	  ) {  }
+	}
+"The TypeScript compiler generates a public field for each public constructor parameter and automatically assigns the parameter’s value to that field when you create heroes."
+
+
+
+
+
+
+
+
+
+
+
+
+

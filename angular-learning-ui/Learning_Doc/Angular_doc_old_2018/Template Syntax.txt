@@ -1,0 +1,261 @@
+Template Syntax
+===============
+
+"The Angular application manages what the user sees and can do, achieving this through the interaction of a component class instance (the component) and its user-facing template."
+
+=>In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
+
+HTML in templates
+=================
+
+"HTML is the language of Angular template. Almost all HTML syntax is valid template syntax.
+The <script> element is a notable exception; it is forbidden, eliminating the risk of script injection attacks.
+In practice, <script> is ignored and a warning appears in the browser console."
+
+=>Some legal HTML doesn't make much sense in a template. The <html>, <body>, and <base> elements have no useful role.
+=>We can extend the HTML vocabulary of our templates with components and directives that appear as new elements and attributes.
+
+Template statements
+===================
+
+=>A template statement responds to an event raised by a binding target such as an element, component, or directive.
+=><button (click)="deleteHero()">Delete hero</button>
+
+<button (click)="deleteHero(hero)">Delete hero</button>
+=>In deleteHero(hero) above, the hero is the template input variable, not the component's hero property.
+
+Binding syntax: An overview:
+============================
+1. One-way from data source to view target-
+	{{expression}},	[target]="expression",	bind-target="expression"
+(Interpolation, Property, Attribute, Class, Style).
+
+2. One-way from view target to data source-
+	(target)="statement",	on-target="statement"
+	(applicable to events)
+
+3. Two-way -
+		[(target)]="expression",	bindon-target="expression"
+(applicable for above both -> 2 way binding)		.
+
+=>The target name is the name of a property.
+=>Binding types other than interpolation have a target name to the left of the equal sign,
+either surrounded by punctuation ([], ()) or preceded by a prefix (bind-, on-, bindon-).
+
+=>Attribute belongs to structure(means html) while property belongs to object/class(means component/programs).
+=>We can say Attributes are structural while property functional.
+
+A new mental model
+===================
+
+"With all the power of data binding and the ability to extend the HTML vocabulary with custom markup, 
+it is tempting to think of template HTML as HTML Plus."
+
+=>In HTML development, we create a visual structure with HTML elements, 
+and modify those elements by setting element attributes with string constants.
+
+<div class="special">Mental Model</div>
+<img src="assets/images/hero.png">
+<button disabled>Save</button>
+
+=> class, src and disabled are attributes in above ex.
+
+=>In Angular templates we still create a structure and initialize attribute values this way; 
+but here we learn to create new elements with components that encapsulate HTML and drop them into templates as if they were native HTML elements.
+
+<!-- Normal HTML -->
+<div class="special">Mental Model</div>
+<!-- Wow! A new element! -->
+<app-hero-detail></app-hero-detail>
+------------------------------------------
+
+<!-- Bind button disabled state to `isUnchanged` property -->
+<button [disabled]="isUnchanged">Save</button>
+
+=>Here we are setting the properties of DOM elements/components/directives not setting attributes value.
+=>This is a new mental model all about.
+
+HTML attribute vs. DOM property:
+================================
+
+1. Attributes are defined by HTML. Properties are defined by the DOM.
+	=>A few HTML attributes have 1:1 mapping to properties- id is one example
+	=>Some HTML attributes don't have corresponding properties- colspan
+	=>Some DOM properties don't have corresponding attributes- textContent
+
+2. Attributes initialize DOM properties and then they are done.
+3. Property values can change; attribute values can't.
+
+	<input type="text" value="Bob">
+=>when the browser renders <input>, it creates a corresponding DOM node with a value property initialized to "Bob".
+=>If we change inputs value to 'sheikh', the DOM element value property becomes 'sheikh'.
+=>But the HTML's attribute value remains unchanged, if we ask for value of input element: 
+input.getAttribute('value') returns "Bob".
+
+4. The HTML attribute value specifies the initial value; 
+   while the DOM value property is the current value.
+
+=>The disabled attribute is another peculiar example.
+
+"By changing disabled attributes value, disables and enables the button; but value of the attribute is irrelevant,
+which is why we cannot enable a button by writing <button disabled="false">Still Disabled</button>."   
+
+"Setting the button's disabled property (say, with an Angular binding) disables or enables the button."
+
+=>The value of the property matters.
+
+5. The HTML attribute and the DOM property are not the same thing, even when they have the same name.
+
+-------------------------------------------
+
+=>Template binding works with properties and events, not attributes.
+
+"In the world of Angular, the only role of attributes is to initialize element and directive state.
+When we write a data binding, we deals exclusively with properties and events of the target object.
+HTML attributes effectively disappear"
+
+
+
+Binding targets:
+================
+
+=>The target of a data binding is something in the DOM.
+Depending on the binding type, the target can be an (element | component | directive) property,
+an (element | component | directive) event, or (rarely) an attribute name.
+
+(Type	-->	Target	-->Example)
+
+1. Property	--> Element property, Component property, Directive property -->
+	<img [src]="heroImageUrl">
+	<app-hero-detail [hero]="currentHero"></app-hero-detail>
+	<div [ngClass]="{'special': isSpecial}"></div>
+	
+2. Event --> Element event, Component event, Directive event -->
+	<button (click)="onSave()">Save</button>
+	<app-hero-detail (deleteRequest)="deleteHero()"></app-hero-detail>
+	<div (myClick)="clicked=$event" clickable>click me</div>
+
+3. Two-way --> Event and property --><input [(ngModel)]="name">
+
+4. Attribute --> Attribute (the exception) --> <button [attr.aria-label]="help">help</button>
+
+5. Class --> class property --> <div [class.special]="isSpecial">Special</div>
+
+6. Style --> style property --> <button [style.color]="isSpecial ? 'red' : 'green'">
+
+Property binding ( [property] ) => <img [src]="heroImageUrl"> -> binded src property.
+
+"People often describe property binding as one-way data binding because it flows a value in one direction,
+from a component's data property into a target element property."
+
+Canonical binding:
+=><img bind-src="heroImageUrl">, in canonical we bind- as prefix.
+
+Remember the brackets
+---------------------
+<app-hero-detail hero="currentHero"></app-hero-detail>
+
+"The brackets tell Angular to evaluate the template expression. If we omit the brackets,
+Angular treats the string(currentHero) as a constant and initializes the target property(hero) with that string.
+It does not evaluate the string!"
+
+One-time string initialization
+------------------------------
+We should omit the brackets when all of the following are true:
+1. The target property accepts a string value.
+2. The string is a fixed value that you can bake into the template.
+3. This initial value never changes.
+
+=>Interpolation is a convenient alternative to property binding in many cases.
+<img src="{{heroImageUrl}}">
+<img [src]="heroImageUrl">
+
+=>When setting an element property to a non-string data value, we must use property binding.
+
+Content security
+================
+
+=>template: 'Template <script>alert("evil never sleeps")</script>Syntax';
+
+"Fortunately, Angular data binding is on alert for dangerous HTML.
+It sanitizes the values before displaying them.
+It will not allow HTML with script tags to leak into the browser, neither with interpolation nor property binding."
+
+Attribute binding
+==================
+
+<tr><td colspan="{{1 + 1}}">Three-Four</td></tr>
+
+=>that will produce error -- Template parse errors: Can't bind to 'colspan' since it isn't a known native property
+
+"As the message says, the <td> element does not have a colspan property.
+It has the "colspan" attribute, but interpolation and property binding can set only properties, not attributes."
+
+=>We need attribute bindings to create and bind to such attributes.
+  To perform this attribute binding we need to prefix 'attr' with attribute name.
+<tr><td [attr.colspan]="1 + 1">One-Two</td></tr> --> that will work.
+<button [attr.aria-label]="actionName">Aria</button>
+<button [attr.aria-hidden]="true">Aria</button>
+
+Class binding
+==============
+
+=>Can add or remove CSS class names from an element's class attribute with a class binding.
+
+<!-- standard class attribute setting  -->
+<div class="bad curly special">Bad curly special</div>
+
+<!-- reset/override all class names with a binding  -->
+<div class="bad curly special" [class]="badCurly">Bad curly</div>
+
+<!-- toggle the "special" class on/off with a property -->
+<div [class.special]="isSpecial">The class binding is special</div>
+
+Style binding
+=============
+
+"It start with prefix style, followed by a dot (.) and the name of a CSS style property: [style.style-property]."
+
+<button [style.background-color]="canSave ? 'cyan': 'grey'" >Save</button>
+<button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
+
+Event Binding
+=============
+	<button (click)="onSave()">Save</button>
+Canonical form --> need to prefix with 'on-'.
+	<button on-click="onSave()">On Save</button>
+	
+$event and event handling statements
+====================================
+
+"When the event is raised, the handler executes the template statement.
+The template statement typically involves a receiver, which performs an action in response to the event,
+such as storing a value from the HTML control into a model.
+The binding conveys information about the event, including data values, through an event object named $event."
+
+<input [value]="currentHero.name" (input)="currentHero.name=$event.target.value" >
+
+"This code sets the input box value property by binding to the name property. To listen for changes to the value, the code binds to the input box's input event. When the user makes changes, the input event is raised, and the binding executes the statement within a context that includes the DOM event object, $event.
+To update the name property, the changed text is retrieved by following the path $event.target.value."
+
+Guard against null
+==================
+
+"The ngIf directive is often used to guard against null. Show/hide is useless as a guard.
+Angular will throw an error if a nested expression tries to access a property of null."
+<div *ngIf="currentHero">Hello, {{currentHero.name}}</div>
+
+*ngFor microsyntax
+===================
+
+<div *ngFor="let hero of heroes">{{hero.name}}</div>
+"The string("let hero of heroes") assigned to *ngFor is not a template expression.
+It's a microsyntax — a little language of its own that Angular interprets."
+
+Template input variables
+=========================
+*ngFor="let hero of heroes"
+"The let keyword before hero creates a template input variable called hero."	
+
+
+

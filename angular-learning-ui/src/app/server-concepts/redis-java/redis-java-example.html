@@ -1,0 +1,147 @@
+<div class="container">
+
+  <div class="row">
+
+    <mat-tab-group (selectedTabChange)="tabSwitch($event);">
+
+      <mat-tab label="Add User">
+
+        <form>
+          <div class="row col-sm-12 date-align-left">
+            <div class="col-sm-4">
+              <mat-form-field class="custom-date-picker" appearance="fill">
+                <input #AgreementDate matInput [matDatepicker]="picker" (dateChange)="agreementDate($event);" placeholder="Birth Date">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row col-sm-12">
+            <div class="col-sm-4">
+              <input type="text" [(ngModel)]="user.id" name="id" class="form-control" placeholder="User Id">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" [(ngModel)]="user.firstName" name="firstName" class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" [(ngModel)]="user.lastName" name="lastName" class="form-control" placeholder="Last Name">
+            </div>
+          </div>
+
+          <div class="row col-sm-12">
+            <div class="col-sm-4">
+              <input type="text" [(ngModel)]="user.address" name="address" class="form-control" placeholder="Address">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" [(ngModel)]="user.zipcode" name="zipcode" class="form-control" placeholder="Zipcode">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" [(ngModel)]="user.landmark" name="landmark" class="form-control" placeholder="Landmark">
+            </div>
+          </div>
+
+          <div class="row col-sm-12">
+            <div class="form-group text-center">
+              <div class="col-sm-offset-2 col-sm-10" style="margin-left: 8%">
+                <button type="submit" (click)="saveUserDetail();" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+        <div class="row col-sm-12" *ngIf="showFirstResp">
+          <div class="text-center">Added User Detail</div>
+          <div class="text-center">
+            <table>
+              <thead>
+                <tr>
+                  <th>Id</th><th>DOB</th><th>F-Name</th><th>L-Name</th><th>Address</th><th>Landmark</th><th>Zipcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{respUser.id}}</td><td>{{respUser.dob}}</td><td>{{respUser.firstName}}</td>
+                  <td>{{respUser.lastName}}</td><td>{{respUser.address}}</td><td>{{respUser.landmark}}</td>
+                  <td>{{respUser.zipcode}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </mat-tab>
+
+      <mat-tab label="Show User">
+
+        <div class="row col-sm-12 row-10">
+          <div class="form-group text-center">
+            <div>
+              <input type="text" [(ngModel)]="userId" name="userId" class="form-control input-cls" placeholder="Search User by id">
+              <button type="submit" (click)="getUser();" class="btn btn-primary" style="margin-left: 5%;">Get User</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-sm-12 row-10">
+          <div class="form-group text-center">
+            <div class="col-sm-offset-2 col-sm-10" style="margin-left: 8%">
+              <button type="submit" (click)="getAllUsers();" class="btn btn-primary">Get All Users</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-sm-12 row-10" *ngIf="showSecondResp">
+          <div class="text-center">User Detail</div>
+          <div class="text-center">
+            <table>
+              <thead>
+                <tr>
+                  <th>Id</th><th>DOB</th><th>F-Name</th><th>L-Name</th>
+                  <th>Address</th><th>Landmark</th><th>Zipcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{user.id}}</td>
+                  <td>{{user.dob}}</td>
+                  <td>{{user.firstName}}</td>
+                  <td>{{user.lastName}}</td>
+                  <td>{{user.address}}</td>
+                  <td>{{user.landmark}}</td>
+                  <td>{{user.zipcode}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Remove User">
+
+        <div class="row col-sm-12 row-10">
+          <div class="form-group text-center">
+            <div>
+              <input type="text" [(ngModel)]="deleteId" name="deleteId" class="form-control input-cls" placeholder="Search User by id">
+              <button type="submit" (click)="deleteUser();" class="btn btn-primary" style="margin-left: 5%;">Delete User</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-sm-12 row-10">
+          <div class="form-group text-center">
+            <div class="col-sm-offset-2 col-sm-10" style="margin-left: 8%">
+              <button type="submit" (click)="deleteAllUsers();" class="btn btn-primary">Delete All Users</button>
+            </div>
+          </div>
+        </div>
+        <div class="row col-sm-12 text-center row-10" style="color: red;">
+          <span>{{deleteResp}}</span>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+
+  </div>
+
+</div>

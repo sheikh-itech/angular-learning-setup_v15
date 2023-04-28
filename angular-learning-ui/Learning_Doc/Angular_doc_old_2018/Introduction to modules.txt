@@ -1,0 +1,46 @@
+Introduction to modules
+========================
+
+=>Angular apps are modular and Angular has its own modularity system called NgModules.
+=>An NgModule is a container for a cohesive block of code dedicated to an application domain.
+=>It can contain components, service providers, and other code files whose scope is defined by the containing NgModule.
+=>It can import functionality that is exported from other NgModules and can export to itself.
+
+NgModule metadata:
+
+=>An NgModule is defined as a class decorated with @NgModule
+=>The @NgModule decorator is a function that takes a single metadata object, whose properties describe the module.
+
+Most usefull properties of @NgModule -
+1. declarations -The components, directives, and pipes that belong to this NgModule.
+2. exports —The subset of declarations that should be visible and usable in the component templates of other NgModules.
+3. imports—Other modules whose exported classes are needed by component templates declared in this NgModule.
+4. providers —Creators of services that this NgModule contributes to the global collection of services; they become accessible in all parts of the app. (You can also specify providers at the component level, which is often preferred.)
+5. bootstrap—The main application view, called the root component, which hosts all other app views. Only the root NgModule should set this bootstrap property.
+
+=> Generally we don't export rootModule, bcz its the entry point to get-in.
+=>A component and its template together define a view.
+
+NgModules and components:
+
+=>NgModules provide a compilation context for their components.
+=>A root NgModule always has a root component that is created during bootstrap, but any NgModule can include any number of additional components, which can be loaded through the router or created through the template.
+=>The components that belong to an NgModule share a compilation context.
+
+=>When you create a component, it is associated directly with a single view, called the host view.
+=>The host view can be the root of a view hierarchy, which can contain embedded views(sub view),which are in turn the host views of other components. 
+=>Views in the tree can be nested to any depth.
+
+NgModules and JavaScript modules
+
+=>The NgModule system is different from and unrelated to the JavaScript (ES2015) module system for managing collections of JavaScript objects. 
+=>In JavaScript each file is a module and all objects defined in the file belong to that module.
+=>The module declares some objects to be public by marking them with the export key word. 
+=>Other JavaScript modules use import statements to access public objects from other modules.
+
+Angular libraries:
+
+"Angular ships as a collection of JavaScript modules. We can consider them as library modules. Each Angular library name begins with the @angular prefix. Install them with the npm package manager and import parts of them with JavaScript import statements."
+
+e.g. -- import { Component } from '@angular/core';
+

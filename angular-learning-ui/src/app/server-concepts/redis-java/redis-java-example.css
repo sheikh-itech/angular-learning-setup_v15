@@ -1,0 +1,69 @@
+.row {
+    margin-top: 2%;
+}
+
+.row-10 {
+    margin-top: 10%;
+}
+td, th {
+  padding: 10px;
+}
+
+.input-cls {
+  width: 30%;
+  display: inline;
+}
+/*  DatePicker Style Start  */
+thead.mat-calendar-table-header {
+  background-color: white !important;
+}
+
+.mat-calendar-table-header, thead {
+  background-color: white !important;
+}
+
+.report-date-container {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.mat-mdc-form-field {
+  width: 170px !important;
+}
+
+.mdc-text-field {
+  padding: 0 10px !important;
+  height: 30px !important;
+}
+
+.mat-mdc-form-field-infix {
+  padding-top: 3px !important;
+}
+
+.mat-datepicker-input {
+  font-size: 12px !important;
+}
+
+.mat-mdc-button-base:first-child {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 5px 0px !important;
+  margin-right: -5px !important;
+}
+
+.mat-mdc-form-field-icon-suffix {
+  padding: 0px !important;
+  margin: -2px auto;
+}
+
+.mat-mdc-icon-button:first-child {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 5px !important;
+  margin-right: -5px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: whitesmoke;
+}
+/*  DatePicker Style End  */

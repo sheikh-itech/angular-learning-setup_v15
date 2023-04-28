@@ -58,6 +58,14 @@ class Utility {
 
     return String(this.datePipe.transform(dateString, 'MMM yy'));
   }
+
+  public isEmptyObject(object: Object): boolean {
+    let zeroKey = true;
+    Object.keys(object).forEach(key => {
+      zeroKey = false;
+    });
+    return zeroKey;
+  }
 }
 
 export { Utility }

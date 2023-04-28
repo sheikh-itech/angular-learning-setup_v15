@@ -1,7 +1,16 @@
 package base.learning.beans;
 
-public class City {
+import java.io.Serializable;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "cities")
+public class City implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
 	private int id;
 	private String name;
 	private int zipcode;

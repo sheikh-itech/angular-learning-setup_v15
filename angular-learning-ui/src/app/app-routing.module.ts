@@ -44,6 +44,7 @@ import { RetryOnErrorAdv } from './retry-on-error/retry-on-error-adv';
 import { ShoppingCartExample } from './ng-rx/shopping-cart-example';
 import { EncryptionComponent } from './encryption/encryption.component';
 import { CrossSiteScriptingExample } from './security/xss/cross-site-scripting-example';
+import { RedisJavaExample } from './server-concepts/redis-java/redis-java-example';
 
 const routes: Routes = [
 
@@ -89,7 +90,8 @@ const routes: Routes = [
   { path: 'advRetryRequest', component: RetryOnErrorAdv },
   { path: 'ngRXCart', component: ShoppingCartExample },
   { path: 'encryption', component: EncryptionComponent },
-  { path: 'xssAttack', component: CrossSiteScriptingExample }
+  { path: 'xssAttack', component: CrossSiteScriptingExample },
+  { path: 'redisJava', component: RedisJavaExample }
 ];
 
 @NgModule({

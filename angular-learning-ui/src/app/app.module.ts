@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MaterialModule } from './material.module';
 
 import { AuthInterceptor } from './common/authinterceptor/auth-interceptor';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,9 @@ import { NgApexSplineChart } from './chart-graph/ng-apex-spline-chart/ng-apex-sp
 import { StoreModule } from '@ngrx/store';
 import { shoppingCartReducer } from './ng-rx/cart-reducer';
 import { EncryptionComponent } from './encryption/encryption.component';
+import { RedisJavaExample } from './server-concepts/redis-java/redis-java-example';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -39,19 +43,21 @@ import { EncryptionComponent } from './encryption/encryption.component';
     RootApp, LifeCycleHooks, AdvLifeCycle, TwoWayBinding, StructuralDerective,
     AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
-    AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent
+    AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent,
+    RedisJavaExample,
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    AppRoutingModule, NgChartsModule, NgApexchartsModule,
+    AppRoutingModule, NgChartsModule, NgApexchartsModule, MaterialModule,
 
 
     StoreModule.forRoot({
       shoppingCart: shoppingCartReducer
-    })
+    }),
+      BrowserAnimationsModule
   ],
   providers: [CustomService, UserNameService, FullNameService, ChartComponent,
-    ApexChartExample, NgApexSplineChart,
+    ApexChartExample, NgApexSplineChart, DatePipe,
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

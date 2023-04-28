@@ -1,0 +1,29 @@
+Displaying Data
+===============
+
+=>To display data we bind controls in an HTML template to properties of an Angular component.
+
+Showing component properties with interpolation:
+=>The easiest way to display a component property is to bind the property name through interpolation.
+=> eg. {{myHero}}
+
+"The template is a multi-line string within ECMAScript 2015 backticks (`)."
+
+"Angular automatically pulls the value of properties from the component and inserts those values into the browser/template.
+Angular updates the display when these properties change."
+
+--"More precisely, the redisplay occurs after some kind of asynchronous event related to the view, such as a keystroke, a timer completion, or a response to an HTTP request."
+
+Creating a class for the data
+==============================
+=> model data creation.(model data for component and display properties of that model)
+"The app's code defines the data directly inside the component, which isn't best practice. In a simple demo, however, it's fine."
+export class Hero {
+  constructor(
+    public id: number,
+    public name: string) { }
+}
+
+
+=><p *ngIf="heroes.length > 3">There are many heroes!</p>
+"Angular isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in larger projects when conditionally including or excluding big chunks of HTML with many data bindings."

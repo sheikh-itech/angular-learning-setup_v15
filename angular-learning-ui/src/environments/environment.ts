@@ -18,7 +18,12 @@ export const environment = {
   cityIds: apiBase + "/cities/city/ids",
   cityNameById: apiBase + "/cities/city/name/",
   encCrypto: apiBase + "/decrypt/user",
-  encAdvCrypto: apiBase + "/decrypt/user/custom"
+  encAdvCrypto: apiBase + "/decrypt/user/custom",
+  redisUserAdd: apiBase + "/redis/user/add",
+  redisGetUsers: apiBase + "/redis/user/list",
+  redisGetUser: apiBase + "/redis/user/list/",
+  redisDeleteUser: apiBase + "/redis/user/delete/",
+  redisDeleteAllUser: apiBase + "/redis/user/delete/all"
 };
 
 /*
