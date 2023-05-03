@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GraphData } from './graph-data';
 import { NgApexSplineChart } from './ng-apex-spline-chart/ng-apex-spline-chart';
 
@@ -7,9 +7,11 @@ import { NgApexSplineChart } from './ng-apex-spline-chart/ng-apex-spline-chart';
   styleUrls: [''],
   templateUrl: './apex-chart-example.html'
 })
-export class ApexChartExample {
+export class ApexChartExample implements OnInit {
 
   showChart = false;
+  private graphData: any;
+
   @ViewChild(NgApexSplineChart, { static: false }) child: NgApexSplineChart;
 
   constructor(private chartEl: NgApexSplineChart) {
@@ -22,10 +24,14 @@ export class ApexChartExample {
 
     let resData = [] as any;
     let years = [] as any;
-
-    years = GraphData.days
-    resData = GraphData.data;
+    GraphData
+    years = this.graphData.days
+    resData = this.graphData.data;
 
     this.child.updateData(resData, years);
+  }
+
+  ngOnInit(): void {
+    this.graphData  = JSON.parse(GraphData);
   }
 }
