@@ -45,6 +45,8 @@ import { ShoppingCartExample } from './ng-rx/shopping-cart-example';
 import { EncryptionComponent } from './encryption/encryption.component';
 import { CrossSiteScriptingExample } from './security/xss/cross-site-scripting-example';
 import { RedisJavaExample } from './server-concepts/redis-java/redis-java-example';
+import { LineExample } from './animations/line-example/line-example';
+import { LineExample1 } from './animations/line-example-1/line-example-1';
 
 const routes: Routes = [
 
@@ -91,7 +93,9 @@ const routes: Routes = [
   { path: 'ngRXCart', component: ShoppingCartExample },
   { path: 'encryption', component: EncryptionComponent },
   { path: 'xssAttack', component: CrossSiteScriptingExample },
-  { path: 'redisJava', component: RedisJavaExample }
+  { path: 'redisJava', component: RedisJavaExample },
+  { path: 'simpleLine', component: LineExample },
+  { path: 'simpleLine1', component: LineExample1 }
 ];
 
 @NgModule({

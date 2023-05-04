@@ -38,6 +38,10 @@ import { RedisJavaExample } from './server-concepts/redis-java/redis-java-exampl
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { LanguageLoaderService } from './i18n/language-loader-service';
+import { FadeInExample } from './animations/fade-in-example/fade-in-example';
+import { LineExample } from './animations/line-example/line-example';
+import { LineExample1 } from './animations/line-example-1/line-example-1';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -46,12 +50,12 @@ import { LanguageLoaderService } from './i18n/language-loader-service';
     AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
     AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent,
-    RedisJavaExample,
+    RedisJavaExample, FadeInExample, LineExample, LineExample1
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     AppRoutingModule, NgChartsModule, NgApexchartsModule, MaterialModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, NgbModule,
 
     StoreModule.forRoot({
       shoppingCart: shoppingCartReducer
@@ -69,7 +73,7 @@ import { LanguageLoaderService } from './i18n/language-loader-service';
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
-  exports: [CustomPipe],
+  exports: [CustomPipe, LineExample1],
   bootstrap: [RootApp]
 })
 export class AppModule { }
