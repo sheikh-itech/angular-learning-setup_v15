@@ -37,7 +37,7 @@ import { EncryptionComponent } from './encryption/encryption.component';
 import { RedisJavaExample } from './server-concepts/redis-java/redis-java-example';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
-import { LanguageTranslateLoader } from './i18n/language-translate-loader';
+import { LanguageLoaderService } from './i18n/language-loader-service';
 
 
 @NgModule({
@@ -60,7 +60,7 @@ import { LanguageTranslateLoader } from './i18n/language-translate-loader';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useClass: LanguageTranslateLoader,
+        useClass: LanguageLoaderService,
       },
     })
   ],

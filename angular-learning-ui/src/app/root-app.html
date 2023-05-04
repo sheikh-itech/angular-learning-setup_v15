@@ -1,210 +1,217 @@
 <div class='sidebar'>
   <ul>
     <li>
-      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <a routerLink="/login" routerLinkActive="active">{{ 'Login' | translate }}</a>
     </li>
     <li>
-      <a routerLink="/lifeCycle" routerLinkActive="active">Life Cycle</a>
+      <a routerLink="/lifeCycle" routerLinkActive="active">{{ 'Life Cycle' | translate }}</a>
     </li>
     <li>
-      <a routerLink="/advLifeCycle" routerLinkActive="active">Adv Life Cycle</a>
-    </li>
-
-    <a routerLink="/encryption" routerLinkActive="active">Encryption</a>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Graph/Lines</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/lineChart" routerLinkActive="active">Line Chart</a>
-        </li>
-        <li>
-          <a routerLink="/apexChart" routerLinkActive="active">Apex Chart</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Bindings</a>
-      <ul class='sub-menu'>
-        <li>
-          <a [routerLink]="['/interpolation', 'Passed data using Route parameters']" routerLinkActive="active">Interpolation</a>
-        </li>
-        <li>
-          <a routerLink="/propertyBinding" routerLinkActive="active">Prop Binding</a>
-        </li>
-        <li>
-          <a routerLink="/eventBinding" routerLinkActive="active">Event Binding</a>
-        </li>
-        <li>
-          <a routerLink="/twoWayBinding" routerLinkActive="active">2 Way Binding</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Directives</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/structuralDerective" routerLinkActive="active">Structural Directive</a>
-        </li>
-        <li>
-          <a routerLink="/attributeDirective" routerLinkActive="active">Attribute Directive</a>
-        </li>
-      </ul>
-    </li>
-    <li class='sub-menu-parent'>
-      <a href="#">DI's'</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/injection" routerLinkActive="active">DI</a>
-        </li>
-        <li>
-          <a routerLink="/heirarchicalInjection" routerLinkActive="active">Hierarchical DI</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a routerLink="/customPipe" routerLinkActive="active">Custom Pipe</a>
-    </li>
-    <li>
-      <a routerLink="/customService" routerLinkActive="active">Custom Service</a>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Forms</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/reactiveForm1">Reactive Form1</a>
-        </li>
-        <li>
-          <a routerLink="/templateDriven1">Template Driven1</a>
-        </li>
-        <li>
-          <a routerLink="/templateDriven2">Template Driven2</a>
-        </li>
-        <li>
-          <a routerLink="/templateDriven3">Template Driven3</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">HTTP Types</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/httpGet">Get</a>
-        </li>
-        <li>
-          <a routerLink="/httpPost">Post</a>
-        </li>
-        <li>
-          <a routerLink="/httpPut">Put</a>
-        </li>
-        <li>
-          <a routerLink="/httpPatch">Patch</a>
-        </li>
-        <li>
-          <a routerLink="/httpDelete">Delete</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Observables</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/observable">Observable</a>
-        </li>
-        <li>
-          <a routerLink="/subscribe">Subscribe</a>
-        </li>
-        <li>
-          <a routerLink="/flatMapChain">Flat Map</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Operators</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/mapOperator">Map</a>
-        </li>
-        <li>
-          <a routerLink="/filterOperator">Filter</a>
-        </li>
-        <li>
-          <a routerLink="/tapOperator">Tap</a>
-        </li>
-        <li>
-          <a routerLink="/catchErrorOperator">Catch Error</a>
-        </li>
-        <li>
-          <a routerLink="/flatMapOperator">Flat Map</a>
-        </li>
-        <li>
-          <a routerLink="/mergedMapOperator">Merged Map</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Caching</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/shareRelayCach">ShareRelay Cach</a>
-        </li>
-        <li>
-          <a routerLink="/shareRelayTimedCach">ShareRelay Timed</a>
-        </li>
-        <li>
-          <a routerLink="/customCach">Custom cach</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Error/Retry</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/handleError">Handle Error</a>
-        </li>
-        <li>
-          <a routerLink="/retryRequest">Retry Req</a>
-        </li>
-        <li>
-          <a routerLink="/advRetryRequest">Adv Retry Req</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Server Concepts</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/redisJava">RedisJava</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class='sub-menu-parent'>
-      <a href="#">Security</a>
-      <ul class='sub-menu'>
-        <li>
-          <a routerLink="/xssAttack">XSS Attack</a>
-        </li>
-      </ul>
+      <a routerLink="/advLifeCycle" routerLinkActive="active">{{ 'Adv Life Cycle' | translate }}</a>
     </li>
 
     <li>
-      <a routerLink="/ngRXCart">Ng RX Cart</a>
+      <a routerLink="/encryption" routerLinkActive="active">{{ 'Encryption' | translate }}</a>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Graph/Lines' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/lineChart" routerLinkActive="active">{{ 'Line Chart' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/apexChart" routerLinkActive="active">{{ 'Apex Chart' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Bindings' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a [routerLink]="['/interpolation', 'Passed data using Route parameters']" routerLinkActive="active">{{ 'Interpolation' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/propertyBinding" routerLinkActive="active">{{ 'Prop Binding' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/eventBinding" routerLinkActive="active">{{ 'Event Binding' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/twoWayBinding" routerLinkActive="active">{{ '2 Way Binding' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Directives' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/structuralDerective" routerLinkActive="active">{{ 'Structural Directive' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/attributeDirective" routerLinkActive="active">{{ 'Attribute Directive' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li class='sub-menu-parent'>
+      <a href="#">{{ "DI's" | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/injection" routerLinkActive="active">{{ 'DI' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/heirarchicalInjection" routerLinkActive="active">{{ 'Hierarchical DI' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="/customPipe" routerLinkActive="active">{{ 'Custom Pipe' | translate }}</a>
+    </li>
+    <li>
+      <a routerLink="/customService" routerLinkActive="active">{{ 'Custom Service' | translate }}</a>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Forms' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/reactiveForm1">{{ 'Reactive Form1' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/templateDriven1">{{ 'Template Driven1' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/templateDriven2">{{ 'Template Driven2' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/templateDriven3">{{ 'Template Driven3' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'HTTP Types' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/httpGet">{{ 'Get' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/httpPost">{{ 'Post' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/httpPut">{{ 'Put' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/httpPatch">{{ 'Patch' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/httpDelete">{{ 'Delete' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Observables' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/observable">{{ 'Observable' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/subscribe">{{ 'Subscribe' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/flatMapChain">{{ 'Flat Map' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Operators' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/mapOperator">{{ 'Map' | translate }}Map</a>
+        </li>
+        <li>
+          <a routerLink="/filterOperator">{{ 'Filter' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/tapOperator">{{ 'Tap' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/catchErrorOperator">{{ 'Catch Error' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/flatMapOperator">{{ 'Flat Map' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/mergedMapOperator">{{ 'Merged Map' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Caching' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/shareRelayCach">{{ 'ShareRelay Cach' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/shareRelayTimedCach">{{ 'ShareRelay Timed' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/customCach">{{ 'Custom cach' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Error/Retry' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/handleError">{{ 'Handle Error' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/retryRequest">{{ 'Retry Req' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/advRetryRequest">{{ 'Adv Retry Req' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Server Concepts' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/redisJava">{{ 'RedisJava' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ 'Security' | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/xssAttack">{{ 'XSS Attack' | translate }}</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a routerLink="/ngRXCart">{{ 'Ng RX Cart' | translate }}</a>
     </li>
 
   </ul>
 </div>
 
 <div class='main-content'>
+
+  <div class="i18n-lang">
+    <p>{{ 'Change To' | translate }}:</p>
+    <a (click)="changeLanguage(engLang)">{{engLang?'हिंदी':'English'}}</a>
+  </div>
 
   <router-outlet></router-outlet>
 

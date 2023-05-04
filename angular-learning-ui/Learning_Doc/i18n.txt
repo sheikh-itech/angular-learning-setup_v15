@@ -1,0 +1,74 @@
+		Angular Internationalization (i18n)
+	===========================================
+
+I am using here 'ngx-translate' third part library
+
+1. Install below dependencies
+	>ng add @angular/localize
+	>npm install @ngx-translate/core @ngx-translate/http-loader
+
+2. Create Language translator custom service to implement 'TranslateLoader' from ngx-translate
+	
+	export class LanguageTranslateLoader implements TranslateLoader {
+		//This reads language specific json file
+		public getTranslation(lang: string): Observable<any> {
+    
+			return of(require('src/assets/i18n/' + lang +'-Mapping.json'));
+		}
+	}
+
+3. Register custom service with app module
+
+	TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useClass: LanguageTranslateLoader,
+      },
+    })
+
+4. Set default language and language change event/function in Root Application
+   To do this inject 'TranslateService' from '@ngx-translate/core' library
+   
+  constructor(private languageService: TranslateService) {
+    this.languageService.setDefaultLang('en');
+    this.languageService.use('en');
+  }
+
+  public changeLanguage(lang: boolean) {
+    if (lang) {
+      this.languageService.use('hi');
+      this.engLang = false;
+    } else {
+      this.languageService.use('en');
+      this.engLang = true;
+    }
+  }
+
+6. Create Json Mapping to each locale/language
+
+	English-Mapping.json
+	--------------------
+	{
+	  "Change To": "Change To",
+	  "Login": "Login",
+	  "Life Cycle": "Life Cycle",
+	  "Adv Life Cycle": "Adv Life Cycle"
+	}
+	
+	Hindi-Mapping.json
+	--------------------
+	{
+	  "Change To": "भाषा बदलें",
+	  "Login": "लॉगिन",
+	  "Life Cycle": "जीवन चक्र",
+	  "Adv Life Cycle": "उन्नत जीवन चक्र"
+	}
+
+7. Specify key in place where multi-lingual support needed as shown below
+
+	<p>{{ 'Change To' | translate }}:</p>
+	<a routerLink="/httpGet">{{ 'Get' | translate }}</a>
+
+	In above 2 lines, keys('Cahnge To' & 'Get') will replace with actual content 
+	based on selected Language, from json files
+
