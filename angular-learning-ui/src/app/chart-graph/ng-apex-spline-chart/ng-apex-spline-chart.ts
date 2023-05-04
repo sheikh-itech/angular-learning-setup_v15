@@ -74,7 +74,6 @@ export class NgApexSplineChart {
     }
     this.chartOptions.series = data;
     //this.chartOptions.series[0].data = data[0].data.slice(0, 50);
-    console.log(this.chartOptions);
     this.showChart = true;
   }
 }

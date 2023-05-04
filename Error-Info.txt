@@ -1,0 +1,11 @@
+Error-1
+=======
+
+Error: Module not found: Error: Can't resolve 'D:/VS_WorkSpace/angular-learning-setup_v15/angular-learning-ui/src/app/chart-graph?ngResource' in 'D:\VS_WorkSpace\angular-learning-setup_v15\angular-learning-ui'
+
+Error: The loader "D:/VS_WorkSpace/angular-learning-setup_v15/angular-learning-ui/src/app/chart-graph" didn't return a string.
+
+Solution
+--------
+In component empty css url present, removed that
+styleUrls: ['']

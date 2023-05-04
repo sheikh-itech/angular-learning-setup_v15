@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { AuthInterceptor } from './common/authinterceptor/auth-interceptor';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +37,7 @@ import { EncryptionComponent } from './encryption/encryption.component';
 import { RedisJavaExample } from './server-concepts/redis-java/redis-java-example';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
+import { LanguageTranslateLoader } from './i18n/language-translate-loader';
 
 
 @NgModule({
@@ -49,12 +51,18 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     AppRoutingModule, NgChartsModule, NgApexchartsModule, MaterialModule,
-
+    BrowserAnimationsModule,
 
     StoreModule.forRoot({
       shoppingCart: shoppingCartReducer
     }),
-      BrowserAnimationsModule
+
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useClass: LanguageTranslateLoader,
+      },
+    })
   ],
   providers: [CustomService, UserNameService, FullNameService, ChartComponent,
     ApexChartExample, NgApexSplineChart, DatePipe,
