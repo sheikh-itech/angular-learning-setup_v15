@@ -42,6 +42,7 @@ import { FadeInExample } from './animations/fade-in-example/fade-in-example';
 import { LineExample } from './animations/line-example/line-example';
 import { LineExample1 } from './animations/line-example-1/line-example-1';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QuaggaBarcodeReader } from './business-fundas/quagga-barcode-reader/quagga-barcode-reader';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
     AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent,
-    RedisJavaExample, FadeInExample, LineExample, LineExample1
+    RedisJavaExample, FadeInExample, LineExample, LineExample1, QuaggaBarcodeReader
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,

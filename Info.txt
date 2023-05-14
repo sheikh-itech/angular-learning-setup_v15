@@ -1,3 +1,6 @@
+Run exe file using command prompt
+Check Redis servie in Task Manager for Redis
+
 apexcharts & ng-apexcharts
 --------------------------
 Required for Apex Spline & Line charts
@@ -11,9 +14,14 @@ crypto-js & @types/crypto-js
 Required for Text Encryption and Decryption
 Compitible with Jasypt library for java
 
+Quagga Barcode Reader
+---------------------
+>npm i @ericblade/quagga2
 
-
-
+i-18 Internationalization
+-------------------------
+>ng add @angular/localize
+>npm install @ngx-translate/core @ngx-translate/http-loader
 
 
 

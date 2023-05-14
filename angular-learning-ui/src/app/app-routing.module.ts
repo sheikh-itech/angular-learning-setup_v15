@@ -47,6 +47,7 @@ import { CrossSiteScriptingExample } from './security/xss/cross-site-scripting-e
 import { RedisJavaExample } from './server-concepts/redis-java/redis-java-example';
 import { LineExample } from './animations/line-example/line-example';
 import { LineExample1 } from './animations/line-example-1/line-example-1';
+import { QuaggaBarcodeReader } from './business-fundas/quagga-barcode-reader/quagga-barcode-reader';
 
 const routes: Routes = [
 
@@ -95,7 +96,8 @@ const routes: Routes = [
   { path: 'xssAttack', component: CrossSiteScriptingExample },
   { path: 'redisJava', component: RedisJavaExample },
   { path: 'simpleLine', component: LineExample },
-  { path: 'simpleLine1', component: LineExample1 }
+  { path: 'simpleLine1', component: LineExample1 },
+  { path: 'quaggaScanner', component: QuaggaBarcodeReader }
 ];
 
 @NgModule({

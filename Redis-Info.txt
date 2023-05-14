@@ -1,4 +1,0 @@
-Run exe file using command prompt
-Check Redis servie in Task Manager for Redis
-
-
