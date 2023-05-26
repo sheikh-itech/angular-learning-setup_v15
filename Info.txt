@@ -18,6 +18,12 @@ Quagga Barcode Reader
 ---------------------
 >npm i @ericblade/quagga2
 
+ZXing QR Code Scanner
+---------------------
+>npm i @zxing/ngx-scanner@latest --save
+OR
+>npm install @zxing/library@latest --save
+
 i-18 Internationalization
 -------------------------
 >ng add @angular/localize

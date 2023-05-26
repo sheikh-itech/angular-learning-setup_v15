@@ -1,0 +1,56 @@
+.heading-section {
+  color: #3da1a9;
+}
+
+.ftco-section {
+  width: max-content;
+  margin-top: 40px;
+  padding: 50px 10px 5px 10px;
+  /*#b2d9efe0  ,#52a1a8 background-color: #b5e1b8;*/
+  background-color: #ffffffed !important;
+}
+
+.btn-color {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 4px 0;
+  background-color: #52a1a8 !important;
+  color: white !important;
+}
+
+.err_color {
+  color: #cc0033;
+  display: inline-block;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap; /* Wrap the elements */
+  margin-top: 4px;
+}
+
+  .form-group .error {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 15px;
+    margin: 5px 0 0;
+    width: 100%;
+  }
+
+img {
+    height: 85px;
+    width: 75px;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+table, thead, tr, td, th {
+  border: 2px solid blue;
+}
+
+td {
+  padding: 5px;
+}

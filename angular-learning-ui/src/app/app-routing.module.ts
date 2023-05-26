@@ -48,6 +48,10 @@ import { RedisJavaExample } from './server-concepts/redis-java/redis-java-exampl
 import { LineExample } from './animations/line-example/line-example';
 import { LineExample1 } from './animations/line-example-1/line-example-1';
 import { QuaggaBarcodeReader } from './business-fundas/quagga-barcode-reader/quagga-barcode-reader';
+import { ZXingQrGenerator } from './business-fundas/zxing-qr-generator/zxing-qr-generator';
+import { ZXingQRScannerVideo } from './business-fundas/zxing-qr-scanner-video/zxing-qr-scanner-video';
+import { ZXingQrScannerImage } from './business-fundas/zxing-qr-scanner-image/zxing-qr-scanner-image';
+import { ZXingQrScannerImageUrl } from './business-fundas/zxing-qr-scanner-image-url/zxing-qr-scanner-image-url';
 
 const routes: Routes = [
 
@@ -97,7 +101,11 @@ const routes: Routes = [
   { path: 'redisJava', component: RedisJavaExample },
   { path: 'simpleLine', component: LineExample },
   { path: 'simpleLine1', component: LineExample1 },
-  { path: 'quaggaScanner', component: QuaggaBarcodeReader }
+  { path: 'quaggaScanner', component: QuaggaBarcodeReader },
+  { path: 'generateQrCode', component: ZXingQrGenerator },
+  { path: 'zxingQRScanVideo', component: ZXingQRScannerVideo },
+  { path: 'zxingQRScanImage', component: ZXingQrScannerImage },
+  { path: 'zxingQRImageSelect', component: ZXingQrScannerImageUrl }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -43,6 +43,10 @@ import { LineExample } from './animations/line-example/line-example';
 import { LineExample1 } from './animations/line-example-1/line-example-1';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuaggaBarcodeReader } from './business-fundas/quagga-barcode-reader/quagga-barcode-reader';
+import { ZXingQrGenerator } from './business-fundas/zxing-qr-generator/zxing-qr-generator';
+import { ZXingQrScannerImage } from './business-fundas/zxing-qr-scanner-image/zxing-qr-scanner-image';
+import { ZXingQRScannerVideo } from './business-fundas/zxing-qr-scanner-video/zxing-qr-scanner-video';
+import { ZXingQrScannerImageUrl } from './business-fundas/zxing-qr-scanner-image-url/zxing-qr-scanner-image-url';
 
 
 @NgModule({
@@ -51,7 +55,8 @@ import { QuaggaBarcodeReader } from './business-fundas/quagga-barcode-reader/qua
     AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
     AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent,
-    RedisJavaExample, FadeInExample, LineExample, LineExample1, QuaggaBarcodeReader
+    RedisJavaExample, FadeInExample, LineExample, LineExample1, QuaggaBarcodeReader,
+    ZXingQrGenerator, ZXingQrScannerImage, ZXingQRScannerVideo, ZXingQrScannerImageUrl
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
@@ -74,6 +79,7 @@ import { QuaggaBarcodeReader } from './business-fundas/quagga-barcode-reader/qua
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
+  //schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [CustomPipe, LineExample1],
   bootstrap: [RootApp]
 })

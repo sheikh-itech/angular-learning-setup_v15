@@ -20,5 +20,8 @@ export const environment = {
   redisGetUsers: apiBase + "/redis/user/list",
   redisGetUser: apiBase + "/redis/user/list/",
   redisDeleteUser: apiBase + "/redis/user/delete/",
-  redisDeleteAllUser: apiBase + "/redis/user/delete/all"
+  redisDeleteAllUser: apiBase + "/redis/user/delete/all",
+  qrCodeGenerate: apiBase + "/QR/generate",
+  qrCodeDownload: apiBase + "/QR/download",
+  qrDownloadAll: apiBase + "/QR/download/all"
 };

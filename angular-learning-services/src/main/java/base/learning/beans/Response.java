@@ -3,10 +3,10 @@ package base.learning.beans;
 public class Response {
 
 	private boolean status;
-	private Object data;
 	private String message;
 	private String error;
 	private long timestamp;
+	private Object data;
 	
 	public Response() {
 		this.timestamp = System.currentTimeMillis();

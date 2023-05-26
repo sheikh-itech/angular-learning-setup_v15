@@ -1,0 +1,21 @@
+<div style="margin-bottom: 2%;">
+  <video #videoElement width="200" height="150" [hidden]="!streamVideo"></video>
+  <img [src]="imageSrc" width="200" height="150" [hidden]="streamVideo" alt="Error" />
+</div>
+<button type="button" class="btn btn-primary" (click)="startScanner()">Start Scanner</button>
+<button type="button" class="btn btn-primary" (click)="captureImage()">Capture Image</button>
+<button type="button" class="btn btn-primary" (click)="stopScanner()">Stop Scanner</button>
+
+<table *ngIf="qrCodeInfo.length>0" style="margin-top: 2%; align-content: center;">
+  <thead>
+    <tr>
+      <th colspan="2">QR Code Scanned Detail</th>
+    </tr>
+  </thead>
+  <ng-container *ngFor="let info of qrCodeInfo">
+    <tr>
+      <td>{{info.key}}</td>
+      <td>{{info.value}}</td>
+    </tr>
+  </ng-container>
+</table>

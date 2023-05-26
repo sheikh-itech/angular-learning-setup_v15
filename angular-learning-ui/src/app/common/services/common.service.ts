@@ -14,9 +14,9 @@ export class CommonService {
     private mask: MaskLoaderService) { }
 
   //Data null if not required
-  public postApi(url: string, data: any): Observable<any> {
+  public postApi(url: string, data: any, options?: any): Observable<any> {
     this.mask.updateMask(true);
-    return this.http.post<any>(url, data)
+    return this.http.post<any>(url, data, options)
       .pipe(
         catchError(this.handleError.bind(this)),
         map(response => {
