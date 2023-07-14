@@ -29,7 +29,7 @@ export class RedisJavaExample {
 
   public getAllUsers(): void {
 
-    this.http.getApiWithoutData(environment.redisGetUsers).subscribe(
+    this.http.getApi(environment.redisGetUsers).subscribe(
       res => {
         this.users = res.data;
         this.showSecondResp = true;
@@ -47,7 +47,7 @@ export class RedisJavaExample {
       return;
     }
 
-    this.http.getApiWithoutData(environment.redisGetUser + this.userId).subscribe(
+    this.http.getApi(environment.redisGetUser + this.userId).subscribe(
       res => {
         this.users = res.data;
         this.showSecondResp = true;

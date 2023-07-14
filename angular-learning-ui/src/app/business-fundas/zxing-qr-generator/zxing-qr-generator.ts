@@ -24,7 +24,7 @@ export class ZXingQrGenerator {
 
   searchAllQRCode(): void {
 
-    this.http.getApiWithoutData(environment.qrDownloadAll).subscribe(
+    this.http.getApi(environment.qrDownloadAll).subscribe(
       resp => {
         resp.data.forEach((info: any) => {
           const byteCharacters = atob(info.qrBytes);

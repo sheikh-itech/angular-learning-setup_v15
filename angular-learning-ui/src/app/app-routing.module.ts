@@ -15,7 +15,7 @@ import { TemplateDrivenForm3 } from './forms/template-driven-forms/template-driv
 import { AdminComponent } from './hierarchical-dependency/AdminComponent';
 import { HomeComponent } from './hierarchical-dependency/HomeComponent';
 import { LoginPage } from './login-page/login-page';
-import { PipesExample } from './pipes/PipesExample';
+import { CustomPipeExample } from './pipes/custom/CustomPipeExample';
 import { AuthGuard } from './routing-navigation/auth-guard';
 import { CustomServiceUsage } from './services/CustomServiceUsage';
 import { AccessDenied } from './access-denied/access-denied';
@@ -52,60 +52,68 @@ import { ZXingQrGenerator } from './business-fundas/zxing-qr-generator/zxing-qr-
 import { ZXingQRScannerVideo } from './business-fundas/zxing-qr-scanner-video/zxing-qr-scanner-video';
 import { ZXingQrScannerImage } from './business-fundas/zxing-qr-scanner-image/zxing-qr-scanner-image';
 import { ZXingQrScannerImageUrl } from './business-fundas/zxing-qr-scanner-image-url/zxing-qr-scanner-image-url';
+import { CustomListenerExample } from './anonymous/custom-listener/custom-listener';
+import { KeyValueExample } from './anonymous/key-value/key-value';
+import { HttpUserEventsExample } from './anonymous/http-user-events/http-user-events-example';
+import { SlicePipeExample } from './pipes/SlicePipeExample';
 
 const routes: Routes = [
 
-  { path: 'login', component: LoginPage },
-  { path: 'accessDenied', component: AccessDenied },
-  { path: 'lifeCycle', component: LifeCycleHooks, canActivate: [AuthGuard] },
-  { path: 'advLifeCycle', component: AdvLifeCycle, canActivate: [AuthGuard] },
-  { path: 'interpolation/:routeData', component: Interpolation, canActivate: [AuthGuard] },
-  { path: 'propertyBinding', component: PropertyBinding, canActivate: [AuthGuard] },
-  { path: 'eventBinding', component: EventBinding, canActivate: [AuthGuard] },
-  { path: 'twoWayBinding', component: TwoWayBinding, canActivate: [AuthGuard] },
-  { path: 'structuralDerective', component: StructuralDerective },
-  { path: 'attributeDirective', component: AttributeDirective },
-  { path: 'customPipe', component: PipesExample },
-  { path: 'customService', component: CustomServiceUsage },
-  { path: 'injection', component: HomeComponent },
-  { path: 'heirarchicalInjection', component: AdminComponent },
-  { path: 'templateDriven1', component: TemplateDrivenForm1 },
-  { path: 'templateDriven2', component: TemplateDrivenForm2 },
-  { path: 'templateDriven3', component: TemplateDrivenForm3 },
-  { path: 'reactiveForm1', component: ReactiveForm1 },
-  { path: 'httpGet', component: HttpGetExample },
-  { path: 'httpPost', component: HttpPostExample },
-  { path: 'httpPut', component: HttpPutExample },
-  { path: 'httpPatch', component: HttpPatchExample },
-  { path: 'httpDelete', component: HttpDeleteExample },
-  { path: 'observable', component: ObservableExample },
-  { path: 'subscribe', component: SubscribeExample },
-  { path: 'flatMapChain', component: ObservableFlatMapChain },
-  { path: 'mapOperator', component: MapOperator },
-  { path: 'filterOperator', component: FilterOperator },
-  { path: 'tapOperator', component: TapapOperator },
-  { path: 'catchErrorOperator', component: CatchErrorOperator },
-  { path: 'flatMapOperator', component: FlatMapOperator },
-  { path: 'mergedMapOperator', component: MergeMapOperator },
-  { path: 'shareRelayCach', component: ShareRelayCachExample },
-  { path: 'shareRelayTimedCach', component: ShareRelayWithTiming },
-  { path: 'customCach', component: CustomCachExample },
-  { path: 'lineChart', component: LineChart },
-  { path: 'apexChart', component: ApexChartExample },
-  { path: 'handleError', component: ErrorHadnling },
-  { path: 'retryRequest', component: RetryOnError },
-  { path: 'advRetryRequest', component: RetryOnErrorAdv },
-  { path: 'ngRXCart', component: ShoppingCartExample },
-  { path: 'encryption', component: EncryptionComponent },
-  { path: 'xssAttack', component: CrossSiteScriptingExample },
-  { path: 'redisJava', component: RedisJavaExample },
-  { path: 'simpleLine', component: LineExample },
-  { path: 'simpleLine1', component: LineExample1 },
-  { path: 'quaggaScanner', component: QuaggaBarcodeReader },
-  { path: 'generateQrCode', component: ZXingQrGenerator },
-  { path: 'zxingQRScanVideo', component: ZXingQRScannerVideo },
-  { path: 'zxingQRScanImage', component: ZXingQrScannerImage },
-  { path: 'zxingQRImageSelect', component: ZXingQrScannerImageUrl }
+    { path: 'login', component: LoginPage },
+    { path: 'accessDenied', component: AccessDenied },
+    { path: 'lifeCycle', component: LifeCycleHooks, canActivate: [AuthGuard] },
+    { path: 'advLifeCycle', component: AdvLifeCycle, canActivate: [AuthGuard] },
+    { path: 'interpolation/:routeData', component: Interpolation, canActivate: [AuthGuard] },
+    { path: 'propertyBinding', component: PropertyBinding, canActivate: [AuthGuard] },
+    { path: 'eventBinding', component: EventBinding, canActivate: [AuthGuard] },
+    { path: 'twoWayBinding', component: TwoWayBinding, canActivate: [AuthGuard] },
+    { path: 'structuralDerective', component: StructuralDerective },
+    { path: 'attributeDirective', component: AttributeDirective },
+    { path: 'customPipe', component: CustomPipeExample },
+    { path: 'customService', component: CustomServiceUsage },
+    { path: 'injection', component: HomeComponent },
+    { path: 'heirarchicalInjection', component: AdminComponent },
+    { path: 'templateDriven1', component: TemplateDrivenForm1 },
+    { path: 'templateDriven2', component: TemplateDrivenForm2 },
+    { path: 'templateDriven3', component: TemplateDrivenForm3 },
+    { path: 'reactiveForm1', component: ReactiveForm1 },
+    { path: 'httpGet', component: HttpGetExample },
+    { path: 'httpPost', component: HttpPostExample },
+    { path: 'httpPut', component: HttpPutExample },
+    { path: 'httpPatch', component: HttpPatchExample },
+    { path: 'httpDelete', component: HttpDeleteExample },
+    { path: 'observable', component: ObservableExample },
+    { path: 'subscribe', component: SubscribeExample },
+    { path: 'flatMapChain', component: ObservableFlatMapChain },
+    { path: 'mapOperator', component: MapOperator },
+    { path: 'filterOperator', component: FilterOperator },
+    { path: 'tapOperator', component: TapapOperator },
+    { path: 'catchErrorOperator', component: CatchErrorOperator },
+    { path: 'flatMapOperator', component: FlatMapOperator },
+    { path: 'mergedMapOperator', component: MergeMapOperator },
+    { path: 'shareRelayCach', component: ShareRelayCachExample },
+    { path: 'shareRelayTimedCach', component: ShareRelayWithTiming },
+    { path: 'customCach', component: CustomCachExample },
+    { path: 'lineChart', component: LineChart },
+    { path: 'apexChart', component: ApexChartExample },
+    { path: 'handleError', component: ErrorHadnling },
+    { path: 'retryRequest', component: RetryOnError },
+    { path: 'advRetryRequest', component: RetryOnErrorAdv },
+    { path: 'ngRXCart', component: ShoppingCartExample },
+    { path: 'encryption', component: EncryptionComponent },
+    { path: 'xssAttack', component: CrossSiteScriptingExample },
+    { path: 'redisJava', component: RedisJavaExample },
+    { path: 'simpleLine', component: LineExample },
+    { path: 'simpleLine1', component: LineExample1 },
+    { path: 'quaggaScanner', component: QuaggaBarcodeReader },
+    { path: 'generateQrCode', component: ZXingQrGenerator },
+    { path: 'zxingQRScanVideo', component: ZXingQRScannerVideo },
+    { path: 'zxingQRScanImage', component: ZXingQrScannerImage },
+    { path: 'zxingQRImageSelect', component: ZXingQrScannerImageUrl },
+    { path: 'customListener', component: CustomListenerExample },
+    { path: 'keyValue', component: KeyValueExample },
+    { path: 'httpUserEvent', component: HttpUserEventsExample },
+    { path: 'slicePipe', component: SlicePipeExample }
 ];
 
 @NgModule({

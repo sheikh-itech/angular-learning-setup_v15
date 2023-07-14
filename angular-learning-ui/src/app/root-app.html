@@ -36,6 +36,21 @@
     </li>
 
     <li class='sub-menu-parent'>
+      <a href="#">Anonymous</a>
+      <ul class='sub-menu'>
+          <li>
+              <a routerLink="/customListener" routerLinkActive="active">Listener</a>
+          </li>
+          <li>
+              <a routerLink="/keyValue" routerLinkActive="active">Key Value</a>
+          </li>
+          <li>
+              <a routerLink="/httpUserEvent" routerLinkActive="active">Http User Event</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class='sub-menu-parent'>
       <a href="#">{{ 'Graph/Lines' | translate }}</a>
       <ul class='sub-menu'>
         <li>
@@ -87,9 +102,19 @@
         </li>
       </ul>
     </li>
-    <li>
-      <a routerLink="/customPipe" routerLinkActive="active">{{ 'Custom Pipe' | translate }}</a>
+
+    <li class='sub-menu-parent'>
+      <a href="#">{{ "Pipes" | translate }}</a>
+      <ul class='sub-menu'>
+        <li>
+          <a routerLink="/customPipe" routerLinkActive="active">{{ 'Custom Pipe' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/slicePipe" routerLinkActive="active">Slice Pipe</a>
+        </li>
+      </ul>
     </li>
+
     <li>
       <a routerLink="/customService" routerLinkActive="active">{{ 'Custom Service' | translate }}</a>
     </li>

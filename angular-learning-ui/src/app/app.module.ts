@@ -13,8 +13,8 @@ import { AdvLifeCycle } from './components/life-cycle/adv-life-cycle';
 import { TwoWayBinding } from './components/TwoWayBinding';
 import { StructuralDerective } from './directives/StructuralDerective';
 import { AttributeDirective } from './directives/AttributeDirective';
-import { CustomPipe } from './pipes/CustomPipe';
-import { PipesExample } from './pipes/PipesExample';
+import { CustomPipe } from './pipes/custom/CustomPipe';
+import { CustomPipeExample } from './pipes/custom/CustomPipeExample';
 import { CustomService } from './services/CustomService';
 import { HomeComponent } from './hierarchical-dependency/HomeComponent';
 import { AdminComponent } from './hierarchical-dependency/AdminComponent';
@@ -47,16 +47,21 @@ import { ZXingQrGenerator } from './business-fundas/zxing-qr-generator/zxing-qr-
 import { ZXingQrScannerImage } from './business-fundas/zxing-qr-scanner-image/zxing-qr-scanner-image';
 import { ZXingQRScannerVideo } from './business-fundas/zxing-qr-scanner-video/zxing-qr-scanner-video';
 import { ZXingQrScannerImageUrl } from './business-fundas/zxing-qr-scanner-image-url/zxing-qr-scanner-image-url';
+import { CustomListenerExample } from './anonymous/custom-listener/custom-listener';
+import { KeyValueExample } from './anonymous/key-value/key-value';
+import { HttpUserEventsExample } from './anonymous/http-user-events/http-user-events-example';
+import { SlicePipeExample } from './pipes/SlicePipeExample';
 
 
 @NgModule({
   declarations: [
     RootApp, LifeCycleHooks, AdvLifeCycle, TwoWayBinding, StructuralDerective,
-    AttributeDirective, CustomPipe, PipesExample, HomeComponent, AdminComponent,
+    AttributeDirective, CustomPipe, CustomPipeExample, HomeComponent, AdminComponent,
     TemplateDrivenForm1, TemplateDrivenForm2, TemplateDrivenForm3, ReactiveForm1, LoginPage,
     AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent,
     RedisJavaExample, FadeInExample, LineExample, LineExample1, QuaggaBarcodeReader,
-    ZXingQrGenerator, ZXingQrScannerImage, ZXingQRScannerVideo, ZXingQrScannerImageUrl
+    ZXingQrGenerator, ZXingQrScannerImage, ZXingQRScannerVideo, ZXingQrScannerImageUrl,
+    CustomListenerExample, KeyValueExample, HttpUserEventsExample, SlicePipeExample
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
