@@ -56,6 +56,8 @@ import { CustomListenerExample } from './anonymous/custom-listener/custom-listen
 import { KeyValueExample } from './anonymous/key-value/key-value';
 import { HttpUserEventsExample } from './anonymous/http-user-events/http-user-events-example';
 import { SlicePipeExample } from './pipes/SlicePipeExample';
+import { FirstPage } from './services/data-sharing/first-page/first-page';
+import { SecondPage } from './services/data-sharing/second-page/second-page';
 
 const routes: Routes = [
 
@@ -113,7 +115,9 @@ const routes: Routes = [
     { path: 'customListener', component: CustomListenerExample },
     { path: 'keyValue', component: KeyValueExample },
     { path: 'httpUserEvent', component: HttpUserEventsExample },
-    { path: 'slicePipe', component: SlicePipeExample }
+    { path: 'slicePipe', component: SlicePipeExample },
+    { path: 'firstPage', component: FirstPage },
+    { path: 'secondPage', component: SecondPage }
 ];
 
 @NgModule({

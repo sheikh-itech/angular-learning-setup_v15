@@ -1,0 +1,5 @@
+<div>
+    <input [(ngModel)]="sharedData" placeholder="Type something..." />
+    <button (click)="shareData()">Share Data</button>
+    <div>{{message}} <a *ngIf="message" routerLink="/secondPage">Go to Second Page</a></div>
+</div>

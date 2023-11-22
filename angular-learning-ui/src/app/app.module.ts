@@ -51,6 +51,8 @@ import { CustomListenerExample } from './anonymous/custom-listener/custom-listen
 import { KeyValueExample } from './anonymous/key-value/key-value';
 import { HttpUserEventsExample } from './anonymous/http-user-events/http-user-events-example';
 import { SlicePipeExample } from './pipes/SlicePipeExample';
+import { FirstPage } from './services/data-sharing/first-page/first-page';
+import { SecondPage } from './services/data-sharing/second-page/second-page';
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { SlicePipeExample } from './pipes/SlicePipeExample';
     AccessDenied, LineChart, ApexChartExample, NgApexSplineChart, EncryptionComponent,
     RedisJavaExample, FadeInExample, LineExample, LineExample1, QuaggaBarcodeReader,
     ZXingQrGenerator, ZXingQrScannerImage, ZXingQRScannerVideo, ZXingQrScannerImageUrl,
-    CustomListenerExample, KeyValueExample, HttpUserEventsExample, SlicePipeExample
+    CustomListenerExample, KeyValueExample, HttpUserEventsExample, SlicePipeExample, FirstPage, 
+    SecondPage
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
