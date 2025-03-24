@@ -1,0 +1,20 @@
+<div>
+
+    <h2 style="color: brown">Attribute Binding Example</h2>
+
+    <!-- <input type="text" [value]="firstName" (input)="firstName = $any($event.target.value)"/> -->
+    First Name : <input type="text" [value]="firstName" (input)="updateFirstName($event)" />
+
+    <br />
+    <br />
+
+    Second Name : <input type="text" [(ngModel)]="secondName" />
+
+    <br />
+
+    <hr>
+
+    <p>Entered First Name: {{firstName}}</p>
+    <p>Entered Second Name: {{secondName}}</p>
+
+</div>

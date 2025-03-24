@@ -1,0 +1,96 @@
+<fieldset>
+    <legend>@NgModule Detail</legend>
+
+    <div style="font-size: 20px; padding-top: 20px;">
+        @NgModule is a decorator that turns a TypeScript class into an Angular module — a container that groups components, directives, pipes, and services
+    </div>
+    
+    <pre>
+            
+        @NgModule(
+            declarations: [AppComponent], 
+            imports: [BrowserModule],     
+            providers: [],                
+            bootstrap: [AppComponent]     
+        )
+        export class AppModule
+    </pre>
+    
+
+    <table>
+        <thead>
+            <tr><b>Properties of @NgModule</b></tr>
+            <tr>
+                <td>Property</td>
+                <td>Purpose</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>declarations</td>
+                <td>Declares components, directives, and pipes that belong to this module</td>
+            </tr>
+            <tr>
+                <td>imports</td>
+                <td>Imports other Angular modules (like FormsModule, RouterModule)</td>
+            </tr>
+            <tr>
+                <td>exports</td>
+                <td>Makes components, directives, and pipes available to other modules</td>
+            </tr>
+            <tr>
+                <td>providers</td>
+                <td>Registers services at the module level for Dependency Injection</td>
+            </tr>
+            <tr>
+                <td>bootstrap</td>
+                <td>Specifies the root component to bootstrap the Angular application</td>
+            </tr>
+            <tr>
+                <td>schema</td>
+                <td>Allows usage of non-standard or custom elements (e.g., web components)</td>
+            </tr>
+            <tr>
+                <td>entryComponents</td>
+                <td>(Legacy) Defines components to be dynamically loaded (before Ivy)</td>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>Uniquely identifies the module (used for lazy-loading scenarios)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br /><br />
+
+    <u><b>Features of @NgModule</b></u>
+    <pre>
+        ✅ Modularization:
+                Organizes the app into cohesive blocks of functionality
+                Promotes separation of concerns (e.g., feature modules, shared modules)
+        
+        ✅ Dependency Injection (DI):
+                Registers services using the providers array for a specific scope (module, root, or platform)
+
+        ✅ Lazy Loading:
+                Supports lazy loading of feature modules for performance optimization
+
+        ✅ Encapsulation:
+                Components declared in a module are isolated unless exported
+
+        ✅ Bootstrapping:
+                Defines the root component to start the Angular application
+        
+    </pre>
+
+    <br /><br />
+
+    <pre>
+When to Use Multiple Modules
+============================
+
+Core Module:        Services and components used throughout the app (e.g., authentication)
+Shared Module:      Reusable components, pipes, and directives (e.g., UI components)
+Feature Modules:    Specific app features (e.g., user management, admin dashboard)
+    </pre>
+</fieldset>

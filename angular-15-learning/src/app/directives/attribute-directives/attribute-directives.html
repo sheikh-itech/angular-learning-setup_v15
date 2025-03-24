@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Attribute Directives Demo</h2>
+
+    <!-- ngClass Example -->
+    <button (click)="toggleHighlight()" [ngClass]="{'highlight': isHighlighted, 'normal': !isHighlighted}">
+        Click to Toggle ngClass
+    </button>
+
+    <p [ngClass]="textClass">This text changes color based on selection</p>
+
+    <select [(ngModel)]="textClass">
+        <option value="red-text">Red</option>
+        <option value="blue-text">Blue</option>
+        <option value="green-text">Green</option>
+    </select>
+
+    <hr />
+
+    <!-- ngStyle Example -->
+    <p [ngStyle]="{'color': textColor, 'font-size': textSize + 'px'}">
+        This text color and size changes dynamically
+    </p>
+    <input type="color" [(ngModel)]="textColor" />
+    <input type="range" min="10" max="30" [(ngModel)]="textSize" />
+
+    <hr />
+
+    <!-- Other Attribute Directives -->
+    <input type="text" [disabled]="isDisabled" [placeholder]="inputPlaceholder" />
+    <button (click)="toggleInput()">Toggle Input Disabled</button>
+
+    <p [title]="hoverText">Hover over this text to see the title attribute in action!</p>
+</div>

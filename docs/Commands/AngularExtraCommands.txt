@@ -1,0 +1,133 @@
+Angular Commands
+================
+
+Dependency Issue Resolve
+------------------------
+>Delete the node_modules folder
+>Delete package.json.lock file
+>npm cache clean --force
+
+1. Checkout project and run below command
+>npm update @angular/cli
+
+2. Angular Chart
+	1. npm install @riapacheco/yutes ng2-charts
+		[npm install @riapacheco/yutes ng2-charts --force]
+
+3. Angular Material
+
+	>ng add @angular/material	[--save, not required with add]
+	>ng add @angular/material --save
+
+4. i-18 Internationalization
+----------------------------
+>ng add @angular/localize
+>npm install @ngx-translate/core @ngx-translate/http-loader
+
+5. Barcode Read Library
+------------------------
+>npm install quagga --save
+>npm install --save-dev @types/quagga
+
+>npm i --save crypto-js
+>npm i --save @types/crypto-js
+>npm i chart.js@2.9.3 --save
+>npm update -g @angular/cli
+>ng serve --port 8081
+
+[To connect with mobile in same network]
+>ng serve --open --host 192.168.225.109 --port 8081 --disable-host-check
+>ng build parichai-dashboard -c production
+>ng build parichai-dashboard -c production --base-href parichai-dashboard
+>ng build -c production --base-href ./
+
+[Generate and add to module if more then 1 module]
+>ng generate component expiry-tracker --m app.module
+
+>npm install xlsx --save
+>npm install xlsx-js-style --save
+
+>npm install bootstrap --save
+
+[Ng-Apex Chart]
+>npm install ng-apexcharts --save
+>npm install apexcharts ng-apexcharts --save [apexcharts and ng-apexcharts both required]
+
+Encryption Jasypt
+-----------------
+>npm i --save-dev @types/jasypt
+>npm install jasypt --save
+
+Angular Fix
+-----------
+npm audit fix
+npm update -g loader-utils@3.2.0
+
+Node Update
+-----------
+npm install -g npm-windows-upgrade
+npm-windows-upgrade
+
+JQuery in Angular
+-----------------
+npm install jquery@3.6.0 --save-dev @types/jquery
+
+Add below property in tsconfig.json file [For angular compiler option]
+"allowSyntheticDefaultImports":  true
+
+Angular Moment For Date
+-----------------------
+>npm install @angular/material-moment-adapter@15 --save
+>npm i @angular/material-moment-adapter@15 --save
+--> @15 is angular version
+
+Localhost to mobile
+-------------------
+>ng serve --open --host 192.168.225.109 --port 8081 --disable-host-check
+>ng serve --open --host 10.120.10.116 --port 8081 --disable-host-check
+
+Allow localhost:port in firewal[optional]
+[ControlPanel>System&Security>WindowsDefenderFirewal>Advanced>InboundRule>newRule>allow host&port]
+
+Angular.json
+------------
+"server": "webpack-dev-server --inline --progress --host 192.168.225.109 --port 9091",
+
+Angular Tomcat 404 On Refresh
+-----------------------------
+1. Add WEB-INF inside 'src' folder
+2. Add web.xml with below configuration
+
+	<web-app>
+	  <error-page>
+		<error-code>404</error-code>
+		<location>/index.html</location>
+	  </error-page>
+	</web-app>
+
+Angular Tomcat 404 On Refresh [Tested]
+--------------------------------------
+Need to add below supporting configuration to tomcat server for angular route
+
+Place attached 'rewrite.config' file inside below directory
+    "Tomcat 8.5/conf/Catalina/localhost/"
+
+Add below line to server.xml file
+	<Valve className="org.apache.catalina.valves.rewrite.RewriteValve" />
+
+=>server.xml file location ->  "Tomcat 8.5/conf/server.xml"
+=>Inside server.xml file, add below line just before closing of </HOST> tag
+
+rewrite.config
+--------------
+RewriteCond %{REQUEST_PATH} !-f
+RewriteRule ^/parichai-dashboard/(.*) /parichai-dashboard/index.html
+
+Un-Known Issue/Error
+--------------------
+>ng update @angular/cli
+>ng update @angular/core
+>ng update rxjs
+
+
+

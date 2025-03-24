@@ -1,0 +1,85 @@
+<fieldset>
+    <legend>Built-in Pipes Examples</legend>
+
+    <table>
+        <thead>
+            <th>Type</th>
+            <th>Input</th>
+            <th>Pipe Output</th>
+            <th>Pipe Used</th>
+        </thead>
+        <tr>
+            <td>Price</td>
+            <td>2500</td>
+            <td>{{ 2500 | currency:'USD' }}</td>
+            <td>currency:'USD'</td>
+        </tr>
+
+        <tr>
+            <td>Today’s Date</td>
+            <td>{{today}}</td>
+            <td>{{ today | date:'fullDate' }}</td>
+            <td>date:'fullDate'</td>
+        </tr>
+
+        <tr>
+            <td>Arham Detail</td>
+            <td>Detail</td>
+            <td>{{ person | json }}</td>
+            <td>json</td>
+        </tr>
+
+        <tr>
+            <td>Arham Name</td>
+            <td>ARHAM SHEKH</td>
+            <td>{{ 'ARHAM SHEKH' | lowercase }}</td>
+            <td>lowercase</td>
+        </tr>
+
+        <tr>
+            <td>Arham Name</td>
+            <td>arham shekh</td>
+            <td>{{ 'arham shekh' | uppercase }}</td>
+            <td>uppercase</td>
+        </tr>
+
+        <tr>
+            <td>Arham Name</td>
+            <td>arham shekh</td>
+            <td>{{ 'arham shekh' | titlecase }}</td>
+            <td>titlecase</td>
+        </tr>
+
+        <tr>
+            <td>Percentage</td>
+            <td>0.75</td>
+            <td>{{ 0.75 | percent }}</td>
+            <td>percent</td>
+        </tr>
+
+        <tr>
+            <td>Slice Example</td>
+            <td>Arham Shekh</td>
+            <td>{{ 'Arham Shekh' | slice:0:5 }}</td>
+            <td>slice:0:5</td>
+        </tr>
+
+        <tr>
+            <td>Async Pipe Example</td>
+            <td>Data from Promise</td>
+            <td style="color: blue;">
+                {{ asyncData | async }}
+                <p *ngIf="!dataLoaded" style="color: red;">Wait for Async data!</p>
+            </td>
+            <td>async</td>
+        </tr>        
+    </table>
+</fieldset>
+
+<br /><br /><br />
+
+<fieldset>
+    <legend>Pipe Chain Example</legend>
+    <p><span style="color: green;">Original Data: </span> {{sliceData}} </p>
+    <p><span style="color: red;">Sliced Data: </span> {{sliceData | slice: 4: 25}} </p>
+</fieldset>

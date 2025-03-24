@@ -1,0 +1,191 @@
+<h3>ngIf Example [Event & 2-way data binding]</h3>
+<hr />
+
+<div class="parent">
+
+    <input type="checkbox" name="checkbox" (click)="onChange($event)" id="toggleCheckbox1" />
+    <label for="toggleCheckbox1">Toggle Checkbox</label>
+
+    <div *ngIf="showText">
+        This text will be visible on checkbox click
+    </div>
+
+</div>
+
+<div class="parent">
+    <!--    Use Two-Way Binding (ngModel)   -->
+
+    <input type="checkbox" [(ngModel)]="isChecked" id="toggleCheckbox2">
+    <label for="toggleCheckbox2">Toggle Checkbox</label>
+
+    <p>Checkbox Value: {{ isChecked }}</p>
+    <div *ngIf="isChecked">
+        This text will be visible on checkbox click
+    </div>
+</div>
+
+<br /><br />
+
+<h3>ngIf, Then & Else Example</h3>
+<hr />
+
+<div class="parent">
+    <input type="checkbox" name="checkbox" (click)="onChange1($event)" id="toggleCheckbox3" />
+    <label for="toggleCheckbox3">Toggle</label>
+
+    <br /> <br />
+
+    <div *ngIf="isVisible; then firstBlock; else secondBlock"></div>
+
+    <ng-template #firstBlock>
+        Checkbox condition based: First-Block
+    </ng-template>
+
+    <ng-template #secondBlock>
+        Checkbox condition based: Second-Block
+    </ng-template>
+</div>
+
+<br /><br />
+
+<h3>ngSwitch Example</h3>
+<hr />
+<div>
+    <select (change)="updateColor($event)">
+        <option value="">-Select Color-</option>
+        <option value="R">Red</option>
+        <option value="B">Blue</option>
+        <option value="G">Green</option>
+        <option value="D">Default</option>
+    </select>
+
+    <div [ngSwitch]="color">
+
+        <div *ngSwitchCase="'R'">
+            <h3 style="color: red;">This is Red Color</h3>
+        </div>
+        <div *ngSwitchCase="'B'">
+            <h3 style="color: blue">This is Blue Color</h3>
+        </div>
+        <div *ngSwitchCase="'G'">
+            <h3 style="color: green">This is Green Color</h3>
+        </div>
+        <div *ngSwitchDefault>
+            <h3>This is Default Color</h3>
+        </div>
+    </div>
+</div>
+
+<h3>ngFor Example</h3>
+<hr />
+<div>
+    <ul>
+        <li *ngFor="let fruit of fruits">{{fruit}}</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr><td colspan="7" style="text-align: center;">Person Detail Table</td></tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>First Redord</th>
+                <th>Last Redord</th>
+                <th>Even Redord</th>
+                <th>Odd Record</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persons; let f=first; let l=last; let e=even; let o=odd; let i=index">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.city}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+                <td>{{e}}</td>
+                <td>{{o}}</td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                    <button (click)="getMorePersons()">Load More Person</button>
+                    <!-- getNewPersons() having performance since pushing new data -->
+                    <!-- <button (click)="getNewPersons()">Load More Person</button> -->
+                    See DOM Stucture change for both table
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br /><br />
+
+<h3>TrackBy Vs ngFor</h3>
+<hr />
+
+<div>
+    <table>
+        <thead>
+            <tr><td colspan="3" style="text-align: center;">Person Detail Table</td></tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persons; let i=index; trackBy: trackByPersonName">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.city}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <!-- getNewPersons() having performance since pushing new data -->
+                    <!-- <button (click)="getNewPersons()">Load More Person</button> -->
+                    <button (click)="getMorePersons()">Load More Person</button>
+                    See DOM Stucture change for both table
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br /><br />
+
+<h3>ngStyle Attribute Directive</h3>
+<hr />
+
+<div>
+
+    <fieldset style="width: 30%;">
+        <legend>Number List with ngStyle</legend>
+
+        <ul>
+            <li *ngFor="let num of numbers" [ngStyle]="{'color': (num%2===0) ? 'green' : 'red'}">
+                Even 'Green' & Odd 'Red': {{num}}
+            </li>
+        </ul>
+    </fieldset>
+
+    <div [ngStyle]="getDynamicStyles()">
+        Dynamic style from object
+    </div>
+    
+    <div>
+        <p [ngClass]="isActive ? 'firstText' : 'secondText'">
+            This text changes color based on the isActive flag.
+        </p>
+
+        <p [ngClass]="{'firstText': !isActive, 'secondText': isActive}">
+            This text changes color based on the isActive flag.
+        </p>
+        
+        <button (click)="isActive = !isActive">Toggle Color</button>
+        
+        <br /> <br />
+
+        <div [ngClass]="['text-green', 'text-font']">This having 2 classes applied</div>
+
+        <div [ngClass]="getClass('green')">Condition based class applied</div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    <!-- *ngIf Example -->
+    <button (click)="toggleMessage()">Toggle Message</button>
+    <p *ngIf="showMessage">Hello, this is an *ngIf example!</p>
+
+    <hr />
+
+    <!-- *ngFor Example -->
+    <h3>List of Fruits:</h3>
+    <ul>
+        <li *ngFor="let fruit of fruits; let i = index">
+            {{ i + 1 }}. {{ fruit }}
+        </li>
+    </ul>
+
+    <hr />
+
+    <!-- *ngSwitch Example -->
+    <h3>Select a Theme:</h3>
+    <select [(ngModel)]="selectedTheme1">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="colorful">Colorful</option>
+    </select>
+
+    <div [ngSwitch]="selectedTheme1">
+        <p *ngSwitchCase="'light'" style="background: #f4f4f4; padding: 10px;">
+            Light Theme Selected
+        </p>
+        <p *ngSwitchCase="'dark'" style="background: #333; color: white; padding: 10px;">
+            Dark Theme Selected
+        </p>
+        <p *ngSwitchCase="'colorful'" style="background: #ffcc00; padding: 10px;">
+            Colorful Theme Selected
+        </p>
+        <p *ngSwitchDefault>No theme selected</p>
+    </div>
+
+    <!-- Using [value] and (change) (Recommended for simple cases) -->
+    <select [value]="selectedTheme2" (change)="onThemeChange($event)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="colorful">Colorful</option>
+    </select>
+
+    <p>Selected Theme: {{ selectedTheme2 }}</p>
+
+
+    <!--  Using Reactive Forms (FormControl) (Recommended for complex forms)  -->
+    <select [formControl]="themeControl">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="colorful">Colorful</option>
+    </select>
+    <p>Selected Theme: {{ themeControl.value }}</p>
+</div>

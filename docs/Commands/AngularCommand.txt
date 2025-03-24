@@ -1,0 +1,99 @@
+
+		Additional Commands
+	-------------------------
+
+	Type Script Version [cmd] >tsc -v
+	Node Version [cmd] > noode -V
+	Npm version > npm -v
+	Angular varsion >ng -v OR >ng v
+
+
+1. Install Angular CLI
+
+	To install Angular CLI, open terminal window and run the following command
+	
+	>npm install -g @angular/cli
+	>npm install -g @angular/cli@15		[version 15]
+
+2. Create New App
+	Creates and initializes new Angular application
+
+	>ng n <App-Name>
+	>ng new <App-Name>
+	
+3. Run Application
+
+	>ng s --o
+	>ng serve --o
+	>ng serve --open
+	>ng serve --open --port 8081
+	
+	>ng serve [project][options]
+	
+	project: name & path of project
+	
+	[options]
+		1. --disable-host-check
+		
+				Don't verify connected clients are part of allowed hosts
+		
+		2. --port
+				Port to listen on
+
+4. Generate Different Components
+
+	>ng g <Schematic> <Name> [options]
+	>ng generate <Schematic> <Name> [options]
+	>ng generateng component MyComponent --standalone --skip-tests --skip-import
+
+	name: 		The name of the file to be created
+	schematic: 	The type of Angular file to generate (e.g., component, service, module)
+
+	Sementics Allowed
+	-----------------
+	component, service, directive, class, guard, interceptor, interface, module, pipe, enum, resolver,
+	config, library, environments, service-worker, web-worker, application
+	
+	Examples:	>ng g c my-component
+				>ng generate component my-component
+			
+	Note: Use --skip-import if not using ngModule
+
+
+5. Angular Build
+
+	This command used to compile Angular application and output production-ready files into the dist/ folder
+	
+	>ng build [option]
+	>ng build <App-Name> -c production
+	
+	1. --base-href
+			Base url for the application being built
+			
+	2. --aot
+			Build using Ahead of Time compilation
+			
+	3. --configuration=production
+								Builds the app for production
+	
+	4. --cross-origin		[ng build --cross-origin=option]
+	
+			none: 				No crossorigin attribute (default)
+			anonymous: 			CORS-enabled assets without credentials
+			use-credentials: 	Enable CORS using credentials
+			
+
+6. Add New Library
+	
+	Add libraries to current application
+	
+	>ng add <Library> [options]
+	
+
+7. Custom Config
+
+	Can provide custom configuration file apart from 'angular.json'
+
+	>ng configng [json-path]
+
+

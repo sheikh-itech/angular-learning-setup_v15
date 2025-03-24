@@ -1,0 +1,136 @@
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar CSS */
+.sidebar {
+    flex: 0 0 auto; 
+    min-width: 100px;
+    background: lightblue;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+  
+    .sidebar > ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      margin-top: 20px;
+    }
+  
+    .sidebar li {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  
+    .sidebar > ul > li:hover, li:hover {
+      color: red;
+      background: #94CC29;
+    }
+  
+      .sidebar > ul > li:hover a {
+        color: red;
+        cursor: pointer;
+      }
+  
+    .sidebar a {
+      padding-left: 10px;
+      text-decoration: none;
+      font-family: cursive;
+      font-size: medium;
+      font-weight: 500;
+    }
+  
+/* Sidebar Sub Menu CSS */
+.sub-menu {
+    display: none;
+    width: fit-content; /* Fit content width */
+    background: lightblue;
+    padding: 5px;
+    margin-left: 10px; /* Adjust spacing from parent */
+    border-radius: 5px;
+    position: absolute;
+    display: none; /* Hide by default */
+}
+
+.sub-menu-parent {
+    position: relative; /* Parent should be relative */
+}
+
+.sub-menu-parent:hover .sub-menu {
+    display: block;
+}
+
+ul.sub-menu {
+    list-style: none;
+    padding: 5px 10px;
+    width: fit-content; /* Ensures it only takes as much space as needed */
+    margin-left: 50%;
+    overflow: visible;
+    z-index: 1;
+}
+
+ul.sub-menu li {
+    padding: 5px 10px;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+ul.sub-menu li a {
+    color: blue;
+    text-decoration: none;
+    font-size: small;
+    display: block;
+}
+
+ul.sub-menu li a:hover {
+    color: pink;
+}
+  
+/* Main Content CSS */
+.main-content {
+    flex-grow: 1; /* Takes remaining width dynamically */
+    min-height: 100%;
+    height: auto;
+    background: #eaf2f5;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-bottom: 5%;
+    overflow-x: visible;
+}
+  
+  .i18n-lang {
+    font-size: 15px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -2%;
+  }
+    .i18n-lang > p {
+      margin-right: 10px;
+      display: inline-block;
+    }
+  
+    .i18n-lang > a {
+      text-decoration: underline;
+      display: inline-block;
+      cursor: pointer;
+      color: blue;
+    }
+
+/* Hide child menu by default */
+.child-menu {
+    position: absolute;
+    left: 90%;
+    background: lightblue;
+    padding: 5px;
+    list-style: none;
+    display: none;
+    margin-top: -20px;
+}
+
+.sub-menu-parent:hover > .sub-menu,
+.sub-menu li:hover > .child-menu {
+    display: block;
+}

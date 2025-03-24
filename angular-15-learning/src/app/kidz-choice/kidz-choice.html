@@ -1,0 +1,8 @@
+<!-- color-grid.component.html -->
+<div class="grid" #gridContainer>
+    <div *ngFor="let color of colors; let i = index" class="grid-item" [style.backgroundColor]="color"
+        (mouseenter)="changeColors(i)" 
+        (mouseleave)="resetColors(i)"
+        [style.opacity]="getOpacity(i)">
+    </div>
+</div>

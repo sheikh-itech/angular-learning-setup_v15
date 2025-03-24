@@ -1,0 +1,18 @@
+<h2 style="color: blueviolet;">Attribute Binding Example</h2>
+
+<!-- Attribute binding to set the 'colspan' dynamically -->
+<table>
+  <tr>
+    <th [attr.colspan]="columnCount">Header spanning {{ columnCount }} columns</th>
+  </tr>
+  <tr>
+    <td>Cell 1</td>
+    <td>Cell 2</td>
+    <td>Cell 3</td>
+  </tr>
+</table>
+
+<br /><br />
+
+<!-- Input field with dynamic 'aria-label' for accessibility -->
+<input type="text" [attr.aria-label]="inputLabel" [attr.placeholder]="placeholder">

@@ -28,6 +28,7 @@ i-18 Internationalization
 -------------------------
 >ng add @angular/localize
 >npm install @ngx-translate/core @ngx-translate/http-loader
+>npm install @ngx-translate/core@14 @ngx-translate/http-loader@7 	[version 14 & 7 for angular-15]
 
 
 

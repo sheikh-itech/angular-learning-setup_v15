@@ -1,0 +1,10 @@
+<h2>Event Binding Example</h2>
+
+<!-- Button click event -->
+<button (click)="showMessage()">Click Me!</button>
+
+<!-- Input event to capture user typing -->
+<input type="text" (input)="updateName($event)" placeholder="Enter your name">
+
+<p>{{ message }}</p>
+<p>Your name: {{ name }}</p>

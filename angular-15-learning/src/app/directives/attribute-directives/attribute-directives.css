@@ -1,0 +1,25 @@
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.normal {
+    background-color: white;
+}
+
+.red-text {
+    color: red;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.green-text {
+    color: green;
+}

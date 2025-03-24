@@ -1,0 +1,90 @@
+.themebtn  {
+  background-color : #2a5e92 !important;
+  color:#fff !important;
+}
+.themebtn:hover{
+color: #fff;
+background-color: #1e496d;
+border-color: #2e6da4;
+}
+.inner-addon {
+    position: relative;
+    color: Black;
+}
+
+    .inner-addon .glyphicon {
+        position: absolute;
+        padding: 10px;
+        pointer-events: none;
+    }
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+.highlight {
+    background-color: Yellow;
+    color: Black;
+}
+
+
+
+thead{
+    background-color:#e6ebf2;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+    cursor:pointer;
+    opacity: 1;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: whitesmoke;
+    color: darkblue;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 2px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    border:solid 1px gray;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+/* button recolor */
+.nav-pills > li.active > a {
+  background-color: #6C6C6C !important;
+  border-radius: 25px; 
+}
+.horizontal-scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+}

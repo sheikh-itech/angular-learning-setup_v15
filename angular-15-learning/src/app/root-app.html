@@ -1,0 +1,157 @@
+<div class="container">
+    <div class='sidebar'>
+        <ul>
+            <!-- routerLinkActiveOptions: Matches exact path if multiple have same start-url -->
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a routerLink="/login">{{ 'Login' | translate }}</a>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Data Binding</a>
+                <ul class='sub-menu'>
+                    <li routerLinkActive="active"> <a routerLink="/interpolation">Interpolation</a> </li>
+                    <li routerLinkActive="active"> <a routerLink="/property-binding">Property Binding</a> </li>
+                    <li routerLinkActive="active"> <a routerLink="/attribute-binding">Attribute Binding</a> </li>
+                    <li routerLinkActive="active"> <a routerLink="/twoway-binding">Two Way Binding</a> </li>
+                    <li routerLinkActive="active"> <a routerLink="/event-binding">Event Binding</a> </li>
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>{{ 'Pipes' | translate }}</a>
+
+                <ul class='sub-menu'>
+                    <li> <a routerLink="/builtin-pipes">Built In Pipes</a> </li>
+                    <li> <a routerLink="/custom-pipes">Custom Pipes</a> </li>
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Class Decorators</a>
+                <ul class='sub-menu'>
+
+                    <li> <a routerLink="/kidzChoice">@Component</a> </li>
+
+                    <li> 
+                        <a>@Directive</a>
+                        <ul class='child-menu'>
+                            <li> <a routerLink="/structural">Structural</a> </li>
+                            <li> <a routerLink="/attribute">Attribute</a> </li>
+                        </ul>
+                    </li>
+
+                    <li> 
+                        <a>@Pipe</a> 
+                        
+                        <ul class='child-menu'>
+                            <li> <a routerLink="/builtin-pipes">Built In Pipes</a> </li>
+                            <li> <a routerLink="/custom-pipes">Custom Pipes</a> </li>
+                        </ul>
+                    </li>
+
+                    <li> <a routerLink="/injectable">@Injectable</a> </li>
+                    
+                    <li> <a routerLink="/moduleDesc">@NgModule</a> </li>
+                    <li> 
+                        <a>Directive Examples</a>
+                        <ul class='child-menu'>
+                            <li> <a routerLink="/component-directive">Component</a> </li>
+                            <li> <a routerLink="/structural-directive">Structural</a> </li>
+                            <li> <a routerLink="/attribute-directive">Attribute</a> </li>
+                            <li> <a routerLink="/combined-directive">Combined-Directive</a> </li>
+                            <li> <a routerLink="/directive-examples">Directive Examples</a> </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Method Decorators</a>
+                <ul class='sub-menu'>
+
+                    <li> <a routerLink="hostListenerExample">@HostListener</a> </li>
+                    <li> <a>@Effect [NgRx]</a> </li>
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Property Decorators</a>
+                <ul class='sub-menu'>
+
+                    <li> 
+                        <a routerLink="/inputExample">@Input</a> 
+                        <ul class='child-menu'>
+                            <li> <a [routerLink]="['/inputChildExample', 'Hello Angular!', 5]">@Input-Child</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a>@Output</a> </li>
+                    <li> <a>@ViewChild</a> </li>
+                    <li> <a>@ViewChildren</a> </li>
+                    <li> <a>@ContentChild</a> </li>
+                    <li> <a>@ContentChildren</a> </li>
+                    <li> <a>@HostBinding</a> </li>
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Parameter Decorators</a>
+                <ul class='sub-menu'>
+
+                    <li> <a>@Inject</a> </li>
+                    <li> <a>@Self</a> </li>
+                    <li> <a>@SkipSelf</a> </li>
+                    <li> <a>@Optional</a> </li>
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Routing Demo</a>
+                <ul class='sub-menu'>
+
+                    <li> <a routerLink="/parent/101">Parent Route</a> </li>
+                    <li> <a routerLink="/parent/101/child/102">Child Route</a> </li>
+                    <li> <a routerLink="/resolveHttp">Http Resolver</a> </li>
+                    <!--
+                    <li><a [routerLink]="['/parent', 101]">Parent Route</a></li>
+                    <li><a [routerLink]="['/parent', 101, 'child', 102]">Child Route</a></li>
+                    -->
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Others</a>
+                <ul class='sub-menu'>
+
+                    <li> <a routerLink="/renderer2Example">Renderer2</a> </li>
+                </ul>
+            </li>
+
+            <li class='sub-menu-parent'>
+                <a>Data Sharing</a>
+                <ul class='sub-menu'>
+
+                    <li> <a routerLink="/componentCommunication1">Component1</a> </li>
+                    <li> <a routerLink="/componentCommunication2">Component2</a> </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class='main-content'>
+
+        <div class="i18n-lang">
+            <p>{{ 'Change To' | translate }}:</p>
+            <a (click)="changeLanguage(engLang)">{{engLang?'हिंदी':'English'}}</a>
+        </div>
+
+        <router-outlet></router-outlet>
+
+
+        <!-- Way to call using Input values
+  
+      <life-cycle-hooks [title]="'My Title'" [content]="'My Content'"></life-cycle-hooks>
+    -->
+    </div>
+</div>

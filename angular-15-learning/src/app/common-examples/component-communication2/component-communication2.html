@@ -1,0 +1,15 @@
+<fieldset>
+    <legend>Component 2 - Send & Receive Data</legend>
+
+    <div>
+        <input type="text" [(ngModel)]="inputData"/>
+        <button (click)="sendData()">Send to Component 1</button>
+    </div>
+
+    <br /> <br />
+    <div>
+        <button (click)="receiveData()">Receive from Component 1</button>
+        <p><strong>Received Data:</strong> {{ receivedData }}</p>
+    </div>
+    
+</fieldset>
