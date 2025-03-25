@@ -80,17 +80,17 @@
                 <ul class='sub-menu'>
 
                     <li> 
-                        <a routerLink="/inputExample">@Input</a> 
+                        <a [routerLink]="['/inputExample', 'Hello Input', 15]">@Input</a> 
                         <ul class='child-menu'>
                             <li> <a [routerLink]="['/inputChildExample', 'Hello Angular!', 5]">@Input-Child</a> </li>
                         </ul>
                     </li>
-                    <li> <a>@Output</a> </li>
-                    <li> <a>@ViewChild</a> </li>
-                    <li> <a>@ViewChildren</a> </li>
-                    <li> <a>@ContentChild</a> </li>
-                    <li> <a>@ContentChildren</a> </li>
-                    <li> <a>@HostBinding</a> </li>
+                    <li> <a routerLink="outputDecorator">@Output</a> </li>
+                    <li> <a routerLink="viewChildDecorator">@ViewChild</a> </li>
+                    <li> <a routerLink="viewChildrenDecorator">@ViewChildren</a> </li>
+                    <li> <a routerLink="contentChildDecorator">@ContentChild</a> </li>
+                    <li> <a routerLink="contentChildrenDecorator">@ContentChildren</a> </li>
+                    <li> <a routerLink="hostBindingExample">@HostBinding</a> </li>
                 </ul>
             </li>
 

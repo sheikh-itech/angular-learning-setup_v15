@@ -1,0 +1,39 @@
+			HTTP and Observables
+		=============================
+
+HTTP and Observables covers following topics-
+
+	1. Making HTTP requests in Angular using the HttpClient service
+	2. Working with observables in Angular
+	3. Using operators to transform, filter, and combine observables
+	4. Caching HTTP responses using the RxJS shareReplay operator
+	5. Interacting with APIs using RESTful principles
+
+HTTP Requests in Angular
+========================
+
+Get
+---
+	1. Required-> Url, Optional-> Options
+	2. Can send custom headers [Inside Options]
+	3. Can send optional Params [Inside Options]
+	4. Can specify responseType [Inside Options]
+	5. Can set optional withCredentials [Inside Options]
+
+Post, Put, Patch
+----------------
+	1. Required-> Url and Body [Body may be null], Optional-> Options
+	2. Can send custom headers [Inside Options]
+	3. Can send optional Params [Inside Options]
+	4. Can specify responseType [Inside Options]
+	5. Can set optional withCredentials [Inside Options]
+
+Delete
+------
+	1. Required-> Url, Optional-> Options
+	2. Can send optional Body [Inside Options]
+	3. Can send custom headers [Inside Options]
+	4. Can send optional Params [Inside Options]
+	5. Can specify responseType [Inside Options]
+	6. Can set optional withCredentials [Inside Options]
+

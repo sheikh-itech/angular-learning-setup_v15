@@ -1,0 +1,48 @@
+		@HostBinding
+	---------------------
+
+@HostBinding() is an Angular decorator that:
+
+		Binds a property or class of the host element to a component or directive property
+		Allows you to dynamically set styles, classes, and attributes on the host element
+		Eliminates the need for manual DOM manipulations like ElementRef or Renderer2
+
+
+Syntax and Usage
+----------------
+@HostBinding('class.active') isActive = true;      // Binds to class
+@HostBinding('attr.role') role = 'button';          // Binds to attribute
+@HostBinding('style.color') color = 'blue';         // Binds to style
+
+
+Parameters:
+
+	'class.active' → Binds the active class to the host element
+	'attr.role' → Binds the role attribute to the host element
+	'style.color' → Binds the color style dynamically
+
+Use Case
+--------
+	Dynamically changing the appearance or behavior of the host element
+	Avoids manual DOM manipulation and keeps the template clean
+
+
+When Should You Use @HostBinding()?
+-----------------------------------
+		Want to dynamically apply classes, attributes, or styles to the host element
+		Want to bind host properties in a directive
+		Want to avoid using ElementRef and Renderer2 for performance reasons
+		When you need a clean and declarative way to interact with the host element
+
+
+
+
+
+
+
+
+
+
+
+
+

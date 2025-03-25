@@ -1,0 +1,409 @@
+		Routing
+	---------------
+
+Routing allows us to navigate between different views or components in a single-page application (SPA)
+
+It allows you to manage different [without needing to reload page]-
+		1. Views
+		2. State
+		3. Transitions
+
+	=> CanActivate: Check before route activation
+	=> CanDeactivate: Check before leaving a route
+	=> CanLoad: Prevent loading lazy modules
+	=> Can Fetch data before route activation [Route Resolvers]
+	=> Can Listen for route changes
+	=> Can Pass dynamic data through URLs
+	=> Can Load modules on demand to improve performance
+	=> RouterModule.forRoot(routes) for root-level configuration
+	=> RouterModule.forChild(routes) for feature modules
+
+
+Routing Steps
+-------------
+
+1. Defining Routes: 
+		Routes are defined as an array of objects that associate paths with components.
+		Each object typically contains:		
+				path: The URL path for the route
+				component: The component to display when the route is accessed
+				Optionally: canActivate, canDeactivate, or children to implement guards or nested routes
+		
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent }
+];
+
+
+2. RouterOutlet: 
+		The <router-outlet> directive in template is where the routed component will be displayed.
+		It acts as a placeholder for routing
+		
+		<router-outlet></router-outlet>
+
+3. Use RouterLink for Navigation: 
+		In templates, we use routerLink directive to navigate to different routes
+		
+		<a routerLink="/about">About</a>
+
+
+4. Programmatic Navigation with Router: 
+		Angular provides a Router service that allows navigation from TypeScript code
+		
+		constructor(private router: Router) { }
+
+		goToAbout() {
+		  this.router.navigate(['/about']);
+		}
+
+
+
+
+Types of Routing in Angular
+===========================
+
+1. Lazy Loading:
+		
+		A performance optimization that allows Angular to load specific modules only when required
+		(not at the initial load).
+		This helps improve the initial loading time of the application
+		
+		Achieved by using loadChildren in the route configuration
+		
+		const routes: Routes = [
+		  { path: 'feature', loadChildren: () => import('./feature.module').then(m => m.FeatureModule) }
+		];
+
+2. Nested Routes (Child Routes):
+
+		Allows the creation of child routes within a parent route.
+		This is useful for deeply nested views and layout management.
+
+		const routes: Routes = [
+		  {
+			path: 'products', 
+			component: ProductsComponent,
+			children: [
+			  { path: 'details', component: ProductDetailsComponent }
+			]
+		  }
+		];
+
+3. Route Guards:
+		
+		Guards control access to routes, allowing you to restrict access or perform checks before navigating
+	
+	Types of route guards
+	---------------------
+	
+	1. CanActivate: Determines whether a route can be activated
+	
+	2. CanDeactivate: Determines whether a route can be deactivated
+	
+	3. CanLoad: Used for lazy-loaded modules
+	
+	4. Resolve: Fetches data before a route is activated
+
+
+	canActivate() {
+	  return this.authService.isAuthenticated();
+	}
+
+
+4. Query Parameters and Route Parameters:
+
+		Query parameters are used for optional parameters in URLs [/products?id=123]
+		
+		Route parameters are part of the route path [/product/:id]
+
+
+	const routes: Routes = [
+	  { path: 'product/:id', component: ProductComponent }
+	];
+	--------------
+	constructor(private route: ActivatedRoute) { }
+
+	ngOnInit() {
+	  this.route.params.subscribe(params => {
+		const productId = params['id'];
+	  });
+	}
+
+
+5. Router Events:
+
+		Listen for route changes [loading indicators]
+		
+		this.router.events.subscribe(event => console.log(event));
+
+6. 404 Not Found Route: 
+
+		Catch-all for unmatched URLs
+		
+		{ path: '**', component: NotFoundComponent }
+
+
+
+
+Performance Improvement in Angular Routing
+==========================================
+
+1. Lazy Loading:
+
+		Implement lazy loading for large modules to reduce the initial loading time
+
+
+2. Preloading Strategy:
+
+		Implement a preloading strategy that loads certain modules in the background after the initial load, 
+		improving the app’s responsiveness
+		
+		@NgModule({
+		  imports: [
+			RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+		  ]
+		})
+		export class AppRoutingModule {}
+
+
+3. Avoiding Redundant Routes:
+
+		Ensure that routes aren’t unnecessarily nested or duplicated, which can cause performance overhead
+
+
+4. Use of CanLoad Guard for Lazy Modules:
+
+		Use CanLoad guards to prevent the unnecessary loading of large modules unless needed
+		
+
+
+
+Other Useful Routing Concepts in Angular
+========================================
+
+1. Route Resolvers:
+
+		Fetch data before navigating to a route, useful for ensuring that necessary data is available 
+		when the component loads
+		
+
+@Injectable({ providedIn: 'root' })
+export class ProductResolver implements Resolve<Product> {
+  constructor(private productService: ProductService) {}
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product> {
+    return this.productService.getProduct(route.paramMap.get('id'));
+  }
+}
+
+
+
+2. Location Strategy:
+
+		PathLocationStrategy [default]: Uses regular browser URL paths
+		
+		HashLocationStrategy: Uses hash-based URLs 
+				[useful in certain environments where path-based URLs are not supported]
+
+
+3. Router Events:
+
+		Angular Router emits various events, such as navigation start, navigation end, and errors, 
+		which can be subscribed to for custom logic
+
+
+		this.router.events.pipe(
+		  filter(event => event instanceof NavigationStart)
+		).subscribe(event => {
+		  console.log('Navigation started:', event);
+		});
+
+
+
+Extra
+=====
+
+CanActivate, CanLoad: use to ensure that only authorized users can access certain routes
+
+Sanitization: Ensure that user inputs are sanitized properly, especially when passing query parameters or 
+				route parameters that might be displayed in the UI to prevent XSS attacks
+
+
+
+New Functional Guard [Preferred]
+================================
+
+Instead of creating an injectable class that implements route guard interfaces,
+Angular 15+ encourages using functions for guards, leveraging the inject function.
+
+
+	Simplicity: No need for class boilerplate—just write a function!
+	Injection: Uses the inject function to access services directly, no need for a constructor
+	Tree-shakable: Helps Angular optimize and tree-shake unused guards
+	
+	
+export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const authService = inject(AuthService);
+  return authService.isLoggedIn();
+};
+
+
+const routes: Routes = [
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] }
+];
+
+
+canLoad Guard [Lazy Loading Protection]
+=======================================
+
+	=> Prevent lazy loading of a module unless a condition is met [user authentication]
+	=> canLoad only runs once — when the module is about to be loaded, not on every navigation
+
+
+export const canLoadGuard: CanLoadFn = (route: Route, segments: UrlSegment[]) => {
+  const authService = inject(AuthService);
+  return authService.isLoggedIn();
+};
+
+
+const routes: Routes = [
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canLoad: [canLoadGuard]  // Prevents loading the module unless the guard returns true
+  }
+];
+
+
+
+canMatch [Flexible Route Matching]
+==================================
+
+	=> dynamic route access control
+	=> Dynamically control whether a route should match the URL based on custom conditions
+	=> Unlike canLoad, canMatch runs on every navigation, not just on module load
+
+
+export const canMatchGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
+  const authService = inject(AuthService);
+  return authService.isLoggedIn() ? true : false;
+};
+
+
+const routes: Routes = [
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canMatch: [canMatchGuard]  // Prevents navigation to the route
+  }
+];
+
+
+canActivateChild Functional Guard
+=================================
+
+	=> canActivateChild runs on every navigation to a child route — perfect for protecting nested views
+	
+	
+export const canActivateChildGuard: CanActivateChildFn = (childRoute, state) => {
+  const authService = inject(AuthService);
+  return authService.isLoggedIn(); // Only allow access if logged in
+};
+
+
+const routes: Routes = [
+  {
+    path: 'parent',
+    component: ParentComponent,
+    canActivateChild: [canActivateChildGuard], // Protects child routes
+    children: [
+      { path: 'child1', component: Child1Component },
+      { path: 'child2', component: Child2Component }
+    ]
+  }
+];
+
+
+Resolver with Guard
+===================
+
+	=> A Resolver fetches data before the route activates
+	=> Useful for ensuring required data is loaded before rendering a component
+	=> Ensures your components load only after critical data is ready
+	=> Avoids UI flickering from async loading states
+
+
+
+Redirect in Angular Routing?
+============================
+
+A redirect automatically navigates the user from one route to another.
+It’s defined in the route configuration using the redirectTo property
+
+1. Default Routes:
+------------------
+	Redirect users to a default route when they access the root URL ('/')
+	
+{ path: '', redirectTo: 'home', pathMatch: 'full' }
+
+2. Page Not Found (404):
+------------------------
+	Redirect users to a custom "Not Found" page for unknown routes
+	** is a wildcard that matches any undefined route
+	
+{ path: '**', redirectTo: 'not-found', pathMatch: 'full' }
+
+
+3. Backward Compatibility / URL Structure Changes
+-------------------------------------------------
+		If app structure changes, we can redirect old routes to new ones
+
+{ path: 'old-path', redirectTo: 'new-path', pathMatch: 'full' }
+
+
+Path Match
+==========
+
+	pathMatch: 'full' → 
+					The entire URL path must match for the redirect to happen.
+					
+	pathMatch: 'prefix' → 
+						The beginning of the URL path must match (default)
+
+
+{ path: '', redirectTo: 'home', pathMatch: 'full' } // Redirects only if the path is completely empty
+{ path: '', redirectTo: 'home' } // Redirects for any URL starting with ''
+
+
+
+Absolute Path
+=============
+	An absolute path is a full path from the root of the application or domain
+	
+	=> In Angular, it starts with a slash (/)
+	=> Refers to a specific location in the app, regardless of the current route
+
+<a routerLink="/dashboard">Dashboard</a>
+
+=> http://localhost:8081/dashboard
+
+
+Relative Path
+=============
+	A relative path is relative to the current route
+
+	=> It does not start with a slash
+	=> Navigation is performed based on the current URL segment
+
+<a routerLink="settings">Settings</a>
+
+If we’re on /dashboard, it navigates to /dashboard/settings
+
+=> http://localhost:8081/dashboard/settings
+
+
+
+
+
+

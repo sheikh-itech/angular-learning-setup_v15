@@ -1,0 +1,47 @@
+		Decorators
+	------------------
+	
+
+=> Decorators are TypeScript feature used in Angular to define metadata for classes, methods, 
+	properties, and parameters
+
+Decorator Types
+---------------
+
+	1. Class-Level Decorators
+	   ----------------------
+	   
+		@Component:– Defines an Angular component
+		@Directive:– Defines a custom directive
+		@Injectable:– Marks a class as an injectable service
+		@Pipe:– Declares a custom pipe
+		@NgModule:- [if using modules], Declares an Angular module
+	
+	
+	2. Method-Level Decorators
+	   -----------------------
+	   
+		@HostListener:– Binds a method to a DOM event
+		@Effect (NgRx):– Declares an effect in NgRx for handling actions asynchronously
+	
+	
+	3. Property-Level Decorators
+	   -------------------------
+	   
+		@Input:– Binds a property to receive data from a parent component
+		@Output:– Declares an event emitter to send data to a parent component
+		@ViewChild:– Gets a reference to a child component, directive, or DOM element
+		@ViewChildren:– Gets references to multiple child components or elements
+		@ContentChild:– Gets a reference to projected content inside a component
+		@ContentChildren:– Gets references to multiple projected content elements
+		@HostBinding:– Binds a property to a host element’s attribute or style
+	
+	
+	4. Parameter-Level Decorators
+	   --------------------------
+
+		@Inject:– Manually injects a dependency
+		@Self:– Ensures the dependency is provided at the local injector level
+		@SkipSelf:– Looks for the dependency in parent injectors
+		@Optional:– Marks a dependency as optional (can be null if not provided)
+

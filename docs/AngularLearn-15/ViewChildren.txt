@@ -1,0 +1,53 @@
+		@ViewChildren
+	---------------------
+
+The @ViewChildren() decorator in Angular is used to:
+
+		Access multiple child elements, directives, or components in a parent component
+		It returns a QueryList, which is an iterable collection of all matching children
+		You can loop through or manipulate the child elements collectively
+
+
+Syntax
+------
+@ViewChildren(ChildComponent) children!: QueryList<ChildComponent>;
+
+
+Lifecycle Hook Timing
+---------------------
+	@ViewChildren() is only available after ngAfterViewInit()
+	Accessing it in ngOnInit() will give an empty list
+
+
+QueryList Methods and Properties
+--------------------------------
+
+Properties
+
+	this.children.length: Total number of child components
+
+	this.children.first: First child component
+
+	this.children.last: Last child component
+
+	this.children.toArray(): Converts the QueryList to a standard array
+
+Methods
+	.forEach((child) => ...): Iterate over all children
+
+	.map((child) => ...): Transform each child
+
+	.changes: Observable that emits when the QueryList changes
+
+
+
+Feature					@ViewChildren						@ViewChild
+-------					-------------						----------
+Purpose				Access multiple 						child instances	Access a single child
+Return Type			QueryList (iterable)					Single instance
+Use Case			Multiple components or directives		One specific component
+Initialization		Available in ngAfterViewInit()			Available in ngAfterViewInit()
+Example				Multiple ChildComponent instances		One ChildComponent instance
+
+
+

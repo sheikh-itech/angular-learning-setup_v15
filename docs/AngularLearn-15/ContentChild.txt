@@ -1,0 +1,44 @@
+		@ContentChild
+	---------------------
+
+The @ContentChild() decorator in Angular is used to:
+
+		Access a single projected child component, directive, or DOM element inside <ng-content>
+		
+		It works with content projection, 
+		where content from the parent component is injected into the child component using <ng-content>
+
+Syntax
+------
+@ContentChild(ChildComponent) child!: ChildComponent;
+
+		ChildComponent: The child component, directive, or DOM element to reference
+	
+
+Lifecycle Hook Timing
+---------------------
+		The reference is only available after ngAfterContentInit()
+		Accessing it earlier (in ngOnInit()) will give undefined
+
+
+When to Use @ContentChild()
+---------------------------
+		To access projected content in a reusable component
+		To modify or interact with content passed from the parent
+		Building flexible components with content projection
+
+
+
+<!-- ViewChild -->
+<parent>
+    <child></child>   <!-- Direct child inside parent's own template -->
+</parent>
+
+<!-- ContentChild -->
+<parent>
+    <ng-content></ng-content> <!-- Projected child -->
+</parent>
+
+
+
+

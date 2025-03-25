@@ -1,0 +1,67 @@
+<fieldset>
+    <legend>Output:- Child-Parent Communication</legend>
+    
+    <br /><br />
+
+    <div>
+        <output-child (messageEvent)="receiveMessage1($event)"></output-child>
+    </div>
+
+    <br /><br />
+
+    <div>
+        <p>{{ message1 }}</p>
+    </div>
+    
+</fieldset>
+
+<fieldset>
+    <legend>Output- Emitting Multiple Values</legend>
+    
+    <br /><br />
+    
+    <div>
+        <output-child-multiple-values (multipleValueEvent)="receiveMessage2($event)"></output-child-multiple-values>
+    </div>
+
+    <br /><br />
+
+    <div>
+        <p>{{ message2?.name }} -- {{ message2?.age }}</p>
+    </div>
+    
+</fieldset>
+
+<fieldset>
+    <legend>Output- Emitting Custom Types</legend>
+    
+    <br /><br />
+    
+    <div>
+        <output-child-custom (userEvent)="receiveMessage3($event)"></output-child-custom>
+    </div>
+
+    <br /><br />
+
+    <div>
+        <p>{{ message3?.id }} -- {{ message3?.name }} -- {{ message3?.email }}</p>
+    </div>
+    
+</fieldset>
+
+<fieldset>
+    <legend>Output- Async Event Emitters</legend>
+    
+    <br /><br />
+    
+    <div>
+        <output-child-async (asyncEvent)="receiveMessage4($event)"></output-child-async>
+    </div>
+
+    <br /><br />
+
+    <div>
+        <p>{{ message4 }}</p>
+    </div>
+    
+</fieldset>

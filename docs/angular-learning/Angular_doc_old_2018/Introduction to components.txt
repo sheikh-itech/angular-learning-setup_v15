@@ -1,0 +1,76 @@
+Introduction to components
+==========================
+
+=>A component controls a patch of screen called a view.
+=>We define a component's application logic—what it does to support the view—inside a class. 
+=>The class/component interacts with the view through an API of properties and methods.
+=>Angular creates, updates, and destroys components as the user moves through the application. 
+=>Your app can take action at each moment in this lifecycle through optional lifecycle hooks, like ngOnInit().
+
+Component metadata:
+
+=>The @Component decorator identifies the class immediately below it as component class, and specifies its metadata.
+=>The metadata for a component tells Angular where to get the major building blocks it needs to create and present the component and its view.
+=>In particular, it associates a template with the component, either directly with inline code, or by reference.
+=>Together, the component and its template describe a view.
+=>@Component metadata configures, what services is requires.
+
+@Component configuration options:
+
+=>selector: A CSS selector that tells Angular to create and insert an instance of this component wherever it finds the corresponding tag in template HTML. 
+=>For example, if an app's HTML contains <app-hero-list></app-hero-list>, then Angular inserts an instance of the HeroListComponent view between those tags.
+=>templateUrl: The module-relative address of this component's HTML template.
+=>providers: An array of dependency injection providers for services that the component requires.
+
+Templates and views:
+
+=>We define a component's view with its companion template. 
+=>A template is a form of HTML that tells Angular how to render the component.
+=>Views are typically arranged hierarchically, 
+  allowing you to modify or show and hide entire UI sections or pages as a unit.
+
+Template syntax:
+
+=>A template looks like regular HTML, 
+=>except that it also contains Angular template syntax, 
+  which alters the HTML based on your app's logic and the state of app and DOM data
+=>Template can use data binding to coordinate the app and DOM data, pipes to transform data before it is displayed, and directives to apply app logic to what gets displayed.
+
+Data binding:
+
+=>Angular supports two-way data binding, a mechanism for coordinating parts of a template with parts of a component.
+=>Add binding markup to the template HTML to tell Angular how to connect both sides.
+
+Pipes
+==============
+
+=>Angular pipes let you declare display-value transformations in your template HTML.
+=>A class with the @Pipe decorator defines a function that transforms input values to output values for display in a view.
+=>we can chain pipes, sending the output of one pipe function to be transformed by another pipe function.
+
+Directives
+==============
+
+=>Angular templates are dynamic. 
+=>When Angular renders them, it transforms the DOM according to the instructions given by directives.
+=>A directive is a class with a @Directive decorator.
+
+"A component is technically a directive - but components are so distinctive and central to Angular applications that Angular defines the @Component decorator, which extends the @Directive decorator with template-oriented features."
+
+Types of directive:
+1. structural and 
+2. attribute directives
+
+=>In templates, directives typically appear within an element tag as attributes.
+
+Structural directives:
+=>Structural directives alter layout by adding, removing, and replacing elements in DOM.
+eg. <li *ngFor="let hero of heroes"></li>  ---> here *ngIf is structural directive.
+
+Attribute directives:
+=>Attribute directives alter the appearance or behavior of an existing element.
+eg. <input [(ngModel)]="hero.name"> --> [(ngModel)] is attribute directive.
+
+=> ngModel modifies the behavior of an existing element (typically an <input>) 
+by setting its display value property and responding to change events.
+

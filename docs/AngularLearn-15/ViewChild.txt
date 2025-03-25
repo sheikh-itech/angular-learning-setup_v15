@@ -1,0 +1,84 @@
+		@ViewChild
+	-------------------
+
+@ViewChild() is a decorator in Angular that allows you to access and manipulate:
+
+		1. Child components
+		2. Directives
+		3. DOM elements
+		4. Templates
+
+It provides a way to interact with the child after Angular initializes it
+
+
+@ViewChild(selector: string | Type<any>, options?: { static?: boolean })
+
+		selector: The child component, directive, or DOM element to reference
+
+		options
+		-------
+
+			static: boolean → When to resolve the ViewChild:
+
+			true → Before ngAfterViewInit()
+
+			false → After ngAfterViewInit()
+
+
+Example
+-------
+	<child-component #childRef></child-component>
+	
+	<input #inputElement type="text" placeholder="Enter text here">
+
+
+Child Component Interaction
+---------------------------
+	@ViewChild('childRef') → References the child component by its #childRef template variable
+
+	You can call child methods (sayHello) or access properties (childMessage) directly from the parent
+
+DOM Element Interaction
+-----------------------
+	@ViewChild('inputElement') → References the DOM element by its #inputElement template variable.
+	You can modify DOM properties directly using ElementRef
+
+
+Static vs Dynamic
+=================
+
+
+@ViewChild('childRef', { static: false }) child!: ChildComponent;  // Dynamic (default)
+@ViewChild('childRef', { static: true }) child!: ChildComponent;   // Static
+
+static: true
+------------
+		The child reference is resolved before ngAfterViewInit() (during ngOnInit())
+		Useful for static content
+		Slightly better performance
+
+static: false
+-------------
+		The child reference is resolved after ngAfterViewInit()
+		Required for dynamically loaded components
+
+
+Use Cases of @ViewChild()
+=========================
+	1. Accessing Child Component Methods
+			Call child component methods directly
+			Access child properties
+
+	2. Accessing DOM Elements
+			Modify DOM properties directly
+			Example: ElementRef.nativeElement
+
+	3. Accessing Template References
+			Reference templates using @ViewChild('templateVar')
+
+	4. Interaction with Directives
+			Access and modify directive behavior
+
+
+
+

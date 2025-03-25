@@ -1,0 +1,6 @@
+<ul>
+    <child-view *ngFor="let name of names" [name]="name"></child-view>
+</ul>
+
+<button (click)="logChildComponents()">Log Child Components</button>
+<button (click)="changeNames()">Change Names</button>

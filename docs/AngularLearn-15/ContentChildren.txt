@@ -1,0 +1,44 @@
+		@ContentChildren
+	------------------------
+
+@ContentChildren() is an Angular decorator used to:
+
+		Query multiple projected child elements or components inside a parent component
+
+		Retrieve a QueryList of child elements, making it easy to iterate, modify, or interact with them collectively
+
+		Used when working with dynamic and flexible content projection scenarios, such as lists, tabs, or accordions
+
+
+Syntax
+------
+@ContentChildren(ChildComponent, { descendants: true }) children!: QueryList<ChildComponent>;
+
+	ChildComponent → The class or directive you want to query
+	descendants: true → Includes nested children inside other components
+
+
+When Should You Use @ContentChildren()?
+=======================================
+	When you need to query and iterate over multiple projected children
+	When creating list-based components, such as:
+			Tabs or accordions
+			Multiple dynamic sections (e.g., collapsible panels)
+			Grouped forms or custom table rows
+	When applying dynamic behavior to all projected children (e.g., adding classes, toggling visibility)
+
+
+
+Key Features of @ContentChildren()
+----------------------------------
+
+Query Multiple Children
+	Unlike @ContentChild(), @ContentChildren() lets you query multiple projected children using QueryList
+
+Live Updates with QueryList
+	The QueryList returned by @ContentChildren() is live, meaning it automatically updates if children change
+
+Filter Using Descendants
+	{ descendants: true } → Includes children of children in the query
+	{ descendants: false } → Only includes direct children
+

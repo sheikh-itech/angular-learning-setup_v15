@@ -1,0 +1,21 @@
+		Ng-Rx
+	============
+
+NgRx is a framework for building reactive applications in Angular. 
+It is a state management library that provides a way to manage application state 
+in a predictable and scalable way
+
+NgRx is based on the Redux pattern, which provides a way to manage state in a single, 
+immutable data store. 
+This data store, called the store, is managed by a set of reducers, 
+which handle actions that describe state changes
+
+1. @ngrx/store: A library for managing application state in a single store
+2. @ngrx/effects: A library for managing side effects, 
+	such as making HTTP requests or accessing the browser's local storage
+3. @ngrx/router-store: A library for managing router state in the store
+4. @ngrx/entity: A library for simplifying the management of collections of entities in the store
+
+To Install Ng-Rx
+
+>npm install @ngrx/store

@@ -1,0 +1,99 @@
+		Dependencies At Different Levels
+	=========================================
+
+In Angular, dependencies can be provided at different levels of the application
+This is done using the dependency injection (DI) system
+Note
+----
+It is important to note that when providing dependencies at different levels, Angular follows a hierarchical injection system.
+This means that when a component requests a dependency, Angular first looks for it in its own providers array. 
+If it is not found there, it looks in the providers array of the parent component.
+This process continues until the root level (AppModule) is reached. If the dependency is not found at any level, an error is thrown
+
+
+1. AppModule Level
+------------------
+Dependencies can be provided at the root level of the application by adding them to the providers array of the AppModule.
+These dependencies will be available to the entire application
+
+2. Component Level
+------------------
+Dependencies can be provided at the component level by adding them to the providers array of the component decorator.
+These dependencies will be available only to that component and its child components
+
+3. NgModule Level
+-----------------
+Dependencies can also be provided at the NgModule level by adding them to the providers array of the NgModule decorator. 
+These dependencies will be available to all the components and services declared in that NgModule
+
+4. Service Level
+----------------
+Dependencies can also be provided at the service level by adding them to the constructor of the service.
+These dependencies will be injected into the service when it is instantiated
+
+
+
+AppModule Level
+---------------
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { DataService } from './data.service';
+
+@NgModule({
+  imports: [BrowserModule, HttpClientModule],
+  declarations: [AppComponent],
+  providers: [DataService], // <-- provide DataService at AppModule level
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+
+Component Level
+---------------
+import { Component } from '@angular/core';
+import { LoggerService } from './logger.service';
+
+@Component({
+  selector: 'app-my-component',
+  template: '<h1>My Component</h1>',
+  providers: [LoggerService] // <-- provide LoggerService at Component level
+})
+export class MyComponent {}
+
+
+NgModule Level
+--------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DataService } from './data.service';
+import { LoggerService } from './logger.service';
+
+@NgModule({
+  imports: [CommonModule],
+  providers: [DataService, LoggerService], // <-- provide DataService and LoggerService at NgModule level
+})
+export class MyModule {}
+
+
+Service Level
+-------------
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+  constructor(private http: HttpClient) {} // <-- inject HttpClient at Service level
+}
+
+In the above example, we are using the @Injectable decorator to specify that the DataService should be provided at the root level of the application.
+Then we are injecting the HttpClient into the constructor of the DataService, which makes it a dependency of the DataService
+
+
+
+
+
+

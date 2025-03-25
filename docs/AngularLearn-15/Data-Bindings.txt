@@ -1,0 +1,44 @@
+
+Data Binding In Angular
+=======================
+Data binding in Angular allows communication between the component (TypeScript) and the template (HTML)
+There are four main types of data binding in Angular:
+
+	1. Interpolation		{{ property }}				Displays component data in the template
+	
+	2. Property Binding		[property]="value"			Binds a property to an HTML attribute
+	
+	3. Event Binding		(event)="method()"			Calls a method when an event occurs
+	
+	4. Two-Way Binding		[(ngModel)]="property"		Syncs input field with component property
+
+
+
+One Way Data Binding
+--------------------
+
+1. Interpolation
+2. Property Binding
+		=> Style Binding
+		=> Class Binding
+3. Attribute Binding
+4. Event Binding
+
+
+Interpolation
+-------------
+Used to bind component properties into the HTML template
+
+Property Binding
+----------------
+Used to bind a component property to an HTML element attribute
+
+Event Binding
+-------------
+Used to bind DOM events to a method in the component
+
+Two-Way Binding
+---------------
+Used to bind input fields and update the component in real-time
+
+

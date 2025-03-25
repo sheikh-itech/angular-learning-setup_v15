@@ -1,0 +1,69 @@
+		Built In Services
+	-------------------------
+
+1. HttpClient:
+		=> Makes HTTP requests (GET, POST, PUT, DELETE)
+		=> Supports observables, interceptors, and request/response transformation
+
+
+2. HttpInterceptor:
+		=> Intercepts and modifies HTTP requests/responses globally
+		=> Use case: Authentication headers, error handling
+		
+3. NgZone:
+		=> Manages change detection outside Angular’s zone (useful for performance tuning)
+
+4. ApplicationRef:
+		=> Provides control over the app's lifecycle and change detection
+		=> Use case: Manually triggering change detection or detaching components
+
+
+5. Injector:
+		=> Allows dynamic service creation and manual dependency injection
+
+
+6. EventEmitter:
+		=> A utility for emitting custom events between components
+		=> Use case: Parent-child communication
+		
+7. Validators:
+		=> Provides built-in validation (required, minLength, maxLength, pattern)
+		=> Use case: Form validation
+
+8. Router :
+		=> Manages navigation between views, URL parameters, and route guards
+	
+9. ActivatedRoute:
+		=> Gives access to route parameters, query params, and route data
+		=> Use case: Dynamic routing and nested routes
+
+10. Meta:
+		=> Manages meta tags (description, keywords) for SEO
+		=> Use case: Dynamic metadata management
+
+
+11. PlatformLocation:
+		=> Provides access to URL, pathname, and browser history stack
+		=> Use case: Low-level location handling
+
+
+12. Location:
+		=> Wrapper around the browser's history API for navigation
+		=> Use case: Manual back/forward navigation
+
+
+13. Renderer2:
+		=> Abstracts DOM manipulation safely, cross-platform
+		=> Use case: Adding/removing elements dynamically
+
+
+14. ViewContainerRef:
+		=> Dynamically creates and destroys components
+		=> Use case: Dynamic forms, modals, or component loaders
+
+
+15. TemplateRef:
+		=> References an <ng-template> for dynamic rendering
+		=> Use case: Reusable UI structures
+
+

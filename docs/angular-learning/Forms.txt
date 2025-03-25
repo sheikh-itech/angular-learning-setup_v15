@@ -1,0 +1,59 @@
+		Angular Forms
+	====================
+
+Angular provides two types of forms: 
+	=>Template-driven forms 
+	=>Reactive forms
+	
+Template-driven forms are easier to use and require less boilerplate code,
+While Reactive forms offer more flexibility and control
+
+Both template-driven and reactive forms support features such as validation, error handling, and submission
+
+
+Template Driven Forms
+---------------------
+In template-driven forms, the form controls are defined in the template itself using directives such as ngModel and ngForm.
+The form data is automatically bound to the model using two-way data binding. 
+Template-driven forms are suitable for simple forms with fewer fields and validations
+
+	1. Dynamic Form Fields
+	----------------------
+	Can create form with dynamic fields that can be added or removed based on user input
+	For example, a form that allows users to add multiple addresses
+	
+	2. Custom Validators
+	--------------------
+	Can create custom validators to validate form fields based on specific business rules.
+	For example, a form that validates that a password contains at least one uppercase letter, one lowercase letter, and one number
+	
+	3. Form Array
+	-------------
+	You can use FormArray to handle arrays of form controls.
+	For example, a form that allows users to enter multiple phone numbers
+	
+
+Reactive Forms
+--------------
+Reactive forms, on the other hand, are created programmatically using the FormBuilder service. 
+The form controls are defined in the component code, and the form data is bound to the model using reactive programming techniques.
+Reactive forms are suitable for complex forms with advanced validations and dynamic form fields
+
+	1. Nested Forms
+	---------------
+	You can create nested forms with groups and arrays of form controls.
+	For example, a form that allows users to enter information about a product and its variants.
+	
+	2. Custom Form Controls
+	-----------------------
+	You can create custom form controls that can be reused in multiple forms. 
+	For example, a form control that displays a list of options in a dropdown based on a remote API call
+	
+	3. Cross-field Validation
+	-------------------------
+	You can create cross-field validators that validate multiple form fields together.
+	For example, a form that validates that a start date is before an end date
+
+
+
+

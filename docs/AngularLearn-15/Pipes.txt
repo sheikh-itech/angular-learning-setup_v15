@@ -1,0 +1,57 @@
+		Pipes
+	------------
+
+Pipes in Angular are a feature that allow you to transform data in your application before displaying it to the user
+
+Pipes are used
+--------------
+	1. format
+	2. filter
+	3. sort data 
+
+They can be used with 'template-driven', 'reactive forms', as well as with other Angular 'Components' & 'Services'
+
+
+Pure and Impure Pipes
+---------------------
+Pure pipes are designed to be stateless, 
+meaning that they don’t have any internal state that could affect their output
+
+Improves performance of Angular application
+
+
+Impure pipes can be useful in some cases, 
+such as when we need to perform a heavy calculation or retrieve data from an external API
+
+@Pipe({
+  name: 'myPurePipe',
+  pure: true
+})
+
+
+Built-in Pipes
+--------------
+
+	Currency Pipe
+	Date Pipe
+	Json Pipe
+	LowerCase Pipe
+	UpperCase Pipe
+	PercentPipe
+	SlicePipe
+	TitleCasePipe
+	AsyncPipe
+
+
+Parameters To Pipe
+------------------
+Can pass multiple parameters to pipe using colon [:]
+
+{{ 2500 | currency:'USD' }}
+{{ new Date() | date : 'short' : 'm/d/yy' }}
+
+
+
+
+
+

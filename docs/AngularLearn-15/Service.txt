@@ -1,0 +1,77 @@
+		Angular Service
+	----------------------
+
+Angular services are classes that encapsulate business logic, state management, or reusable functionality 
+(e.g., HTTP requests)
+
+They’re typically injected into components, directives, or other services using 
+Angular's dependency injection (DI) system
+
+Use services for data fetching, state management, and reusable logic
+
+
+@Injectable({
+  providedIn: 'root' // Provides the service at the root level (singleton pattern)
+})
+export class MyService {
+  constructor() {}
+
+  getData(): string {
+    return 'Hello from MyService!';
+  }
+}
+
+
+Injecting a Service
+-------------------
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  constructor(private myService: MyService) {}
+}
+
+
+Angular 15 Improvements
+=======================
+
+1. Tree-shakable Providers:
+			Services are tree-shakable by default when provided in the root injector or a custom injector
+			This avoids unnecessary providers in NgModule
+			
+			A tree-shakable service in Angular means that the service will be automatically removed from your 
+			final JavaScript bundle if it's not used anywhere in your app
+			
+	Tree-shakable Scopes
+	--------------------
+		1. providedIn: 'root'
+		2. providedIn: 'any'
+		3. providedIn: 'platform'
+		
+Note: If we declare a service in the providers array of an NgModule, it’s not tree-shakable
+
+
+
+2. Standalone Components Compatibility:
+			Angular v15 introduced standalone components — 
+			services work seamlessly with them using @Injectable({ providedIn: 'root' })
+
+
+
+3. Optional Injectors:
+			can now provide services within specific component scopes using the inject() function
+
+
+export class Example {
+  private myService = inject(MyService);
+
+  getData() {
+    return this.myService.getData();
+  }
+}
+
+

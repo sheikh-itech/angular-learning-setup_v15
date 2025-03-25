@@ -1,0 +1,83 @@
+		Input
+	------------
+
+**Standalone components don't automatically receive data via routerLink. They need route parameters**
+
+@Input() is a property decorator in Angular used to pass data from a parent component to a child component
+
+It allows components to be more reusable by dynamically receiving values from their parents
+
+	=> Enables component communication (Parent → Child)
+	=> Allows dynamic rendering of child components based on external values
+
+
+Features of @Input()
+--------------------
+
+	One-Way Data Binding – The child receives data but cannot modify the parent’s state
+	Reusable Components – Allows dynamic rendering of components with different values
+	Supports Any Data Type – Can pass strings, numbers, arrays, objects, etc
+	Works With Property Binding – Uses [inputProperty]="value" in templates
+
+
+
+Use Cases
+---------
+
+1. Dynamic Components
+		A button component that changes color based on input
+		
+		<app-button [color]="'blue'"></app-button>
+
+2. Configurable UI Elements
+		A card component that accepts a title and description
+		
+		<app-card [title]="'Angular'" [description]="'A framework for building UI'"></app-card>
+
+3. Passing Data for Lists
+		A list component that receives an array of item
+		
+		<app-list [items]="['Apple', 'Banana', 'Cherry']"></app-list>
+
+Drawbacks
+=========
+
+Only Parent → Child Communication – No way to send data back (use @Output() for that)
+Cannot Mutate Parent Data – The child should not modify @Input() value
+
+
+
+
+Alternate: Service-Based Communication
+======================================
+
+If multiple components need to share data bidirectionally, use services with RxJS instead of @Input()
+
+	=> Works for sibling components (not just Parent → Child)
+	=> Supports real-time updates (e.g., API data changes)
+
+
+@Injectable({ providedIn: 'root' })
+export class DataService {
+  private dataSubject = new BehaviorSubject<string>('Initial Value');
+  data$ = this.dataSubject.asObservable();
+
+  updateData(newValue: string) {
+    this.dataSubject.next(newValue);
+  }
+}
+
+Component1
+----------
+constructor(private dataService: DataService) {}
+
+sendData() {
+  this.dataService.updateData('New Value');
+}
+
+Component2
+----------
+this.dataService.data$.subscribe(value => {
+  console.log(value);
+});
+

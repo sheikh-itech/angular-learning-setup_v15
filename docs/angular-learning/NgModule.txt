@@ -1,0 +1,40 @@
+			Ng-Module
+		=================
+
+@NgModule({
+  declarations: [
+    RootApp
+  ],
+  imports: [
+    BrowserModule, FormsModule, ReactiveFormsModule,AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [RootApp]
+})
+export class AppModule { }
+
+Declarations:
+-------------
+The declarations array is required in @NgModule because it tells Angular 
+which components, directives, and pipes should be available to particular module
+
+Exports:
+--------
+The exports array is used to specify which components, directives, and pipes should be available outside of current/defining Module
+For this other module need to import only Module
+{All sub components will automatically imported}
+
+Providers:
+----------
+Providers used to register services
+The providers array used to specify services that should be registered with Angular dependency injection system
+
+Services=> Are classes those can be used to share data and functionality,
+		   across multiple components or other services in an application
+
+Injectable:
+-----------
+The @Injectable decorator is used to indicate that this is a service, and 
+providedIn: 'root' option tells Angular to register this service as a singleton at the root level of the application
+
+

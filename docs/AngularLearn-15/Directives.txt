@@ -1,0 +1,164 @@
+		Angular Directives
+	---------------------------
+
+Directives don’t have templates, Can bind with inline HTML
+Since directives are used to extend behavior, modify elements, or add logic (like ngIf, ngClass)
+
+
+In Angular, there are three types of directives:
+
+		1. Component Directives
+		2. Structural Directives
+		3. Attribute Directives
+
+1. Component Directives
+-----------------------
+A component is a directive with a template, which controls a part of the UI
+
+	=> Encapsulates UI logic & design
+	=> Reusable across multiple pages
+
+	@Component({
+	  selector: 'app-hello',
+	  template: `<h1>Hello, Angular!</h1>`,
+	  styles: [`h1 { color: blue; }`]
+	})
+	export class HelloComponent {}
+
+Performance Improvement
+-----------------------
+Use OnPush change detection (ChangeDetectionStrategy.OnPush) to optimize rendering
+
+
+2. Structural Directives
+------------------------
+Structural directives change the DOM structure by adding or removing elements
+
+	=> They either add or remove elements from the DOM
+	=> Controls rendering dynamically
+	=> Custom directive must be applied to <ng-template> (which allows deferred rendering)
+	=> Can not be part of hostDirectives: []
+	
+	Examples: *ngIf, *ngFor, *ngSwitch, trackBy with *ngFor
+
+
+@Directive({
+  selector: '[appIf]'
+})
+export class AppIfDirective {
+
+  @Input() set appIf(condition: boolean) {
+    if (condition) {
+      this.vcRef.createEmbeddedView(this.templateRef);
+    } else {
+      this.vcRef.clear();
+    }
+  }
+  constructor(private templateRef: TemplateRef<any>, private vcRef: ViewContainerRef) {}
+}
+---------------
+<p *appIf="true">This text appears if condition is true</p>
+
+
+Performance Improvement
+-----------------------
+	=> Use trackBy in *ngFor to avoid unnecessary re-renders
+	=> Avoid excessive use of *ngIf inside loops
+
+
+3. Attribute Directives
+-----------------------
+It modify the behavior or appearance of an element
+
+	=> Enhances UI dynamically
+	=> Reusable for styling elements
+
+	Examples: ngClass, ngStyle
+
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  @Input() appHighlight = 'yellow';
+
+  constructor(private el: ElementRef) {}
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.el.nativeElement.style.backgroundColor = this.appHighlight;
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.el.nativeElement.style.backgroundColor = 'transparent';
+  }
+}
+-----------
+<p appHighlight="lightblue">Hover over me to see the effect</p>
+
+
+**********************************************************************
+
+
+Performance Improvement
+-----------------------
+Use HostBinding instead of directly modifying nativeElement.style
+
+
+Structural Directive [*ngIf] vs Hidden
+---------------------------------------
+
+ngIf: Completely adds or removes DOM element
+Hidden: Hides DOM element but it exist in Tree Structure
+
+
+trackBy in Angular *ngFor
+-------------------------
+In Angular, when rendering a list using *ngFor, the default behavior is to re-render the entire list whenever 
+an item changes.
+This can be inefficient, especially for large lists
+
+	=> Use trackBy with *ngFor when rendering dynamic lists
+	=> Prevents unnecessary DOM updates for unchanged items
+	=> Boosts performance, especially for large lists
+
+**If push new records to original object, then it automatically manages performance
+
+
+[ngStyle] Attribute Directive
+-----------------------------
+It is an Angular attribute directive that allows you to dynamically apply CSS styles to an element based on 
+component properties
+
+[ngClass] Attribute Directive
+-----------------------------
+It is used to dynamically add or remove CSS classes based on conditions
+
+
+
+What is an Attribute?
+---------------------
+Attributes are static and reflect the initial state of an element
+These define the element’s initial configuration
+They are always strings (even if they look like numbers or booleans)
+
+
+<input type="text" value="Hello" disabled>
+
+type, value, and disabled are attributes
+
+
+What is a Property?
+-------------------
+Properties reflect the current state of an element
+They are dynamic and can change at runtime
+Properties can hold different data types (string, boolean, object, etc)
+
+<!-- Property binding -->
+<input [value]="'Hello Property'" />
+
+
+<!-- Attribute -->
+<button disabled="false">Click me</button>  <!-- Still disabled -->
+
+<!-- Property -->
+<button [disabled]="false">Click me</button> <!-- Enabled -->

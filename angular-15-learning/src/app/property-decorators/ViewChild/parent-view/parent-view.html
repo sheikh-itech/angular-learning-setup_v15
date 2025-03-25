@@ -1,0 +1,26 @@
+<fieldset>
+    <legend>Using @ViewChild with Component</legend>
+    
+    <child-view #childRef></child-view>
+
+    <br />
+    <button (click)="accessChild()">Access Child Method</button>
+
+    <br />
+    <p>Child Message: {{ message }}</p>
+</fieldset>
+
+<fieldset>
+    <legend>Using @ViewChild with DOM Element</legend>
+
+    <input #inputElement type="text" placeholder="Enter text here">
+    <br /><br />
+    <button (click)="changeInput()">Change Input Value</button>
+</fieldset>
+
+<fieldset>
+    <legend>Using @ViewChild with Directive</legend>
+
+    <p appHighlight>Highlight me!</p>
+    <button (click)="changeColor()">Change Color</button>
+</fieldset>

@@ -1,0 +1,46 @@
+		@Output
+	---------------
+
+
+It is a decorator in Angular used to create custom events that a child component can emit to its parent component
+
+	-> It enables event communication from child → parent
+	-> Uses Angular's EventEmitter to emit events that parent can listen for
+
+
+Explanation
+===========
+
+In the child component:
+
+	The @Output() decorator creates an event emitter (messageEvent or any other name)
+	When the button is clicked, messageEvent.emit() sends the message 'Hello from Child!' to the parent
+
+In the parent component:
+
+	The child’s custom event is listened for using (messageEvent) syntax
+	The parent component handles the emitted message with the receiveMessage() method
+
+
+Benefits
+========
+Clear communication: Easy way for a child to send data to its parent
+
+Reusable components: You can use child components with @Output() in multiple parent components
+
+Strong typing: You can specify the type of data emitted (string, number, object, etc.)
+
+
+Limitations
+===========
+
+One-way communication only:
+		It only supports child → parent communication
+		To communicate parent → child, you need @Input()
+
+Tightly coupled components:
+	The child component needs to know about the parent’s event listener, making them tightly coupled
+	
+Limited flexibility:
+	More complex communication patterns (like multi-level communication) require services instead
+

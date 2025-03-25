@@ -1,0 +1,49 @@
+		Renderer2
+	------------------
+
+Renderer2 provides a safe and efficient way to interact with the DOM.
+It is useful when direct DOM manipulation (document.querySelector, element.style, etc.) is discouraged due to 
+security and performance concerns, especially in server-side rendering (SSR) scenarios
+
+Renderer2 allows us to
+----------------------
+
+		Create and remove elements dynamically
+		Add and remove event listeners
+		Modify element attributes and styles
+		Work with platform-independent rendering (e.g., server-side rendering)
+
+Use Cases
+=========
+	
+	Dynamically Adding/Removing Elements
+	Adding/Removing Event Listeners Dynamically
+	Modifying Attributes & Classes
+	Interacting with Shadow DOM / Web Components
+
+	
+const newDiv = this.renderer.createElement('div');
+this.renderer.setProperty(newDiv, 'innerText', 'New Element');
+this.renderer.appendChild(this.el.nativeElement, newDiv);
+--------------
+const clickListener = this.renderer.listen(this.el.nativeElement, 'click', () => {
+  alert('Element Clicked!');
+});
+--------------------
+this.renderer.addClass(this.el.nativeElement, 'highlight');
+this.renderer.removeClass(this.el.nativeElement, 'highlight');
+
+
+
+Instead of @HostListener, we can use Renderer2 to dynamically add/remove event listeners
+
+
+Renderer2 Benefits Over @HostListener
+-------------------------------------
+Can listen to events outside the host element
+Can dynamically attach/remove event listeners for better performance
+More flexible when dealing with multiple elements dynamically
+
+
+
+

@@ -1,0 +1,86 @@
+		@Injectable
+	------------------
+
+@Injectable is a decorator in Angular that marks a class as available for dependency injection
+
+This tells Angular that the class can be instantiated and injected into other classes 
+(like components, services, or directives)
+
+Note: If a class does not use DI in its constructor, technically, you don’t need @Injectable
+
+
+@Injectable({
+  providedIn: 'root' // or 'any' or a specific module
+})
+export class MyService {
+  constructor() {
+    console.log('MyService instantiated');
+  }
+}
+
+
+Note: This makes MyService singleton service, automatically provided across the application
+
+
+Why use @Injectable?
+====================
+
+Dependency Injection (DI): Angular uses DI to manage the creation and sharing of services
+
+Metadata for the Injector: @Injectable provides metadata Angular needs to know how to create instances of the class
+
+Tree-shakable Providers: Since Angular 6, the providedIn property helps with tree-shaking, ensuring that services are only included in the bundle if they are actually used
+
+
+providedIn Options
+==================
+
+'root':			Service is provided at the root level (singleton across the entire app)
+
+'any':			Service is shared across lazy-loaded modules (if referenced)
+
+'platform':		Singleton at the Angular platform level (across multiple apps)
+
+null:			Service is not automatically provided. Must be added to a module manually
+
+
+
+When do you need @Injectable?
+=============================
+
+
+1. For Services:
+
+		Most Angular services use @Injectable to allow DI
+		
+	@Injectable({
+	  providedIn: 'root'
+	})
+	export class ApiService {
+	  constructor(private http: HttpClient) {}
+	}
+
+
+2. For Constructor Injection:
+
+		When a class has dependencies injected into its constructor, it needs @Injectable
+		
+	@Injectable()
+	export class AuthService {
+	  constructor(private apiService: ApiService) {}
+	}
+
+
+3. For Custom Tokens / Factory Providers:
+
+		Even if a service doesn’t have dependencies, @Injectable may be required for custom tokens or 
+		factory providers
+
+	@Injectable({
+	  providedIn: 'root'
+	})
+	export class ConfigService {
+	  constructor(@Inject('API_URL') private apiUrl: string) {}
+	}
+
+

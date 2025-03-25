@@ -1,0 +1,49 @@
+		@HostListener
+	---------------------
+
+@HostListener is a decorator in Angular that listens to DOM events on the host element and triggers a method 
+when the event occurs.
+
+It allows to handle user interactions directly inside a directive or component
+
+	=> @HostListener binds a component or directive method to a DOM event on the host element
+
+
+@HostListener(eventName: string, args?: string[])
+
+		eventName: The name of the DOM event (e.g., 'click', 'mouseenter')
+		args (optional): Additional event arguments (e.g., $event for event details)
+
+
+
+Features
+========
+
+	Simplifies event binding – No need for manual addEventListener.
+	Encapsulated logic – Keeps event handling within the directive/component.
+	Works on host elements – Applies events to the component or directive itself
+
+
+Use Cases
+=========
+
+Handling Click Outside an Element:
+			Close a dropdown when clicking outside
+
+Listening for Keyboard Events:
+			Detect Escape key presses to close modals
+			
+Detecting Scroll Events:
+			Load more content on scroll
+			
+Monitoring Window Resizing:
+			Adjust UI dynamically based on screen size
+
+
+Drawbacks
+=========
+Only works on the host element
+Can lead to performance issues – If used excessively
+No automatic cleanup – Unlike Renderer2, Angular doesn’t remove event listeners automatically
+
+

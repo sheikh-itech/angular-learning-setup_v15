@@ -1,0 +1,12 @@
+<div class="tab-container">
+    <div class="tab-buttons">
+        <button 
+            *ngFor="let tab of tabs" 
+            (click)="selectTab(tab)"
+            [class.active]="tab.active">
+            {{ tab.title }}
+        </button>
+    </div>
+
+    <ng-content></ng-content>  <!-- Project child tabs -->
+</div>

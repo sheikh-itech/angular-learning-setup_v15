@@ -1,0 +1,24 @@
+		Component
+	----------------
+
+A Component is a key feature of Angular that acts as the basic UI building block of an Angular application
+
+A component is nothing but a TypeScript class with a decorator (@),
+It contains methods and properties that can be used in HTML files
+
+Components are designed to be reusable
+
+@Component
+----------
+This component decorator is used to mark class an angular component and provide additional metadata that 
+determines how the component should be processed.
+
+
+selector: This property specifies the custom HTML element selector that represents DOM element
+
+templateUrl: This property specifies the path to the HTML template file
+
+styleUrls: This property is an array that lists paths to external style files (CSS or SCSS)
+
+
+

@@ -1,0 +1,81 @@
+		NgModule
+	---------------
+
+@NgModule is a decorator that turns a TypeScript class into an Angular module 
+	— a container that groups components, directives, pipes, and services
+
+
+@NgModule({
+  declarations: [AppComponent], // Components, directives, pipes
+  imports: [BrowserModule],     // Other Angular modules
+  providers: [],                // Services (DI)
+  bootstrap: [AppComponent]     // Root component to launch
+})
+export class AppModule {}
+
+
+Properties of @NgModule
+=======================
+
+	declarations:		Declares components, directives, and pipes that belong to this module
+	imports:			Imports other Angular modules (like FormsModule, RouterModule)
+	exports:			Makes components, directives, and pipes available to other modules
+	providers:			Registers services at the module level for Dependency Injection
+	bootstrap:			Specifies the root component to bootstrap the Angular application
+	schemas:			Allows usage of non-standard or custom elements (e.g., web components)
+	entryComponents:	(Legacy) Defines components to be dynamically loaded (before Ivy)
+	id:					Uniquely identifies the module (used for lazy-loading scenarios)
+
+
+
+Features
+========
+
+1. Modularization:
+		=> Organizes the app into cohesive blocks of functionality
+		=> Promotes separation of concerns (e.g., feature modules, shared modules)
+
+2. Dependency Injection (DI):
+		=> Registers services using the providers array for a specific scope (module, root, or platform)
+		
+3. Lazy Loading:
+		=> Supports lazy loading of feature modules for performance optimization.
+
+4. Encapsulation:
+		=> Components declared in a module are isolated unless exported.
+
+5. Bootstrapping:
+		=> Defines the root component to start the Angular application.
+
+
+When to Use Multiple Modules
+============================
+
+1. Core Module:
+			Services and components used throughout the app (e.g., authentication).
+			
+2. Shared Module:
+			Reusable components, pipes, and directives (e.g., UI components).
+			
+3. Feature Modules:
+			Specific app features (e.g., user management, admin dashboard)
+
+
+
+Disadvantages
+=============
+
+Boilerplate Code:
+		Setting up multiple modules often requires repetitive declarations, imports, and providers.
+
+Complexity:
+		Large Angular apps with many modules may become complex to maintain and understand.
+		
+Providers Duplication:
+		If the same service is provided in multiple modules, multiple instances may be created unintentionally 
+		(though providedIn: 'root' mitigates this).
+		
+Pre-Ivy Dynamic Components:
+		Before Angular Ivy, dynamically loaded components had to be listed in entryComponents, 
+		adding extra complexity
+

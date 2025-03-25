@@ -1,0 +1,142 @@
+User Input
+==========
+
+=>User actions such as clicking a link, pushing a button, and entering text raise DOM events.
+
+Binding to user input events:
+-----------------------------
+Using Angular event binding to respond to any DOM event. Many DOM events are triggered by user input.
+Binding to these events provides a way to get input from the user.
+
+<button (click)="onClickMe()">Click me!</button>
+
+=>To bind to a DOM event, surround the DOM event name in parentheses and assign a quoted template statement to it.
+
+"The (click) to the left of the equals sign identifies the button's click event as the target of the binding.
+The text in quotes to the right of the equals sign is the template statement, 
+which responds to the click event by calling the component's onClickMe method."
+
+"When writing a binding, be aware of a template statement's execution context.
+The identifiers in a template statement belong to a specific context object,
+usually the Angular component controlling the template."
+
+Get user input from the $event object:
+--------------------------------------
+
+=>DOM events carry a payload of information that may be useful to the component.
+	<input (keyup)="onKey($event)">
+	
+	export class KeyUpComponent_v1 {
+	  values = '';
+	  onKey(event: any) { // without type info
+		this.values += event.target.value + ' | ';
+	  }
+	}
+"The properties of an $event object vary depending on the type of DOM event.
+For example, a mouse event includes different information than a input box editing event."
+
+=>All standard "DOM event objects" have a target property, a reference to the element that raised the event.
+=> In above case, target refers to <input> element and event.target.value returns the current contents of that element.
+
+Type the $event:
+----------------
+
+"The example above casts the $event as an any type. That simplifies the code at a cost.
+There is no type information that could reveal properties of the event object and prevent silly mistakes."
+
+	export class KeyUpComponent_v1 {
+	  values = '';
+
+	  onKey(event: KeyboardEvent) { // with type info
+		this.values += (<HTMLInputElement>event.target).value + ' | ';
+	  }
+	}
+=>The $event is now a specific KeyboardEvent.
+"Not all elements have a value property so it casts target to an input element.
+The OnKey method more clearly expresses what it expects from the template and how it interprets the event."
+
+Passing $event is a dubious practice:
+=====================================
+
+"Typing the event object reveals a significant objection to passing the entire DOM event into the method: the component has too much awareness of the template details. It can't extract information without knowing more than it should about the HTML implementation. That breaks the separation of concerns between the template (what the user sees) and the component (how the application processes user data)."
+
+Get user input from a template reference variable:
+--------------------------------------------------
+
+=>There's another way to get the user data: using "Angular template reference variables".
+=>These variables provide direct access to an element from within the template.
+=>To declare "template reference variable", precede an identifier with a hash (or pound) character (#).
+
+	@Component({
+	  selector: 'app-loop-back',
+	  template: `
+		<input #box (keyup)="0">
+		<p>{{box.value}}</p>
+	  `
+	})
+	export class LoopbackComponent { }
+
+=>The template is completely self contained. It doesn't bind to the component, and the component does nothing.
+=>This won't work at all unless we bind to an event (it may be dummy as shown above).	
+"The template reference variable named box, declared on the <input> element, refers to the <input> element itself. The code uses the box variable to get the input element's value and display it with interpolation between <p> tags."
+
+"Angular updates the bindings (and therefore the screen) only if the app does something in response to asynchronous events, such as keystrokes. This example code binds the keyup event to the number 0, the shortest template statement possible. While the statement does nothing useful, it satisfies Angular's requirement so that Angular will update the screen."
+
+Get input's value with the template reference variable:
+-------------------------------------------------------
+	@Component({
+	  selector: 'app-key-up2',
+	  template: `
+		<input #box (keyup)="onKey(box.value)">
+		<p>{{values}}</p>
+	  `
+	})
+	export class KeyUpComponent_v2 {
+	  values = '';
+	  onKey(value: string) {
+		this.values += value + ' | ';
+	  }
+	}
+
+Key event filtering (with key.enter):
+-------------------------------------
+
+"The (keyup) event handler hears every keystroke. Sometimes only the Enter key matters, because it signals that the user has finished typing. One way to reduce the noise would be to examine every $event.keyCode and take action only when the key is Enter."
+
+	@Component({
+	  selector: 'app-key-up3',
+	  template: `
+		<input #box (keyup.enter)="onEnter(box.value)">
+		<p>{{value}}</p>
+	  `
+	})
+	export class KeyUpComponent_v3 {
+	  value = '';
+	  onEnter(value: string) { this.value = value; }
+	}
+
+On blur:
+========
+
+"In the previous example, the current state of the input box is lost if the user mouses away and clicks elsewhere on the page without first pressing Enter. The component's value property is updated only when the user presses Enter.
+To fix this issue, listen to both the Enter key and the blur event."
+
+	@Component({
+	  selector: 'app-key-up4',
+	  template: `
+		<input #box
+		  (keyup.enter)="update(box.value)"
+		  (blur)="update(box.value);box.value='';">
+
+		<p>{{value}}</p>
+	  `
+	})
+	export class KeyUpComponent_v4 {
+	  value = '';
+	  update(value: string) { this.value = value; }
+	}
+
+
+=>Use template variables to refer to elements
+=>Pass values, not elements
+=>Keep template statements simple 

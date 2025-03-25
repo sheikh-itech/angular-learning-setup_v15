@@ -15,10 +15,16 @@ import { InjectableExample } from "./common-examples/injectable-example/injectab
 import { ModuleDesc } from "./common-examples/module-desc/module-desc";
 import { HostListenerExample } from "./common-examples/host-listener-example/host-listener-example";
 import { Renderer2Example } from "./common-examples/renderer2-example/renderer2-example";
-import { InputExample } from "./common-examples/input-example/input-example";
-import { InputChildExample } from "./common-examples/input-child-example/input-child-example";
 import { ComponentCommunication1 } from "./common-examples/component-communication1/component-communication1";
 import { ComponentCommunication2 } from "./common-examples/component-communication2/component-communication2";
+import { InputExample } from "./property-decorators/input-example/input-example";
+import { InputChildExample } from "./property-decorators/input-child-example/input-child-example";
+import { OutputParent } from "./property-decorators/output-parent/output-parent";
+import { ParentView } from "./property-decorators/ViewChild/parent-view/parent-view";
+import { ParentViewChildren } from "./property-decorators/ViewChildren/parent-view/parent-view-children";
+import { ContentChildParent } from "./property-decorators/ContentChild/content-child-parent/content-child-parent";
+import { TabContainerExample } from "./property-decorators/ContentChildren/tab-container-example/tab-container-example";
+import { HostBindingExample } from "./property-decorators/HostBinding/host-binding-example/host-binding-example";
 
 
 
@@ -40,10 +46,17 @@ export const routes: Routes = [
     { path: 'moduleDesc', component: ModuleDesc },
     { path: 'hostListenerExample', component: HostListenerExample },
     { path: 'renderer2Example', component: Renderer2Example },
-    { path: 'inputExample', component: InputExample },
+    { path: 'inputExample/:title/:count', component: InputExample },
     { path: 'inputChildExample/:title/:count', component: InputChildExample },
     { path: 'componentCommunication1', component: ComponentCommunication1 },
     { path: 'componentCommunication2', component: ComponentCommunication2 },
+    
+    { path: 'outputDecorator', component: OutputParent },
+    { path: 'viewChildDecorator', component: ParentView },
+    { path: 'viewChildrenDecorator', component: ParentViewChildren },
+    { path: 'contentChildDecorator', component: ContentChildParent },
+    { path: 'contentChildrenDecorator', component: TabContainerExample },
+    { path: 'hostBindingExample', component: HostBindingExample },
 
     { path: 'resolveHttp', component: ResolverExample,
         resolve: {

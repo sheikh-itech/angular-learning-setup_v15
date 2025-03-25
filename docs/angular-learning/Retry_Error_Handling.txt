@@ -1,0 +1,33 @@
+		Error Handling & Retry
+	===============================
+
+The HttpClient service provides a range of error handling and retry mechanisms 
+that can be used to deal with errors in a more robust way
+
+The 'catchError' operator can be used to handle HTTP errors and provide a fallback response or 
+perform some other action
+
+
+Re-Try
+------
+The 'retry' operator can be used to retry an HTTP request a certain number of times in case of an error
+
+this.http.get('/api/data').pipe(
+  retry(3)
+).subscribe((response) => {
+  console.log(response);
+}, (error) => {
+  console.log(error);
+});
+
+
+Retry takes a number that specifies how many times to retry the request.
+If the request fails, it will be retried up to three times before returning an error
+
+The HttpClient service provides many other options for handling errors and retrying requests
+
+Retry-When
+----------
+we'rWe can also use the retryWhen operator to retry failed HTTP requests.
+Using the delayWhen operator to add an increasing delay between each retry, 
+and the takeWhile operator to limit the number of retries based on the error status code

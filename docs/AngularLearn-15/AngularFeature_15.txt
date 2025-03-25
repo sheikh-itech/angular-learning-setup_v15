@@ -1,0 +1,101 @@
+
+		Angular 15 Features
+	--------------------------
+
+1. Standalone Components [Stable]
+---------------------------------
+Standalone components, directives, and pipes are now stable, allowing developers to build applications 
+without NgModules
+
+=> Can bootstrap without need of NgModules in same class
+=> This removes the need for app.module.ts
+=> The standalone: true property makes AppComponent self-contained
+=> Faster startup time
+
+
+@Component({
+  standalone: true,
+  selector: 'app-hello',
+  template: `<h1>Hello Angular 15!</h1>`,
+})
+export class HelloComponent {}
+
+------------
+
+import { Component } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+@Component({
+  selector: 'app-root',
+  standalone: true,  //Marks it as a standalone component
+  template: `<h1>Welcome to Angular 15!</h1>`,
+})
+export class AppComponent {}
+
+bootstrapApplication(AppComponent)
+  .catch(err => console.error(err));
+  
+
+
+2. Directive Composition API
+----------------------------
+Allows combining multiple directives into a single component
+This improves code reusability
+
+import { SomeDirective, AnotherDirective } from './directives';
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  template: `<p>Directive Composition API</p>`,
+  hostDirectives: [SomeDirective, AnotherDirective],
+})
+export class ExampleComponent {}
+
+
+3. Improved Performance with Better Tree-Shaking
+------------------------------------------------
+Smaller bundle sizes due to enhanced tree-shaking
+Dead code is removed more efficiently
+
+
+4. Improved Dependency Injection for Standalone Components
+----------------------------------------------------------
+Developers can now use provideX() functions to configure providers
+
+
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { provideHttpClient } from '@angular/common/http';
+
+bootstrapApplication(AppComponent, {
+  providers: [provideHttpClient()],
+});
+
+
+5. Router Enhancements
+----------------------
+
+	1. Standalone API Support
+			The router now supports standalone APIs
+			
+	2. Route Guards Return Signals
+			Improved reactivity in route guards
+		
+	3. Can add multiple routers or routes
+
+
+6. Enhanced SSR and Hydration
+-----------------------------
+Better Server-Side Rendering (SSR) performance with improved hydration capabilities
+
+
+7. Improved CDK & Material Components
+-------------------------------------
+=>Dialog and Tooltip are now standalone
+=>Components support accessibility improvements
+
+
+8. Experimental Esbuild Support
+-------------------------------
+Angular 15 provides experimental support for Esbuild, replacing Webpack for faster builds
+
+
