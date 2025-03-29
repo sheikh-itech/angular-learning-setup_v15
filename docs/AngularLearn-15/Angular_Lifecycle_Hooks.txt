@@ -1,0 +1,139 @@
+		Angular Lifecycle Hooks
+	-------------------------------
+
+Lifecycle hooks are special methods that Angular calls during the different phases of a component’s lifecycle
+
+They help us tap into the key moments like initialization, data-binding, rendering, and destruction
+
+Angular’s lifecycle hooks help you control the component’s behavior at different stages
+
+
+Hook					Description								Timing
+----------				----------------						----------
+ngOnChanges()			Detects changes in @Input properties	Called before ngOnInit() and on every input change
+ngOnInit()				Initializes the component				Called once after the first ngOnChanges()
+ngDoCheck()				Custom change detection					Called during every change detection cycle
+ngAfterContentInit()	After projected content is initialized	Called once after content projection
+ngAfterContentChecked()	After projected content is checked		Called after every content change detection
+ngAfterViewInit()		After component’s view is initialized	Called once after view initialization
+ngAfterViewChecked()	After the component's view is checked	Called after every view change detection
+ngOnDestroy()			Before the component is destroyed		Called once just before component cleanup
+
+
+
+Execution Order of Lifecycle Hooks
+----------------------------------
+
+	1. Constructor called!
+	2. ngOnChanges
+	3. ngOnInit called!
+	4. ngDoCheck called!
+	5. ngAfterContentInit called!
+	6. ngAfterContentChecked called!
+	7. ngAfterViewInit called!
+	8. ngAfterViewChecked called!
+
+
+=> When we change the input property, ngOnChanges() and ngDoCheck() will be triggered again
+=> When we toggle the component, ngOnDestroy() is called before the component is removed from the DOM
+
+
+1. ngOnChanges()
+	
+		=> Called before ngOnInit() and when the input properties change
+		=> Fires every time Angular detects changes to @Input() properties
+		
+		ngOnChanges(changes: SimpleChanges): void {
+			console.log('ngOnChanges:', changes);
+		}
+		
+		=> Reacting to input property changes
+		=> Comparing the current and previous values
+		
+		
+2. ngOnInit()
+
+		=> Called once after the first ngOnChanges() hook
+		=> Used for initialization logic
+		
+		ngOnInit(): void {
+			console.log('ngOnInit called!');
+		}
+		
+		=> Making initial-load HTTP calls
+		=> Initializing component properties
+		
+		
+3. ngDoCheck()
+
+		=> Called during every change detection cycle
+		=> Used for custom change detection logic
+		
+		ngDoCheck(): void {
+			console.log('ngDoCheck called!');
+		}
+		
+		=> Detecting changes Angular might miss
+		
+		
+4. ngAfterContentInit()
+
+		=> Called once after content projection (using <ng-content>) is initialized
+		
+		ngAfterContentInit(): void {
+			console.log('ngAfterContentInit called!');
+		}
+		
+		=> Accessing and manipulating projected content
+		
+		
+5. ngAfterContentChecked()
+
+		=> Called after every content check
+		=> Used for content change detection
+		
+		ngAfterContentChecked(): void {
+			console.log('ngAfterContentChecked called!');
+		}
+		
+		=> Reacting to content changes
+		
+		
+6. ngAfterViewInit()
+
+		=> Called once after the component's view is initialized
+		=> Perfect for DOM manipulation
+		
+		ngAfterViewInit(): void {
+			console.log('ngAfterViewInit called!');
+		}
+		
+		=> Working with @ViewChild() or @ViewChildren()
+		
+
+7. ngAfterViewChecked()
+
+		=> Called after every view check
+		=> Ensures you can act after view rendering
+		
+		ngAfterViewChecked(): void {
+			console.log('ngAfterViewChecked called!');
+		}
+		
+		=> DOM changes after the view renders
+		
+		
+8. ngOnDestroy()
+
+		=> Called once before the component is removed from the DOM
+		=> Used for cleanup tasks
+		
+		ngOnDestroy(): void {
+			console.log('ngOnDestroy called!');
+		}
+		
+		=> Unsubscribing from Observables
+		=> Detaching event listeners
+
+
+

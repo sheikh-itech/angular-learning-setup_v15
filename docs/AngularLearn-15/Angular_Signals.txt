@@ -1,0 +1,61 @@
+		Signals
+	--------------
+
+Angular Signals are a new reactive primitive introduced in Angular 16, 
+designed for simpler and more predictable state management
+
+They provide a way to track and respond to changes in application state, 
+similar to RxJS BehaviorSubject or NgRx, but with a more lightweight and intuitive API
+
+
+Why Use Signals?
+----------------
+
+Simpler State Management: No need for complex RxJS operators
+
+Automatic Dependency Tracking: Signals automatically track dependencies and trigger updates only when needed
+
+Optimized Change Detection: Improves Angular's performance by reducing unnecessary re-renders
+
+Built-in reactivity: Angular handles the reactivity natively without relying on third-party libraries
+
+
+
+
+
+		@Component({
+			selector: 'app-signal-demo',
+			template: `
+				<div>
+					<h2>Counter: {{ counter() }}</h2>
+					<h3>Double: {{ doubleCounter() }}</h3>
+
+					<button (click)="increment()">Increment</button>
+					<button (click)="decrement()">Decrement</button>
+				</div>
+			`,
+		})
+		export class SignalDemoComponent {
+
+			// Creating a Signal
+			counter = signal(0);
+
+			// Computed Signal (automatically recalculates on dependency changes)
+			doubleCounter = computed(() => this.counter() * 2);
+
+			// Effects (run whenever dependencies change)
+			constructor() {
+				effect(() => {
+					console.log(`Counter Value: ${this.counter()}`);
+				});
+			}
+
+			increment() {
+				this.counter.update(count => count + 1);
+			}
+
+			decrement() {
+				this.counter.update(count => count - 1);
+			}
+		}
+

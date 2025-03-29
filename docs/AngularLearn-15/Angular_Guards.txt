@@ -1,0 +1,37 @@
+		Angular Guards
+	---------------------
+
+Angular Route Guards are used to control navigation to or from certain routes based on specific conditions
+
+	1. Prevent unauthorized access to specific routes
+	2. Load data before navigation
+	3. Block or allow navigation based on conditions
+	4. Improve security and user experience
+
+
+Types of Guards in Angular
+--------------------------
+
+1. CanActivate Guard (Access Control)
+		Used to prevent navigation to a route based on conditions like authentication status
+
+
+2. CanDeactivate Guard (Prevent Route Exit)
+		Used to confirm before leaving a route (e.g., unsaved form data)
+
+
+3. CanActivateChild Guard (Protect Child Routes)
+		Used to protect child routes with the same guard logic
+		
+
+4. CanLoad Guard (Lazy Loading Protection)
+		Prevent lazy-loaded modules from loading unless conditions are met
+		
+		
+5. Resolver (Pre-fetch Data Before Navigation)
+		Used to fetch data before navigation and pass it to the route
+
+
+
+
+

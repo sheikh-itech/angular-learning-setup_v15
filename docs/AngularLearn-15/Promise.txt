@@ -1,0 +1,100 @@
+		Promise
+	---------------
+
+Definition: A single-time asynchronous event handling mechanism
+
+Use case: Suitable for one-time operations (e.g., HTTP requests)
+
+Difference: Unlike Observable, Promise emits only one value and cannot be canceled
+
+A Promise is a built-in JavaScript object that represents the eventual completion (or failure) of an asynchronous 
+operation and its resulting value
+
+A Promise in JavaScript represents a value that may be available now, later, or never.
+It is used for asynchronous operations, replacing callback functions to handle success (resolve) or failure (reject)
+
+A promise is an object that eventually leads to an asynchronous operation’s completion or failure
+
+
+		let myPromise = new Promise(function(myResolve, myReject) {
+		
+			  myResolve(); // when successful
+			  myReject();  // when error
+		});
+
+		// "Consuming Code" (Must wait for a fulfilled Promise)
+		myPromise.then(
+		  function(success) { /* code if successful */ },
+		  function(error) { /* code if some error */ }
+		)
+		.catch(error => console.error('Error:', error)) // Handle error
+		.finally(() => console.log('Fetch attempt complete!')); // Runs always
+		
+		
+Breakdown of Methods
+--------------------
+
+1. new Promise((resolve, reject) => { ... })
+
+	Creates a new promise with two states:
+				✅ resolve(value) → If successful
+				❌ reject(error) → If an error occurs
+
+2. then(response => {...})
+
+		Executes when the promise resolves successfully
+
+3. catch(error => {...})
+
+		Catches any errors (if the promise is rejected)
+
+4. finally(() => {...})
+
+		Executes whether the promise is resolved or rejected
+		
+		
+
+Alternate to Promises: async/await
+----------------------------------
+
+In async/await, the async keyword is used to declare an asynchronous function.
+The await keyword is used to wait for a promise to be resolved before continuing with the execution of the function.
+The await keyword can only be used inside an async function
+
+The await keyword causes the JavaScript engine to pause the execution of the async function until the Promise 
+is resolved or rejected
+
+
+	async function getUserData() {
+		try {
+			let response = await example.fetchUser();
+			console.log('Success:', response);
+		} catch (error) {
+			console.error('Error:', error);
+		} finally {
+			console.log('Fetch attempt complete!');
+		}
+	}
+
+	getUserData();
+
+	------------------------
+
+	fetchUser(): Promise<string> {
+	
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let success = Math.random() > 0.3; // Simulate 70% success
+                if (success) {
+                    resolve('User data fetched successfully!');
+                } else {
+                    reject('Failed to fetch user data');
+                }
+            }, 2000);
+        });
+    }
+
+
+=> Use Promises when handling single asynchronous tasks
+
+=> Use async/await for better readability and error handling

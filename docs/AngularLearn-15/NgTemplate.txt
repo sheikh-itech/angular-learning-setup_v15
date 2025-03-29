@@ -1,0 +1,31 @@
+		NgTemplate
+	-----------------
+
+The ng-template directive is an Angular structural directive used to define an HTML template 
+that is not rendered by default
+
+	=> It acts as a blueprint for rendering content conditionally or dynamically
+	=> The content inside ng-template is not displayed until Angular renders it explicitly
+	=> The ng-template can dynamically re-nders contents
+
+
+Why Use ng-template?
+--------------------
+
+Lazy Rendering: The content inside ng-template is only rendered when explicitly invoked
+Conditional Display: Easily switch between different templates using *ngIf or *ngSwitch
+Content Projection: Used for dynamic content rendering in Angular components
+Reusable UI Patterns: Define reusable HTML templates and apply them dynamically
+
+
+Syntax
+------
+<ng-template #templateName>
+    <p>This content is rendered dynamically!</p>
+</ng-template>
+
+
+=> The #templateName is a template reference variable
+
+
+

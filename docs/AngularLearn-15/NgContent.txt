@@ -1,0 +1,45 @@
+		NgContent
+	----------------
+
+The ng-content directive in Angular is used for content projection, 
+which allows you to insert dynamic content from a parent component into a child component
+
+=> It acts as a placeholder in the child component where the parent component's content will be injected
+=> This enables reusability and flexibility by allowing you to create components with customizable content
+=> Makes the child component flexible and reusable
+=> The projected content retains the parent component’s styles, not the child’s
+=> To apply child component styles, use Angular’s ::ng-deep or ViewEncapsulation.None
+
+Why Use ng-content?
+-------------------
+
+Dynamic Content Injection: You can pass HTML content or other components into a child component
+Reusable Components: Create flexible and reusable components with dynamic content slots
+Encapsulation: The projected content retains the parent component’s styles
+Multiple Projection Slots: You can project content into specific areas of the child component
+
+
+Syntax
+------
+<ng-content></ng-content>
+
+	=> Acts as a placeholder where the projected content will appear
+	=> The parent component defines the content to be inserted into the child component
+
+
+Real-World Use Cases
+--------------------
+Reusable UI Components:
+	Create reusable components like cards, panels, or modals with customizable content
+
+Dynamic Layouts:
+	Use multi-slot projection for complex layouts with different sections
+
+Lazy Loading & Conditional Rendering:
+	Combine with *ngIf or *ngSwitch to conditionally render projected content
+
+Dynamic Styling:
+	Add classes or styles dynamically to projected content
+
+
+

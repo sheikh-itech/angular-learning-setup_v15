@@ -1,0 +1,24 @@
+		NgContainer
+	------------------
+
+The <ng-container> is an Angular structural directive element that acts as a logical container in the DOM
+
+	=> It does not render in the DOM, making it invisible in the HTML output
+	=> It helps group multiple structural directives
+	=> It helps conditional rendering without introducing unnecessary HTML elements
+
+
+Apply multiple *ngIf, *ngFor, *ngSwitch, etc., without wrapping them in extra div or span
+
+
+	<ng-container *ngIf="show">
+		<p>This content is conditionally rendered</p>
+	</ng-container>
+
+
+=> The <ng-container> itself won’t appear in the DOM
+=> Only the <p> tag will be rendered when the condition is true
+
+
+
+

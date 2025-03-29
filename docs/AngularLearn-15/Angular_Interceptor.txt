@@ -1,0 +1,39 @@
+		Angular Interceptor
+	---------------------------
+
+Angular HTTP Interceptors are a powerful feature that allows you to intercept, modify, or handle HTTP requests 
+and responses globally before they are sent to the server or received by the application
+
+
+Use Cases of Interceptors
+-------------------------
+
+Add Authorization Tokens → Attach authentication tokens to every request.
+
+Global Error Handling → Handle errors globally.
+
+Modify HTTP Headers → Add, remove, or modify HTTP headers.
+
+Loading Spinner → Display a loader/spinner while requests are being processed.
+
+Caching → Cache responses to reduce redundant API calls.
+
+Request/Response Logging → Log all requests and responses for debugging.
+
+
+
+		@Injectable()
+		export class HttpInterceptor implements HttpInterceptor {
+
+			intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+				console.log('Intercepted Request:', req);
+
+				const modifiedReq = req.clone({
+					headers: req.headers.set('Authorization', 'Bearer YOUR-TOKEN-HERE')
+				});
+
+				return next.handle(modifiedReq);
+			}
+		}
+

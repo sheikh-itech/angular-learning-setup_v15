@@ -1,0 +1,49 @@
+		@Inject
+	--------------
+
+Angular cannot inject interfaces automatically because TypeScript interfaces do not exist at runtime
+
+
+@Inject() is an Angular decorator that:
+
+	Explicitly specifies the dependency to be injected
+	Used for manual Dependency Injection (DI) when Angular's automatic DI cannot infer the dependency type
+	It takes a token (usually a class, string, or InjectionToken) to identify the service or value to inject
+	Mostly used with InjectionTokens, abstract classes, or when working with interfaces
+
+
+Syntax
+------
+constructor(@Inject(MyService) private myService: MyService) {}
+
+
+When Should You Use @Inject()
+-----------------------------
+	When Angular cannot infer the type automatically
+	When injecting interfaces (since Angular cannot use interfaces as DI tokens)
+	When using InjectionTokens
+	When injecting custom values or primitives (e.g., strings, booleans, numbers)
+	For multi-provider tokens or platform-level services
+
+
+Key Features of @Inject()
+-------------------------
+
+Explicit Dependency Injection
+		Used when Angular cannot infer types automatically
+		Makes DI more explicit and flexible
+
+Supports Primitives and Interfaces
+		Injects primitives, InjectionTokens, and abstract types.
+		Works well with multi-providers
+
+Runtime Injection
+		Tokens and dependencies are resolved at runtime
+
+Flexible with Multi-Providers
+		Easily inject multiple services into a single token
+
+
+
+
+

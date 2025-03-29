@@ -1,0 +1,54 @@
+		@Self()
+	--------------
+
+The @Self() decorator in Angular is used to force dependency injection to resolve the service exclusively 
+from the current injector (component-level injector), ignoring parent injectors
+
+=> Angular looks up the service from child → parent → root injectors
+=> @Self() restricts the lookup to only the current injector (i.e., the component requesting the service)
+
+Use providers: [ServiceName] to avoid NullInjectorError when using @Self()
+
+Syntax
+------
+constructor(@Self() myService: MyService) {}
+
+
+Use Cases
+---------
+Scoped dependencies: Ensuring a service is specific to a particular component
+
+Preventing accidental injection from ancestors (e.g., when you want separate instances per component)
+
+Strict scoping in modular applications
+
+
+
+
+		@Optional()
+	====================
+
+
+Allows the service to be optional (injects null if not found)
+
+Prevents the NullInjectorError if the service is missing
+
+
+Syntax
+------
+constructor(@Optional() private myService: MyService) {}
+
+
+
+
+		@SkipSelf()
+	===================
+
+
+Forces Angular to skip the current injector and resolve the service from the parent injector
+
+Syntax
+------
+constructor(@SkipSelf() private myService: MyService) {}
+
+

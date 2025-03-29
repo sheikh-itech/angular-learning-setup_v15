@@ -1,0 +1,89 @@
+		Observable & Subject
+	----------------------------
+
+Observable provided by library 'RXJS' [Reactive Extention Java Script]
+
+An Observable is a data stream that emits values over time, 
+which allows Angular applications to handle Asynchronous operations such as-
+
+		1. HTTP requests
+		2. User inputs
+		3. Real-time data streams
+		4. Event-based programming
+
+
+Key Features
+------------
+		Lazy Execution: The observable doesn't execute until a subscriber listens
+		Multiple Emissions: It can emit multiple values over time
+		Unicast: Each subscriber has its own execution of the observable
+		Cancelation: Supports unsubscribe mechanism to stop listening
+		Asynchronous data handling: Suitable for HTTP requests, events, etc
+		RxJS operators: Allows complex transformations and filtering
+
+The custom observable can emits values at different time intervals
+
+
+Operators with Observable
+-------------------------
+
+Angular uses RxJS operators to transform, combine, and manage observable data streams
+
+	map() → Transforms the data
+	filter() → Filters emitted values
+	tap() → Performs side effects without modifying data
+	mergeMap() → Flattens and combines observables
+	switchMap() → Switches to a new observable on new emissions
+	debounceTime() → Delays emissions by a specified time
+	catchError() → Handles errors gracefully
+
+
+
+		Subject
+	---------------
+
+
+Definition: A special type of Observable that multicasts to multiple subscribers
+
+Use case: When multiple components need to share the same data stream
+
+Difference: Unlike Observable, Subject emits the same value to all subscribers
+
+const subject = new Subject<string>();
+
+subject.subscribe(data => console.log('Subscriber 1:', data));
+subject.subscribe(data => console.log('Subscriber 2:', data));
+
+subject.next('Hello');
+subject.next('World');
+
+
+
+		BehaviorSubject
+	-----------------------
+
+Definition: A Subject that remembers the last emitted value and emits it immediately to new subscribers
+
+Use case: Sharing state between components
+
+Difference: Keeps the latest value in memory
+
+
+const behaviorSubject = new BehaviorSubject<string>('Initial value');
+
+behaviorSubject.subscribe(data => console.log('Subscriber 1:', data));
+behaviorSubject.next('Updated value');
+
+
+Key Takeaways
+-------------
+
+Observable is powerful for handling asynchronous data streams
+Use RxJS operators for advanced stream manipulation
+Always unsubscribe to avoid memory leaks
+Use Promise for one-time operations
+Use Subject or BehaviorSubject for shared data streams
+
+
+
+
