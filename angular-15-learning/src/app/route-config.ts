@@ -9,7 +9,7 @@ import { DIRECTIVE_ROUTES } from "./route-directive";
 import { ParentComponent } from "./route-example/parent-component/parent-component";
 import { ChildComponent } from "./route-example/child-component/child-component";
 import { LoginForm } from "./different-forms/login-form/login-form";
-import { authGuard, canActivateChildGuard, canMatchGuard, confirmLeaveGuard, httpResolve } from "./config/auth-guard-fn";
+import { authGuard, canActivateChildGuard, canMatchGuard, confirmLeaveGuard, httpResolve } from "./common/auth-guard-fn";
 import { ResolverExample } from "./route-example/resolver-example/resolver-example";
 import { InjectableExample } from "./common-examples/injectable-example/injectable-example";
 import { ModuleDesc } from "./common-examples/module-desc/module-desc";
@@ -25,6 +25,25 @@ import { ParentViewChildren } from "./property-decorators/ViewChildren/parent-vi
 import { ContentChildParent } from "./property-decorators/ContentChild/content-child-parent/content-child-parent";
 import { TabContainerExample } from "./property-decorators/ContentChildren/tab-container-example/tab-container-example";
 import { HostBindingExample } from "./property-decorators/HostBinding/host-binding-example/host-binding-example";
+import { InjectExample } from "./parameter-decorators/inject-example/inject-example";
+import { SelfExample } from "./parameter-decorators/self-example/self-example";
+import { SkipSelfExample } from "./parameter-decorators/skip-self-example/skip-self-example";
+import { OptionalExample } from "./parameter-decorators/optional-example/optional-example";
+import { ObservableExample } from "./common-examples/observable-example/observable-example";
+import { CustomObservableExample } from "./common-examples/custom-observable-example/custom-observable-example";
+import { BehaviourSubjectExample } from "./common-examples/behaviour-subject-example/behaviour-subject-example";
+import { SubjectExample } from "./common-examples/subject-example/subject-example";
+import { ObservableWithOperators } from "./common-examples/observable-with-operators/observable-with-operators";
+import { PromiseExample } from "./common-examples/promise-example/promise-example";
+import { AsyncAwaitExample } from "./common-examples/async-await-example/async-await-example";
+import { RedirectToExample } from "./common-examples/redirect-to-example/redirect-to-example";
+import { ProfileExample } from "./common-examples/profile-example/profile-example";
+import { redirectResolver } from "./common/route-resolver";
+import { ObservableCreationWays } from "./common-examples/observable-creation-ways/observable-creation-ways";
+import { NgContainerExample } from "./common-examples/ng-container-example/ng-container-example";
+import { NgTemplateExample } from "./common-examples/ng-template-example/ng-template-example";
+import { NgContentExample } from "./common-examples/ng-content-example/ng-content-example";
+import { LifeCycleHooks } from "./life-cycle-hooks/life-cycle-hooks";
 
 
 
@@ -33,8 +52,10 @@ export const routes: Routes = [
     ...DATA_BINDING_ROUTES,
     ...DIRECTIVE_ROUTES,
 
-    { path: '', redirectTo: 'login', pathMatch: 'full' }, // Default route
+    { path: '', redirectTo: 'login', pathMatch: 'full' }, // Default route to login
 
+
+    // Static routes
     { path: 'login', component: LoginForm, canDeactivate: [confirmLeaveGuard] },
     { path: 'default', component: AngularDefaultHomePage },
 
@@ -57,6 +78,27 @@ export const routes: Routes = [
     { path: 'contentChildDecorator', component: ContentChildParent },
     { path: 'contentChildrenDecorator', component: TabContainerExample },
     { path: 'hostBindingExample', component: HostBindingExample },
+    { path: 'injectExample', component: InjectExample },
+    { path: 'selfExample', component: SelfExample },
+    { path: 'skipSelfExample', component: SkipSelfExample },
+    { path: 'optionalExample', component: OptionalExample },
+    { path: 'observableExample', component: ObservableExample },
+    { path: 'customObservableExample', component: CustomObservableExample },
+    { path: 'observableWithOperators', component: ObservableWithOperators },
+    { path: 'subjectExample', component: SubjectExample },
+    { path: 'behaviourSubjectExample', component: BehaviourSubjectExample },
+    { path: 'promiseExample', component: PromiseExample },
+    { path: 'asyncAwaitExample', component: AsyncAwaitExample },
+    { path: 'redirectToExample/:id', component: RedirectToExample, resolve: { redirect: redirectResolver } },
+    { path: 'profileExample/:id', component: ProfileExample },
+    { path: 'observableCreationWays', component: ObservableCreationWays },
+    { path: 'ngContainerExample', component: NgContainerExample },
+    { path: 'ngTemplateExample', component: NgTemplateExample },
+    { path: 'ngContentExample', component: NgContentExample },
+    { path: 'lifeCycleHooks', component: LifeCycleHooks },
+
+
+
 
     { path: 'resolveHttp', component: ResolverExample,
         resolve: {
@@ -75,4 +117,4 @@ export const routes: Routes = [
 
 routes.push({ path: '**', component: NotFound });
 //routes.push({ path: '**', redirectTo: 'not-found', pathMatch: 'full' }); // 404 redirect)
-//** is a wildcard that matches any undefined route
+//  ** is a wildcard that matches any undefined route

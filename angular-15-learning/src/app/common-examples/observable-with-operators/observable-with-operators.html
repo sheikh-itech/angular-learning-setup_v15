@@ -1,0 +1,16 @@
+<div>
+    <input type="text" (input)="onSearch($event)" placeholder="Search here..." />
+    <ul>
+        <li *ngFor="let item of results">{{ item }}</li>
+    </ul>
+
+    <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+</div>
+
+<br /><br /><br /><br /><br /><br />
+
+<div>
+    <ol>
+        <li *ngFor="let item of data">{{ item }}</li>
+    </ol>
+</div>

@@ -6,6 +6,10 @@
                 <a routerLink="/login">{{ 'Login' | translate }}</a>
             </li>
 
+            <li routerLinkActive="active" >
+                <a routerLink="/lifeCycleHooks">Life Cycle Hooks</a>
+            </li>
+
             <li class='sub-menu-parent'>
                 <a>Data Binding</a>
                 <ul class='sub-menu'>
@@ -98,10 +102,10 @@
                 <a>Parameter Decorators</a>
                 <ul class='sub-menu'>
 
-                    <li> <a>@Inject</a> </li>
-                    <li> <a>@Self</a> </li>
-                    <li> <a>@SkipSelf</a> </li>
-                    <li> <a>@Optional</a> </li>
+                    <li> <a routerLink="injectExample">@Inject</a> </li>
+                    <li> <a routerLink="selfExample">@Self</a> </li>
+                    <li> <a routerLink="skipSelfExample">@SkipSelf</a> </li>
+                    <li> <a routerLink="optionalExample">@Optional</a> </li>
                 </ul>
             </li>
 
@@ -123,7 +127,22 @@
                 <a>Others</a>
                 <ul class='sub-menu'>
 
+                    <li> <a routerLink="observableExample">Observable</a> </li>
+                    <li> <a routerLink="customObservableExample">Custom Observable</a> </li>
+                    <li> <a routerLink="observableWithOperators">Observable Operators</a> </li>
+                    <li> <a routerLink="observableCreationWays">Diff Way Of Observables</a> </li>
+                    <li> <a routerLink="subjectExample">Subject</a> </li>
+                    <li> <a routerLink="behaviourSubjectExample">Behaviour Subject</a> </li>
+                    <li> <a routerLink="promiseExample">Promise</a> </li>
+                    <li> <a routerLink="asyncAwaitExample">Async Await</a> </li>
+
                     <li> <a routerLink="/renderer2Example">Renderer2</a> </li>
+                    <li> <a routerLink="redirectToExample/101">RedirectTo</a> </li>
+
+                    <li> <a routerLink="ngContainerExample">Ng-Container</a> </li>
+                    <li> <a routerLink="ngTemplateExample">Ng-Template</a> </li>
+                    <li> <a routerLink="ngContentExample">Ng-Content</a> </li>
+                    
                 </ul>
             </li>
 

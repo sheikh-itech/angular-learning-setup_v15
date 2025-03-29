@@ -1,0 +1,68 @@
+<fieldset>
+    <legend>Ng-Container Examples</legend>
+
+    <br /> <br />
+    
+    <ng-container *ngIf="show">
+        <p>This content is conditionally rendered</p>
+    </ng-container>
+
+    <br />
+
+    <u>Without ng-container, creates extra div, see DOM structure</u>
+    <div *ngIf="products.length > 0">
+        <div *ngFor="let product of products">
+            <p>{{ product }}</p>
+        </div>
+    </div>
+    
+    <br />
+    <u>With ng-container, no extra Div</u>
+    <ng-container *ngIf="products.length > 0">
+        <div *ngFor="let product of products">
+            <p>{{ product }}</p>
+        </div>
+    </ng-container>
+    
+    <br />
+    <u>Combine multiple conditions with ng-container</u>
+    <ng-container *ngIf="users.length > 0; else noUsers">
+        <div *ngFor="let user of users">
+            <p>{{ user }}</p>
+        </div>
+    </ng-container>
+    
+    <ng-template #noUsers>
+        <p>No users found!</p>
+    </ng-template>
+    
+
+    <br />
+    <u>Using ng-container with ngSwitch</u>
+    <div [ngSwitch]="status">
+        <ng-container *ngSwitchCase="'active'">
+            <p>User is active</p>
+        </ng-container>
+    
+        <ng-container *ngSwitchCase="'inactive'">
+            <p>User is inactive</p>
+        </ng-container>
+    
+        <ng-container *ngSwitchDefault>
+            <p>Unknown status</p>
+        </ng-container>
+    </div>
+    
+    
+    <br />
+    <u>Conditional Content Projection with ng-content</u>
+    <div>
+        <ng-content *ngIf="isLoggedIn; else notLoggedIn"></ng-content>
+    
+        <ng-template #notLoggedIn>
+            <p>Please check log in detail to continue</p>
+        </ng-template>
+    </div>
+    
+
+</fieldset>

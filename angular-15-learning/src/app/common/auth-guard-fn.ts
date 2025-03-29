@@ -1,8 +1,8 @@
 import { ActivatedRouteSnapshot, CanActivateChildFn, CanActivateFn, CanDeactivateFn, CanLoadFn, CanMatchFn, ResolveFn, Route, RouterStateSnapshot, UrlSegment } from '@angular/router';
-import { AuthService } from '../common/auth-service';
+import { AuthService } from './auth-service';
 import { inject } from '@angular/core';
 import { SimpleForm } from '../different-forms/simple-form/simple-form';
-import { DataService } from '../common/data-service';
+import { DataService } from './data-service';
 import { catchError, of } from 'rxjs';
 
 

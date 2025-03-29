@@ -1,0 +1,14 @@
+<fieldset>
+    <legend>Ng-Content Example</legend>
+    <br/>
+
+    <u>ng-content with Structural Directives</u> <br/>
+    <div *ngIf="isVisible; else noContent">
+        <ng-content></ng-content>
+    </div>
+    
+    <ng-template #noContent>
+        <p>No content available</p>
+    </ng-template>
+    
+</fieldset>

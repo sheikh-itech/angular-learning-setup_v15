@@ -1,0 +1,14 @@
+<fieldset>
+    <legend>Ng-Content Example</legend>
+    <br/>
+
+    <u>ng-content with ng-container for Cleaner DOM</u> <br/>
+    <ng-container *ngIf="showContent; else noContent">
+        <ng-content></ng-content>
+    </ng-container>
+
+    <ng-template #noContent>
+        <p>No content available</p>
+    </ng-template>
+
+</fieldset>

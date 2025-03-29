@@ -1,0 +1,12 @@
+<table>
+    <thead>
+        <th>Subscriber</th>
+        <th>Message</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of messages">
+            <td>{{ item.subscriber }}</td>
+            <td>{{ item.message }}</td>
+        </tr>
+    </tbody>
+</table>

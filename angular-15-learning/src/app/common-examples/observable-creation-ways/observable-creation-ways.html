@@ -1,0 +1,91 @@
+<pre>
+    1. Manual Creation-     new Observable()
+
+        We can manually create an Observable by instantiating it using the Observable constructor
+        Gives us full control over the emission and completion logic
+
+        customObservable1 = new Observable(observer => &#123;
+            observer.next('First Value');    // Emit value
+            observer.next('Second Value');
+    
+            setTimeout(() => &#123;
+                observer.next('Third Value');
+                observer.complete();         // Complete the stream
+            &#125;, 2000);
+    
+            return () => console.log('Observable Unsubscribed!');
+        &#125;);
+
+    
+    2. Emit a Sequence of Values-   of()
+        
+        The of() operator creates an Observable that emits,
+        a fixed set of values and completes immediately.
+
+        Ideal for emitting static values
+
+        customObservable2 = of(1, 2, 3, 4, 5);
+
+
+    3. Convert Iterable or Promise to Observable-       from()
+        
+        The from() operator converts arrays, promises, or iterable objects into Observables
+
+        customObservable3 = from([10, 20, 30, 40]);
+
+
+    4. Observable with Promise-     new Promise(...)
+
+        promise = new Promise((resolve) => &#123;
+            setTimeout(() => resolve('Resolved Promise!'), 2000);
+        &#125;);
+        
+        customObservable4 = from(this.promise);
+
+
+    5. Observable with Intervals-       interval()
+
+        The interval() operator creates an Observable that emits values at a regular time interval
+        It never completes automatically
+
+        customObservable5 = interval(1000).pipe(take(5));  // Emit 5 values at 1s intervals
+
+
+    6. Observable with Timer-       timer()
+
+        The timer() operator creates an Observable that emits a value after a delay and 
+        can optionally emit repeatedly.
+
+        Perfect for delayed execution or interval emissions
+
+        customObservable6 = timer(2000, 1000).pipe(take(5));  // Start after 2s, emit every 1s
+
+
+    7. Emit a Sequence of Numbers-      range()
+
+        The range() operator emits a sequence of numbers over a specified range
+
+        customObservable6 = timer(2000, 1000).pipe(take(5));  // Start after 2s, emit every 1s
+
+
+    8. Emits Nothing and Completes Immediately-     empty()
+
+        The empty() operator creates an Observable that emits no items and immediately completes
+
+        customObservable8 = EMPTY;
+
+
+    9. Emits an Error and Completes-        throwError()
+        
+        The throwError() operator creates an Observable that emits an error immediately
+
+        customObservable9 = throwError(() => new Error('Something went wrong!'));
+
+
+    10. Creates an Observable at Subscription Time-     defer()
+
+        The defer() operator creates a new Observable for each subscriber, 
+        ensuring a fresh value is generated
+
+        customObservable10 = defer(() => of(Math.random()));
+</pre>

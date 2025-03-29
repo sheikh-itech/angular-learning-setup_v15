@@ -8,3 +8,7 @@ body {
 .active {
     background-color: darkolivegreen;
 }
+
+fieldset {
+    border: 2px solid green;
+}

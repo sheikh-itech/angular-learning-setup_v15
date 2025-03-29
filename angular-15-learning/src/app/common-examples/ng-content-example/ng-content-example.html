@@ -1,0 +1,53 @@
+<ng-content-child1>
+    <p>This content is projected into the child component!</p>
+</ng-content-child1>
+
+
+<!--    Different Ng-Content    -->
+<ng-content-child2>
+    <div class="header">
+        <h1>Header Section</h1>
+    </div>
+
+    <div class="body">
+        <p>Main body content goes here.</p>
+    </div>
+
+    <div class="footer">
+        <p>Footer section with links.</p>
+    </div>
+   
+</ng-content-child2>
+
+
+<!--    Different Ng-Content    -->
+<ng-content-child3 [isVisible]="isVisible">
+    <p>This content is visible when `isVisible` is true.</p>
+</ng-content-child3>
+<!--    if isVisible false
+<ng-content-child3 [isVisible]="isVisible">
+    <p>This content will not be shown.</p>
+</ng-content-child3>
+-->
+
+
+<!--    Different Ng-Content    -->
+<ng-content-child4 [showContent]="showContent">
+    <p>This is projected content.</p>
+</ng-content-child4>
+<!--    if showContent false
+<ng-content-child4 [showContent]="showContent">
+    <p>This content will NOT be shown.</p>
+</ng-content-child4>
+-->
+
+
+<!--    Different Ng-Content    -->
+<ng-content-child5 [isHighlighted]="isHighlighted">
+    <p>Highlighted content!</p>
+</ng-content-child5>
+<!--    if isHighlighted false
+<ng-content-child5 [isHighlighted]="isHighlighted">
+    <p>Regular content.</p>
+</ng-content-child5>
+-->

@@ -1,0 +1,15 @@
+<fieldset>
+    <legend>Angular Life Cycle Hooks [Check Console Logs]</legend>
+    <br/>
+
+    <life-cycle-hooks-child *ngIf="showComponent" [sampleInput]="inputValue">
+
+    </life-cycle-hooks-child>
+
+    <br/>
+
+    <button (click)="showComponent = !showComponent">
+        Toggle Component
+    </button>
+
+</fieldset>
